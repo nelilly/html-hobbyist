@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Using Images: The HTML Hobbyist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
+    <meta name="keywords" content="HTML, World Wide Web, WWW, Web Design, Web Development">
+    <meta name="description" content="Add images to your web page is to show content that is difficult, or impossible, to explain through textual descriptions.">
+    <link rel="canonical" href="https://www.htmlhobbyist.com/html/using_images.html" />
+    <meta property="og:title" content="Using Images" />
+    <meta property="og:url" content="https://www.htmlhobbyist.com/html/using_images.html" />
+    <meta property="og:description" content="Add images to your web page is to show content that is difficult, or impossible, to explain through textual descriptions." />
+    <meta property="og:image" content="https://www.htmlhobbyist.com/images/og/home.webp" />
+    <meta property="twitter:image" content="https://www.htmlhobbyist.com/images/og/home.webp" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
+    <script src="/scripts.js" defer></script>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/"><img src="/html-hobbyist-square-animated-opt.svg" height="160" width="200" alt="The HTML Hobbyist" /></a>
+        <a href="/www/">WWW</a>
+        <a href="/html/">HTML</a>
+        <a href="/css/">CSS</a>
+        <!-- <a href="/img/">IMG</a> -->
+        <!-- <a href="/js/">JS</a> -->
+        <!-- <a href="/ux/">UX</a> -->
+      </nav>
+    </header>
+    <main>
+      <article>
+        <header>
+          <h1>Using Images</h1>
+          <p>Fancy things like images displaying directly on an HTML page were not initially meant to be part of the Web. The first browser that let you put an image directly into a web page was <a href="https://archive.org/details/mosaic-ncsa-evolt_browsers">Mosaic</a> in 1993. Before that all images were treated as links, and they opened in a new browser window.</p>
+        </header>
+        <section>
+          <h2 id="image_purpose">An Image&rsquo;s Purpose</h2>
+          <p>The reason to add images to your web page is to show content that is difficult, or impossible, to explain through textual descriptions. A picture is worth a thousand words, as they say. At the level of HTML, you should only be using images elements for content. If you can&rsquo;t provide a proper relevant caption for an image that fits it into your content, then that&rsquo;s a hint that the image is not important to the content.</p>
+        </section>
+        <aside>
+          <h2 id="accessibility">Accessibility Considerations</h2>
+          <p>Before you get started, just keep in mind that images are a very visual medium. Visitors to your website might have any number of visual abilities. Blindness, Color-blind, Poor vision requiring large text, etc. When using images you should carefully consider their impact.</p>
+        </aside>
+        <section>
+          <h2 id="categories_of_images">Categories of Images</h2>
+          <ul>
+            <li>Icons: icons that often stand in for an action: Save, Open, Close, Play, Stop, etc.</li>
+            <li>Logos: an icon that specifically references a company or group.</li>
+            <li>Illustrations: any image (drawing, painting, photo, 3d model, etc.) that illustrates a concept</li>
+            <li>Animations</li>
+          </ul>
+        </section>
+        <section>
+          <h2 id="iamge_optimization">Image Optimization</h2>
+          <p>Images make up a large percentage of Intenet traffic. I wouldn&rsquo;t consider the HTML Hobbyist to be an image intensive site, <em>and</em> I go through great pains to optimize the images to be as small as possible for their intended purpose using properly sized images and using the most advantageous file type for compression. Even then, images make up about 75% of the site&rsquo;s file space.</p>
+          <p>Files size can be made as small as possible through a combination of using the appropriate image size and the appropriate compression format. Modern devices have the ability to crop, resize, and export photos into the needed formats. You can use just about any image application for these basic functions: <a href="https://en.wikipedia.org/wiki/Microsoft_Paint">Microsoft Paint</a> is free on Windows or <a href="https://www.apple.com/macos/photos/">Photos.app</a> comes preinstalled on Mac.</p>
+
+          <h3>Image Size</h3>
+          <p>You want to deliver an image as close as possible to the dimensions that the visitor is going to see. Putting a 12-megapixel photograph directly on your page is just a waste of bandwidth.</p>
+          <h4>Cropping</h4>
+          <p>Crop out the portions of the image that aren&rsquo;t necessary.</p>
+
+          <h4>Resizing</h4>
+          <p>Figure out how large the image will be on your page, and resize it down to just the size that you need. You can even create different versions for different devices. A small version for mobile, and a larger version for desktop.</p>
+
+          <h3>Image Formats</h3>
+          <p>Choosing the right format for the job helps make smaller files sizes without degrading the image.</p>
+
+          <h4><abbr title="graphics interchange format">GIF</abbr></h4>
+          <p>A lossless color-indexed image format that also supports transparency and animation. It only supports one level of transparency. This used to be the preferred format for most logos and buttons, until SVG came along.</p>
+
+          <h4><abbr title="joint photographic experts group">JPEG</abbr></h4>
+          <p>Great for photos. It&rsquo;s lossy compression, meaning that every time you edit and save a version the quality gets worse.</p>
+
+          <h4><abbr title="portable networks graphics">PNG</abbr></h4>
+          <p>Lossless compression for photos that can also use an alpha-channel for transparency.</p>
+
+          <h4><abbr title="scalable vector graphics">SVG</abbr></h4>
+          <p>A vector image format. It uses code to make a drawing, so that it can be resized without losing definition. Simple SVGs, such as might be used in icons, can be very small, compared to their raster image counterparts. The code for an SVG can also be written directly into an HTML page, and looks very similar to HTML code.</p>
+
+          <h4><abbr title="Web Picture">WEBP</abbr></h4>
+          <p><a href="https://developers.google.com/speed/webp">WebP</a> is a modern image format that can do the compression of a JPEG, the transparency of a PNG, and the animation of a GIF. On top of all that, it also tends to compress better than any of them. Its one drawback used to be that it isn&rsquo;t supported in Internet Explorer, but now all current active browsers support it.</p>
+        </section>
+        <section>
+          <h2 id="image_elements">Image Elements</h2>
+          <p>Once you have the images that you want to put on your page, there are a number of HTML elements that you can use to actually get them on your page.</p>
+          <p>Using <code>height</code> and <code>width</code> attributes on your images helps to prevent layout shift.</p>
+
+          <h3 id="img"><code>&lt;img&gt;</code> element</h3>
+          <p>Use the <code>src</code> attribute to point to an image using the same rules as you would use to link to another html document.</p>
+          <p>Add the <code>alt</code> attribute to the element to provide alternate content in the absence of images. In the early days some visitors would web surf with images turned off, for faster page load times and decreased bandwidth usage.</p>
+
+          <figure>
+            <img src="/images/logos/html5.svg" height="100" width="100" alt="HTML5" />
+            <figcaption></figcaption>
+          </figure>
+          <pre><code>&lt;img src="/images/logos/html5.svg" height="100" width="100" alt="HTML5" /&gt;</code></pre>
+
+          <aside>
+            <h4>Writing <code>alt</code> attribute content</h4>
+            <p>The <code>alt</code> text will appear in cases where visitors have bad connections and the images never load. They will also be read aloud by screen readers.</p>
+
+            <figure>
+              <img src="/images/HTML5.svg" height="100" width="100" alt="HTML5" />
+              <figcaption>A missing image</figcaption>
+            </figure>
+            <pre><code>&lt;img src="/images/html5.svg" height="100" width="100" alt="HTML5" /&gt;</code></pre>
+            <p>When writing</p>
+            <ul>
+              <li>Treat the text in the <code>alt</code> attribute as alternate content. If an image has relevant text is it, put that test into the <code>alt</code> attribute.</li>
+              <li>Try to be informative and describe the image in the relevant context that you&rsquo;re using the image.</li>
+              <li>It isn&rsquo;t usually necessary to use the word <em>image</em> in the <code>alt</code> attribute.</li>
+            </ul>
+            <p>You should always have an <code>alt</code> attribute on every <code>&lt;img&gt;</code> element, even if the <code>alt</code> attribute is empty.</p>
+          </aside>
+
+          <h3 id="picture"><code>&lt;picture&gt;</code> element</h3>
+          <p>The <code>&lt;picture&gt;</code> element is an element that allows you to designate several image options and allows the browser to pick the best one based on the context. This would let the you serve the best optimized image to the browser. If a browser didn&rsquo;t understand the WEBP format, it could provide a PNG fallback.</p>
+          <pre><code>&lt;picture&gt;
+  &lt;source srcset="images/image.webp" type="image/webp" /&gt;
+  &lt;img src="images/fallback.png" height="100" width="100" alt="" /&gt;
+&lt;/picture&gt;</code></pre>
+          <p>The <code>&lt;img&gt;</code> element is required to be in the <code>&lt;picture&gt;</code> element. It&rsquo;s the image that will be served if none of the source images will work in the current browser. Any source images would use the text from the <code>alt</code> attribute for their description.</p>
+
+          <p>By adding the <code>media</code> attribute you can serve up different images for different criteria, one of those criteria could be the width of the screen.</p>
+          <pre><code>&lt;picture&gt;
+  &lt;source media="(min-width:1280px)" srcset="images/large.jpg" /&gt;
+  &lt;source media="(min-width:768px)" srcset="images/medium.jpg" /&gt;
+  &lt;source media="(max-width:767px)" srcset="images/small.jpg" /&gt;
+  &lt;img src="images/fallback.jpg" height="100" width="100" alt="" /&gt;
+&lt;/picture&gt;</code></pre>
+          <figure>
+            <picture>
+              <source media="(min-width:1280px)" srcset="/images/logos/css3.svg" />
+              <source media="(min-width:640px)" srcset="/images/logos/html5.svg" />
+              <source srcset="/images/logos/js.svg" />
+              <img src="/images/sample-site.png" alt="" />
+            </picture>
+            <figcaption>A working <code>picture</code> element that changes the size of the image based on the width of the screen.</figcaption>
+          </figure>
+
+          <h3 id="figure"><code>&lt;figure&gt;</code> element</h3>
+          <p>Strictly speaking the <code>&lt;figure&gt;</code> element isn&rsquo;t just for images. The <code>&lt;figure&gt;</code> element is used to include visual information mentioned in your content. The <code>&lt;figure&gt;</code> element could contain anything: illustrations, maps, charts, code samples, tables, photos, video, blueprints, diagrams, etc. If you view the source code of this site, you&rsquo;ll see I use <code>&lt;figure&gt;</code> element liberally throughout the website. Use the <code>&lt;figcaption&gt;</code> element to describe the contents of the figure. It&rsquo;s a good practice to give them an <code>id</code> so that you can link directly to them.</p>
+          <pre><code>&lt;figure id="figure1"&gt;
+  &lt;svg viewBox="0,0 10,10"&gt;
+    &lt;circle cx="5" cy="5" r="4.5" /&gt;
+  &lt;/svg&gt;
+  &lt;figcaption&gt;An SVG image written directly in the HTML&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+          
+          <h3 id="svg"><code>&lt;svg&gt;</code> element</h3>
+          <p><abbr title="scalable vector graphics">SVG</abbr> code can be written directly into your HTML page.</p>
+          <pre><code>&lt;svg viewBox="0,0 10,10"&gt;
+  &lt;circle cx="5" cy="5" r="4.5" /&gt;
+&lt;/svg&gt;</code></pre>
+          <figure>
+            <svg viewBox="0,0 10,10">
+              <circle cx="5" cy="5" r="4.5" />
+            </svg>
+            <figcaption>An SVG image written directly in the HTML</figcaption>
+          </figure>
+          <aside>
+            <p>Full in depth discussion of SVGs can be found at the <a href="https://nelilly.github.io/svg-zoo/">SVG ZOO</a> &mdash; an establishment that maintains a collection of wild SVGs for study, conservation, and display to the public.</p>
+          </aside>
+        </section>
+        <nav>
+          <p>Next Chapter: <a href="/css/">Learning CSS Properly</a> &rarr;</p>
+        </nav>
+        <aside>
+          <p>Sign up for my <a href="/announcements/">Announcements List</a> and I&rsquo;ll let you know when the site has been updated, when I&rsquo;ve added new content, or when I&rsquo;ve added more to learn.</p>
+        </aside>
+      </article>
+    </main>
+    <footer>
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/faqs/">FAQs</a>
+        <a href="/contact/">Contact</a>
+        <a href="/announcements/">Announcements</a>
+        <a href="/links/">Links</a>
+      </nav>
+      <p><a href="https://validator.w3.org/nu/" class="validator"><img src="/images/validate_html5.svg" height="32" width="90" alt="W3C HTML Validator" /></a></p>
+      <p>See the code in the <a href="https://github.com/nelilly/html-hobbyist/" target="_blank" rel="noopener noreferrer"><svg id="github" height="21" width="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path fill="currentColor" d="M14.06 11.92c.39 0 .72.19 1 .58.28.38.43.86.43 1.42 0 .56-.14 1.04-.43 1.42-.28.38-.62.58-1 .58-.41 0-.76-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.29-.39.64-.58 1.05-.58zm5.03-5.2c1.1 1.19 1.65 2.63 1.65 4.32 0 1.1-.13 2.08-.38 2.96-.25.87-.57 1.59-.96 2.14s-.86 1.04-1.43 1.44c-.57.42-1.09.72-1.56.91-.47.19-1.01.34-1.63.45-.61.11-1.06.16-1.38.18-.31.01-.64.02-1 .02-.08 0-.35.01-.8.02-.44.02-.82.03-1.11.03-.29 0-.67-.01-1.11-.03-.45-.01-.72-.02-.8-.02-.36 0-.7 0-1-.02-.32-.02-.78-.07-1.38-.18-.62-.1-1.16-.25-1.63-.45-.47-.19-.99-.49-1.56-.91a6.3 6.3 0 01-1.43-1.44C1.2 15.59.88 14.88.62 14c-.25-.88-.38-1.86-.38-2.96 0-1.69.55-3.13 1.65-4.32-.1-.06-.11-.66 0-1.78.1-1.13.34-2.17.73-3.12 1.37.14 3.06.92 5.07 2.32.68-.18 1.62-.27 2.8-.27 1.25 0 2.18.09 2.81.27.92-.62 1.8-1.13 2.64-1.52.85-.38 1.47-.61 1.85-.67l.58-.13c.39.95.63 1.99.73 3.12.11 1.12.11 1.72-.01 1.78zm-8.54 11.43c2.46 0 4.32-.3 5.58-.89 1.26-.59 1.9-1.81 1.9-3.65 0-1.07-.4-1.96-1.2-2.67-.41-.39-.9-.62-1.45-.71-.54-.09-1.38-.09-2.51 0s-1.9.13-2.31.13c-.56 0-1.18-.03-1.94-.09s-1.36-.09-1.78-.11c-.44-.01-.9.04-1.4.16-.51.12-.92.32-1.25.62-.77.69-1.16 1.58-1.16 2.68 0 1.84.62 3.06 1.87 3.65 1.24.6 3.1.89 5.56.89h.09zm-3.56-6.23c.39 0 .72.19 1 .58.28.38.42.86.42 1.42 0 .56-.14 1.04-.42 1.42-.28.38-.62.58-1 .58-.42 0-.77-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.28-.39.63-.58 1.05-.58z"></path></svg>HTML Hobbyist repository on GitHub</a>.</p>
+      <p>&copy;2022 N.E.Lilly</p>
+    </footer>
+  </body>
+</html>

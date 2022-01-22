@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>What is CSS?: The HTML Hobbyist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
+    <meta name="keywords" content="CSS, Cascading Stylesheets, HTML, World Wide Web, WWW, Web Design, Web Development">
+    <meta name="description" content="CSS is a way to change the presentation of HTML elements. It isn&rsquo;t just to make your site look pretty. CSS can make your site easier (or more difficult) to use.">
+    <link rel="canonical" href="https://www.htmlhobbyist.com/css/" />
+    <meta property="og:title" content="What is CSS?" />
+    <meta property="og:url" content="https://www.htmlhobbyist.com/css/" />
+    <meta property="og:description" content="CSS is a way to change the presentation of HTML elements. It isn&rsquo;t just to make your site look pretty. CSS can make your site easier (or more difficult) to use." />
+    <meta property="og:image" content="https://www.htmlhobbyist.com/images/og/css/css.webp" />
+    <meta property="twitter:image" content="https://www.htmlhobbyist.com/images/og/css/css.webp" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
+    <script src="/scripts.js" defer></script>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/"><img src="/html-hobbyist-square-animated-opt.svg" height="160" width="200" alt="The HTML Hobbyist" /></a>
+        <a href="/www/">WWW</a>
+        <a href="/html/">HTML</a>
+        <a href="/css/">CSS</a>
+        <!-- <a href="/img/">IMG</a> -->
+        <!-- <a href="/js/">JS</a> -->
+        <!-- <a href="/ux/">UX</a> -->
+      </nav>
+    </header>
+    <main>
+      <article>
+        <header>
+          <h1>What is CSS?</h1>
+          <p><abbr title="Cascading Style Sheets">CSS</abbr> is a way to change the presentation of HTML elements. It isn&rsquo;t just to make your site look pretty. CSS can make your site easier (or more difficult) to use.</p>
+        </header>
+        <section>
+          <p>In the grand scheme of modern web development there are 3 great technologies. A separation of concerns of structure, presentation, and behavior. HTML controls the structure of the web page, CSS controls the presentation, and JavaScript controls the behavior. There may be some overlap among the three, but this is generally how they work together.</p>
+          <p>In 1992 no one expected a website to &ldquo;look good&rdquo;. Web pages were mostly research and academic documents. Before the advent of CSS, it was only possible to control the look of a website using HTML. Fonts, alignment, colors, backgrounds, and more were all controlled using HTML elements and attributes. Changes to fonts and colors were implmented using HTML elements and attributes (namely <code>BGCOLOR</code>, <code>ALIGN</code>, <code>&lt;BASEFONT&gt;</code>, <code>&lt;FONT&gt;</code>, <code>&lt;CENTER&gt;</code> among others). Complex layouts were done using &lt;frames&gt; and &lt;table&gt; elements. There wasn&rsquo;t any other way, to the great frustration of many designers.</p>
+          <p>CSS was released on December 17, 1996 to change all that. The ability to change the presentation of HTML elements became the domain of CSS, thereby separating the structure of the web page (HTML) from its presentation. It took several years for it to become implemented enough on browsers to become feasable to use.</p>
+          <p>The majority of what you&rsquo;ll do with CSS can be broken down into making changes to <a href="/css/color.html">Color</a>, <a href="/css/dimension.html">Dimension</a>, <a href="/css/visibility.html">Visibility</a>, <a href="/css/typography.html">Typography</a>, and <a href="/css/layout.html">Layout</a>.</p>
+        </section>
+        <aside>
+          <h2 id="css_experiments">CSS Experiments</h2>
+          <p>Check out these great CSS experiment sites.</p>
+          <h3>CSS Zen Garden</h3>
+          <p><a href="http://www.csszengarden.com/">CSS Zen Garden</a> was written to explore how the same HTML could look differently just by supplying a different CSS stylesheet. It remains one of the best examples of what CSS is capable of.</p>
+          <ul>
+            <li><a href="http://www.csszengarden.com/1/">Pure HTML Page for CSS Zen Garden</a></li>
+            <li><a href="http://www.csszengarden.com/001/">The First CSS Zen Garden Page</a></li>
+          </ul>
+  
+          <h3>CSS Games</h3>
+          <p>It&rsquo;s entirely possible to write games with just HTML and CSS, without any JavaScript programming at all: <a href="https://codepen.io/geckotang/pen/wLXZvr">CSS Panic</a>.</p>
+  
+          <h3>A Single Div Challenge</h3>
+          <p>The <a href="https://a.singlediv.com/">A Single Div</a> is a CSS drawing experiment to see what&rsquo;s possible with a single div. All of the images here were created using a single <code>&lt;div&gt;</code> element and quite a bit of CSS.</p>
+        </aside>
+        <section>
+          <h2 id="what_is_css">What is a CSS Rule?</h2>
+          <p>A CSS rule that is set for a certain element will cascade down into the children elements where it applies, unless overwritten by a more specific rule. When you&rsquo;re writing a CSS rule, what you&rsquo;re really doing is writing a rule that searches through the page, making changes to how the HTML is displayed.</p>
+          <figure>
+            <pre><code>p { color: black; }</code></pre>
+            <figcaption>For every <code>&lt;p&gt;</code> on the page, make the color of its text <code>black</code>.</figcaption>
+          </figure>
+
+          <figure>
+            <pre><code>nav > a { text-decoration: none; }</code></pre>
+            <figcaption>For every <code>&lt;a&gt;</code> that&rsquo;s a direct child of a <code>&lt;nav&gt;</code>, remove all text decorations.</figcaption>
+          </figure>
+
+          <figure>
+            <pre><code>.card { background-color: white; }</code></pre>
+            <figcaption>For every element with the <code>.card</code> class, make its background color <code>white</code>.</figcaption>
+          </figure>
+          
+          <p>The parts of a CSS rule are the <em>selector</em> and the <em>declaration</em>, which consists of one or more <em>properties</em> and <em>values</em>.</p>
+          <figure>
+              <pre><code>a {
+  color: red;
+}</code></pre>
+            <figcaption>
+              <dl>
+                <dt>Selector</dt>
+                <dd>This is the HTML element name, class, or id for the element that you&rsquo;d like to change the styles for. In this example, it would change all <code>&lt;a&gt;</code> elements on the page. The rules for that selector must be wrapped in a set of curly braces ({}).</dd>
+                <dt>Declaration</dt>
+                <dd>This is a single rule like <code>color: red;</code>. It&rsquo;s made up of a property/value pair, separated by a colon character (:). It tells the browser which property that you&rsquo;d like to change, and how you&rsquo;d like it to change. Each declaration should end with a semi-color (;).</dd>
+                <dt>Property</dt>
+                <dd>These are the properties of the HTML element that you&rsquo;d like to apply a style to. In this example, the <code>color</code> property changes the text color of the <code>&lt;a&gt;</code> elements.</dd>
+                <dt>Value</dt>
+                <dd>The value of the property &mdash; after the colon &mdash; there is the property value. The value could be a number and units (1px for 1 pixel) or a predefined value depending on the property. In this example, <code>red</code> is a predefined value that can be used in the <code>color</code> property.</dd>
+              </dl>
+            </figcaption>
+          </figure>
+        </section>
+        <section>
+          <h2 id="css_selectors">CSS Selectors</h2>
+          <p>CSS selectors are globally scoped and greedy. They will make a change everywhere they match. The rule <code>p { color: red; }</code> will change the text color for every <code>&lt;p&gt;</code> element that the rule can find.</p>
+
+          <h3>Elements</h3>
+          <p>You can use any HTML element as a selector. It&rsquo;s the primary method that I used for the <a href="/styles.css">HTML Hobbyist stylesheet</a>.</p>
+
+          <pre><code>html {
+  background-color: silver;
+  font-size: 20px;
+}
+aside {
+  border: groove;
+  padding: 1rem;
+}
+button {
+  background-color: lightgray;
+  border: 2px outset darkgray;
+  color: black;
+  cursor: pointer;
+  margin: 1rem 0 0;
+}</code></pre>
+
+          <p>If all the properties are the same, you can save typing by declaring multiple rules at once within your selector. For example, I want all of my <code>&lt;section&gt;</code> and <code>&lt;aside&gt;</code> elements to have a 2rem bottom margin:</p>
+
+          <pre><code>section,
+aside {
+  margin-bottom: 2rem;
+}</code></pre>
+
+          <p>Nesting selectors lets you target descendant selectors (selectors within selectors). The following rule would target any <code>&lt;h2&gt;</code> within an <code>&lt;aside&gt;</code> element.</p>
+          <pre><code>aside h2 {
+  color: red;
+}</code></pre>
+          <p>This can sometimes be a little clumsy if you have deeply nested HTML. This is where <em>combinators</em> can help.</p>
+
+          <h3>Combinators</h3>
+
+          <ul>
+            <li>All elements: *</li>
+            <li>Descendant: &nbsp;</li>
+            <li>Direct descendant: ></li>
+            <li>Adjacent sibling: +</li>
+            <li>General sibling: ~</li>
+          </ul>
+          <p></p>
+
+          <p><code>header > nav</code> would select only the <code>nav</code> that is a direct child of the <code>header</code> element.</p>
+
+          <figure>
+            <header>
+              <nav>This is centered</nav>
+              <div>
+                <nav>This is not centered since it&rsquo;s a <code>nav</code> inside of a <code>p</code></nav>
+              </div>
+            </header>
+          </figure>
+
+          <p>The Universal selector (<code>*</code>). <code>p *</code> would select all elements <code>ol</code> that comes immediately after a <code>p</code> element.</p>
+
+          <code>* { box-sizing: border-box; }</code>
+          <code>*[lang=es]</code>
+          <code>header > *</code>
+
+          <p><code>p + ol</code> would select just the <code>ol</code> that comes immediately adjacent to a <code>p</code> element.</p>
+
+          <p><code>ol ~ p</code> would select all <code>p</code> element  that are sibling elements that come after the <code>ol</code>.</p>
+
+          <p>The combinators can be used in conjunction with elements, attributes, classes, IDs, and/or pseudo-selectors.</p>
+
+          <aside>
+            <h3>Pseudo-elements</h3>
+            <p>Pseudo-elements act as if you created a new element on the page to contain your content.</p>
+            <ul>
+              <li><code>::before</code></li>
+              <li><code>::after</code></li>
+              <li><code>::selection</code></li>
+              <li><code>::first-letter</code></li>
+            </ul>
+          </aside>
+
+          <h3>Attributes</h3>
+          <p>You can set rules based on if an element has attributes or based on certain attribute values:</p>
+          <dl>
+            <dt><code>[src]</code></dt>
+            <dd>Selects all elements with an <code>src</code> attribute.</dd>
+            <dt><code>a[href]</code></dt>
+            <dd>Selects only <code>&lt;a&gt;</code> elements with an <code>href</code> attribute.</dd>
+            <dt><code>a[href=hobby]</code></dt>
+            <dd>Selects only <code>&lt;a&gt;</code> elements with an <code>href</code> attribute that exactly matches the string <em>hobby</em>.</dd>
+            <dt><code>a[href~=hobby]</code></dt>
+            <dd>Selects only <code>&lt;a&gt;</code> elements with an <code>href</code> attribute that contains the string <em>hobby</em>.</dd>
+            <dt><code>a[href^=hobby]</code></dt>
+            <dd>Selects only <code>&lt;a&gt;</code> elements with an <code>href</code> attribute that begins with the string <em>hobby</em>.</dd>
+            <dt><code>a[href$=hobby]</code></dt>
+            <dd>Selects only <code>&lt;a&gt;</code> elements with an <code>href</code> attribute that ends with the string <em>hobby</em>.</dd>
+            <dt><code>a[href*=hobby]</code></dt>
+            <dd>Selects only <code>&lt;a&gt;</code> elements with an <code>href</code> attribute that contains the string <em>hobby</em>.</dd>
+            <dt><code>[data]</code></dt>
+            <dd></dd>
+          </dl>
+
+          <h3>Classes</h3>
+          <p>You can add a <code>class</code> attribute to any HTML element and target that element directly with the class name. Setting the properties on a class will override any properties set on an element.</p>
+          <style>
+            .linkItem {
+              color: red;
+            }
+          </style>
+          <pre><code>&lt;ul&gt;
+  &lt;li&gt;One&lt;/li&gt;
+  &lt;li class="linkItem"&gt;Two&lt;/li&gt;
+  &lt;li&gt;Three&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          <pre><code>.linkItem {
+  color: red;
+}</code></pre>
+          <p>Would result in this:</p>
+          <ul>
+            <li>One</li>
+            <li class="linkItem">Two</li>
+            <li>Three</li>
+          </ul>
+
+          <p>Just like with elements, nesting class selectors lets you target descendant selectors (selectors within selectors). The following rule would target any <code>.link</code> within an <code>.nav</code> class.</p>
+          <pre><code>.nav .link {
+  color: red;
+}</code></pre>
+          <p>That would be different than combining selectors.</p>
+          <pre><code>.nav.link {
+  color: red;
+}</code></pre>
+          <p>This would select elements with both classes on the same element:</p>
+          <pre><code>&lt;h2 class="nav link"&gt;</code></pre>
+          
+          <aside>
+            <h3>Pseudo-classes</h3>
+            <p>Pseudo-classes target elements in a specific state.</p>
+            <dl>
+              <dt><code>:hover</code></dt>
+              <dd>Changes the element&rsquo;s properties when the cursor hovers over the targeted element.</dd>
+              <dt><code>:first-child</code></dt>
+              <dd>Changes the element&rsquo;s properties when the element is the first child.</dd>
+              <dt><code>:root</code></dt>
+              <dd>Sets the element&rsquo;s properties of the vert first element in the document (usually the <code>&lt;html&gt;</code> element).</dd>
+              <dt><code>:target</code></dt>
+              <dd>Changes the element&rsquo;s properties when it is the active target of the URL fragment ID.</dd>
+            </dl>
+          </aside>
+
+          <h3>IDs</h3>
+          <p>You can use Fragment IDs as a CSS selector, though it&rsquo;s not recommended in most cases. You may only use any individual ID once per page. Any setting of the properties on an ID will override any properties set on a class or an element. You&rsquo;re better off never using IDs to target the CSS for elements and just using them for their intended purpose: as <a href="/www/what_is_a_url.html#fragment_identifier">URL Fragment Identifierss</a></p>
+
+          <p>Declare the selector for an ID with the hashtag character.</p>
+          <ul>
+            <li><code>#top</code></li>
+            <li><code>#fragment</code></li>
+            <li><code>#menu</code></li>
+          </ul>
+
+          <aside>
+            <h3 id="css_specificity">CSS Specificity</h3>
+            <p>With all these different types of selectors, you may wonder how CSS decides which rule to apply.</p>
+            <ul>
+              <li>Inline styles will overwrite Local styles which will overwrite external styles.</li>
+              <li>ID selectors, will always overwrite Class selectors, which will always overwrite Element selectors.</li>
+              <li>The same selector further down in the stylesheet will overwrite the previous selector, wherever the rule changes.</li>
+              <li>A selector that references multiple of a type of selector will be more specific than a selector that only references one. <code>.nav .menuItem</code> is more specific than <code>.menuItem</code>.</li>
+            </ul>
+
+            <h4><code>!important</code></h4>
+            <p>Using the <code>!important</code> signifier after a value will give the element a highest specificity possible. It overrides all other rules.</p>
+
+            <p>A rule of thumb is that a rule with a longer selector chain of the same type of selector will override a shorter selector chain. Each type of selector is given a number ranking in importance an order of magnitude higher than the previous type. The <code>!important</code> rule overrides everything, and as such its use should be avoided. To override <code>!important</code> you wou;ld need a rule with the <code>!important</code> rule <em>and</em> a higher overall specificity.</p>
+
+            <p>The specificity is calculated only for the targeted element. Any child elements would have their own specificity that could be written or overruled. For example, putting <code>!important</code> on a rule for an <code>&lt;ol&gt;</code> element could change the color of the <code>&lt;ol&gt;</code> and its children, but the color on the <code>&lt;li&gt;</code> could be targeted with just an element selector.</p>
+            <pre><code>ol {
+  color: red !important;
+}
+li {
+  color: blue;
+}</code></pre>
+
+            <style>
+              .table th[scope=row] {
+                font-size: 16px;
+                text-align: right;
+              }
+              .table td {
+                width: 300px;
+              }
+              /* .table thead th { position: sticky; top: 0; } */
+            </style>
+            <!-- https://www.w3.org/WAI/EO/Drafts/tutorials/tables/id-headers/ -->
+            <div style="overflow: scroll; ">
+              <table class="table">
+                <thead style="font-size: 16px;">
+                  <tr>
+                    <th id="specificity_important"><code>!important</code></th>
+                    <th id="specificity_inline">inline styles</th>
+                    <th id="specificity_id">ID</th>
+                    <th id="specificity_class">Class<a href="#specificity_footnote_classes" style="text-decoration: none;">&ast;</a></th>
+                    <th id="specificity_element">Element<a href="#specificity_footnote_elements" style="text-decoration: none;">&dagger;</a></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th colspan="5" id="selector_p"><code>p</code></th>
+                  </tr>
+                  <tr>
+                    <td headers="specificity_important selector_p">0</td>
+                    <td headers="specificity_inline selector_p">0</td>
+                    <td headers="specificity_id selector_p">0</td>
+                    <td headers="specificity_class selector_p">0</td>
+                    <td headers="specificity_element selector_p">1</td>
+                  </tr>
+                  <tr>
+                    <th colspan="5" id="selector_before"><code>::before</code></th>
+                  </tr>
+                  <tr>
+                    <td headers="specificity_important selector_before">0</td>
+                    <td headers="specificity_inline selector_before">0</td>
+                    <td headers="specificity_id selector_before">0</td>
+                    <td headers="specificity_class selector_before">0</td>
+                    <td headers="specificity_element selector_before">1</td>
+                  </tr>
+                  <tr>
+                    <th colspan="5" id="selector_href"><code>[href]</code></th>
+                  </tr>
+                  <tr>
+                    <td headers="specificity_important selector_href">0</td>
+                    <td headers="specificity_inline selector_href">0</td>
+                    <td headers="specificity_id selector_href">0</td>
+                    <td headers="specificity_class selector_href">1</td>
+                    <td headers="specificity_element selector_href">0</td>
+                  </tr>
+                  <tr>
+                    <th colspan="5" id="selector_navlink"><code>.navLink</code></th>
+                  </tr>
+                  <tr>
+                    <td headers="specificity_important selector_navlink">0</td>
+                    <td headers="specificity_inline selector_navlink">0</td>
+                    <td headers="specificity_id selector_navlink">0</td>
+                    <td headers="specificity_class selector_navlink">1</td>
+                    <td headers="specificity_element selector_navlink">0</td>
+                  </tr>
+                  <tr>
+                    <th colspan="5" id="selector_a_href"><code>a[href]</code></th>
+                  </tr>
+                  <tr>
+                    <td headers="specificity_important selector_a_href">0</td>
+                    <td headers="specificity_inline selector_a_href">0</td>
+                    <td headers="specificity_id selector_a_href">0</td>
+                    <td headers="specificity_class selector_a_href">1</td>
+                    <td headers="specificity_element selector_a_href">1</td>
+                  </tr>
+                  <tr>
+                    <th colspan="5" id="selector_a_navlink"><code>a.navLink</code></th>
+                  </tr>
+                  <tr>
+                    <td headers="specificity_important selector_a_navlink">0</td>
+                    <td headers="specificity_inline selector_a_navlink">0</td>
+                    <td headers="specificity_id selector_a_navlink">0</td>
+                    <td headers="specificity_class selector_a_navlink">1</td>
+                    <td headers="specificity_element selector_a_navlink">1</td>
+                  </tr>
+                  <tr>
+                    <th colspan="5" id="selector_menu_navlink"><code>.menu .navLink</code></td>
+                  </tr>
+                  <tr>
+                    <td headers="specificity_important selector_menu_navlink">0</td>
+                    <td headers="specificity_inline selector_menu_navlink">0</td>
+                    <td headers="specificity_id selector_menu_navlink">0</td>
+                    <td headers="specificity_class selector_menu_navlink">2</td>
+                    <td headers="specificity_element selector_menu_navlink">0</td>
+                  </tr>
+                  <tr>
+                    <th colspan="5" id="selector_a_navlink_href"><code>a.navLink[href]</code></td>
+                  </tr>
+                  <tr>
+                    <td headers="specificity_important selector_a_navlink_href">0</td>
+                    <td headers="specificity_inline selector_a_navlink_href">0</td>
+                    <td headers="specificity_id selector_a_navlink_href">0</td>
+                    <td headers="specificity_class selector_a_navlink_href">2</td>
+                    <td headers="specificity_element selector_a_navlink_href">1</td>
+                  </tr>
+                  <tr>
+                    <th colspan="5" id="selector_menu"><code>#menu</code></td>
+                  </tr>
+                  <tr>
+                    <td headers="specificity_important selector_menu">0</td>
+                    <td headers="specificity_inline selector_menu">0</td>
+                    <td headers="specificity_id selector_menu">1</td>
+                    <td headers="specificity_class selector_menu">0</td>
+                    <td headers="specificity_element selector_menu">0</td>
+                  </tr>
+                  <tr>
+                    <th colspan="5" id="selector_inline"><code>style=""</code></td>
+                  </tr>
+                  <tr>
+                    <td headers="specificity_important selector_inline">0</td>
+                    <td headers="specificity_inline selector_inline">1</td>
+                    <td headers="specificity_id selector_inline">0</td>
+                    <td headers="specificity_class selector_inline">0</td>
+                    <td headers="specificity_element selector_inline">0</td>
+                  </tr>
+                  <tr>
+                    <th colspan="5" id="selector_important"><code>!important</code></td>
+                  </tr>
+                  <tr>
+                    <td headers="specificity_important selector_important">1</td>
+                    <td headers="specificity_inline selector_important">0</td>
+                    <td headers="specificity_id selector_important">0</td>
+                    <td headers="specificity_class selector_important">0</td>
+                    <td headers="specificity_element selector_important">0</td>
+                  </tr>
+                  <tr>
+                    <th colspan="5" id="selector_important_a_navlink_href"><code>a.navLink[href] !important</code></td>
+                  </tr>
+                  <tr>
+                    <td headers="specificity_important selector_important_a_navlink_href">1</td>
+                    <td headers="specificity_inline selector_important_a_navlink_href">0</td>
+                    <td headers="specificity_id selector_important_a_navlink_href">0</td>
+                    <td headers="specificity_class selector_important_a_navlink_href">2</td>
+                    <td headers="specificity_element selector_important_a_navlink_href">1</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <footer>
+              <p id="specificity_footnote_classes">&ast; Includes Classes, Attributes, or Pseudo-classes</p>
+              <p id="specificity_footnote_elements">&dagger; Includes Elements or Pseudo-elements</p>
+            </footer>
+<!-- 
+
+            <style>
+              .specificityCheck {
+                color: blue;
+              }
+              .specificityCheck li {
+                color: green;
+              }
+              .specificityCheck .liClass {
+                color: red;
+              }
+              .specificityCheck .liClass code {
+                color: maroon;
+              }
+              #newItem {
+                color: navy !important;
+              }
+            </style>
+            <ul class="specificityCheck">
+              <li class="liClass"><code>#top</code></li>
+              <li class="liClass"><code id="newItem" style="color: orange">#top</code></li>
+              <li class="liClass"><code>#top</code></li>
+              <li><code>#fragment</code></li>
+              <li><code>#fragment</code></li>
+              <li><code>#fragment</code></li>
+              <li><code>#menu</code></li>
+              <li><code>#menu</code></li>
+              <li><code>#menu</code></li>
+            </ul> -->
+          </aside>
+        </section>
+        <nav>
+          <a href="/css/using_css.html">Using CSS</a> &rarr;
+        </nav>
+      </article>
+    </main>
+    <footer>
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/faqs/">FAQs</a>
+        <a href="/contact/">Contact</a>
+        <a href="/announcements/">Announcements</a>
+        <a href="/links/">Links</a>
+      </nav>
+      <p><a href="https://validator.w3.org/nu/" class="validator"><img src="/images/validate_html5.svg" height="32" width="90" alt="W3C HTML Validator" /></a></p>
+      <p>See the code in the <a href="https://github.com/nelilly/html-hobbyist/" target="_blank" rel="noopener noreferrer"><svg id="github" height="21" width="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path fill="currentColor" d="M14.06 11.92c.39 0 .72.19 1 .58.28.38.43.86.43 1.42 0 .56-.14 1.04-.43 1.42-.28.38-.62.58-1 .58-.41 0-.76-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.29-.39.64-.58 1.05-.58zm5.03-5.2c1.1 1.19 1.65 2.63 1.65 4.32 0 1.1-.13 2.08-.38 2.96-.25.87-.57 1.59-.96 2.14s-.86 1.04-1.43 1.44c-.57.42-1.09.72-1.56.91-.47.19-1.01.34-1.63.45-.61.11-1.06.16-1.38.18-.31.01-.64.02-1 .02-.08 0-.35.01-.8.02-.44.02-.82.03-1.11.03-.29 0-.67-.01-1.11-.03-.45-.01-.72-.02-.8-.02-.36 0-.7 0-1-.02-.32-.02-.78-.07-1.38-.18-.62-.1-1.16-.25-1.63-.45-.47-.19-.99-.49-1.56-.91a6.3 6.3 0 01-1.43-1.44C1.2 15.59.88 14.88.62 14c-.25-.88-.38-1.86-.38-2.96 0-1.69.55-3.13 1.65-4.32-.1-.06-.11-.66 0-1.78.1-1.13.34-2.17.73-3.12 1.37.14 3.06.92 5.07 2.32.68-.18 1.62-.27 2.8-.27 1.25 0 2.18.09 2.81.27.92-.62 1.8-1.13 2.64-1.52.85-.38 1.47-.61 1.85-.67l.58-.13c.39.95.63 1.99.73 3.12.11 1.12.11 1.72-.01 1.78zm-8.54 11.43c2.46 0 4.32-.3 5.58-.89 1.26-.59 1.9-1.81 1.9-3.65 0-1.07-.4-1.96-1.2-2.67-.41-.39-.9-.62-1.45-.71-.54-.09-1.38-.09-2.51 0s-1.9.13-2.31.13c-.56 0-1.18-.03-1.94-.09s-1.36-.09-1.78-.11c-.44-.01-.9.04-1.4.16-.51.12-.92.32-1.25.62-.77.69-1.16 1.58-1.16 2.68 0 1.84.62 3.06 1.87 3.65 1.24.6 3.1.89 5.56.89h.09zm-3.56-6.23c.39 0 .72.19 1 .58.28.38.42.86.42 1.42 0 .56-.14 1.04-.42 1.42-.28.38-.62.58-1 .58-.42 0-.77-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.28-.39.63-.58 1.05-.58z"></path></svg>HTML Hobbyist repository on GitHub</a>.</p>
+      <p>&copy;2022 N.E.Lilly</p>
+    </footer>
+  </body>
+</html>

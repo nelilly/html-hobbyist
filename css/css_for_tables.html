@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CSS for Tables: The HTML Hobbyist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
+    <meta name="keywords" content="CSS, Cascading Stylesheets, HTML, World Wide Web, WWW, Web Design, Web Development">
+    <meta name="description" content="The table element, more than any other HTML element, requires additional CSS styling to reach its full potential.">
+    <link rel="canonical" href="https://www.htmlhobbyist.com/css/css_for_tables.html" />
+    <meta property="og:title" content="CSS for Tables" />
+    <meta property="og:url" content="https://www.htmlhobbyist.com/css/css_for_tables.html" />
+    <meta property="og:description" content="The table element, more than any other HTML element, requires additional CSS styling to reach its full potential." />
+    <meta property="og:image" content="https://www.htmlhobbyist.com/images/og/css/css.webp" />
+    <meta property="twitter:image" content="https://www.htmlhobbyist.com/images/og/css/css.webp" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
+    <script src="/scripts.js" defer></script>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <style>
+      .table .first {
+        text-align: left;
+      }
+      .table .number {
+        text-align: right;
+      }
+      
+      .fake {
+        border-collapse: collapse;
+        display: table;
+        width: 100%;
+      }
+      .fake * {
+        border: 1px solid gray;
+        padding: .25rem;
+      }
+      .fake .table-caption {
+        display: table-caption;
+        text-align: center;
+      }
+      .fake .table-header-group {
+        display: table-header-group;
+      }
+      .fake .table-row {
+        display: table-row;
+      }
+      .fake .table-cell {
+        display: table-cell;
+      }
+      
+      .table.zebra {
+        border-collapse: collapse;
+      }
+      .table.zebra tr:nth-child(odd) td {
+        background-color: gainsboro;
+      }
+      
+      .table.hightlighting {
+        border-collapse: collapse;
+      }
+      .table.hightlighting tr:hover td {
+        background-color: yellow;
+      }
+      
+      .multiplication {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        table-layout: fixed;
+      }
+      .multiplication caption {
+        padding: .5rem;
+      }
+      .multiplication :is(th, td) {
+        background-color: whitesmoke;
+        padding: .5rem;
+      }
+      
+      .calendar {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        table-layout: fixed;
+      }
+      .calendar caption {
+        font-weight: bold;
+        padding: .5rem;
+      }
+      .calendar :is(th, td) {
+        background-color: whitesmoke;
+        padding: .5rem;
+      }
+      .calendar td {
+        border-radius: .25rem;
+      }
+      .calendar td:empty {
+        background-color: #ddd;
+      }
+      .calendar .today {
+        background-color: black;
+        color: white;
+      }
+      
+      .lined {
+        border-bottom: 1px solid black;
+        border-collapse: collapse;
+      }
+      .lined caption {
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: .5rem;
+        text-align: left;
+      }
+      .lined thead {
+        border-bottom: 4px double black;
+      }
+      .lined :is(th, td) {
+        border-bottom: 1px solid black;
+        padding: .5rem;
+      }
+      .lined tbody th {
+        text-align: left;
+      }
+      
+      .alignment {
+        border: 1px solid black;
+        table-layout: fixed;
+        text-align: center;
+      }
+      .alignment caption {
+        background-color: black;
+        color: white;
+        padding: .5rem;
+      }
+      .alignment :is(th, td) {
+        background-color: whitesmoke;
+        padding: .5rem;
+        vertical-align: top;
+      }
+      .alignment td {
+        font-size: .75rem;
+      }
+      
+      .comparison {
+        background-color: lightgray;
+        border: 1px solid black;
+        border-collapse: collapse;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        white-space: nowrap;
+      }
+      .comparison caption {
+        background-color: black;
+        border: 1px solid black;
+        color: whitesmoke;
+        padding: .5rem;
+      }
+      .comparison thead {
+        background-color: gray;
+      }
+      .comparison tbody th[scope=row] {
+        background-color: whitesmoke;
+        left: 0;
+        position: sticky;
+      }
+      .comparison :is(th, td) {
+        padding: .5rem;
+      }
+      .comparison td {
+        text-align: center;
+      }
+      
+      .crud {
+        border: 1px solid black;
+        border-collapse: collapse;
+        background-color: #ddd;
+      }
+      .crud caption {
+        font-weight: bold;
+        padding: .5rem;
+      }
+      .crud tr:first-of-type th {
+        background-color: black;
+        color: #fff;
+      }
+      .crud td {
+        border-bottom: 1px solid black;
+      }
+      .crud tr:nth-of-type(odd) {
+        background-color: #eee;
+      }
+      .crud tr:hover {
+        background-color: #fff;
+      }
+      .crud .description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 200px;
+      }
+      .crud :is(th, td) {
+        padding: .25rem;
+      }
+      .crud button {
+        font-size: .5rem;
+        margin: 0;
+        width: 3rem;
+      }
+      .crud .create {
+        font-size: .75rem;
+        width: auto;
+      }
+      .crud .update {
+        
+      }
+      .crud .delete {
+        
+      }
+      
+      .invoice {
+        background-color: gainsboro;
+        border: 1px solid black;
+        border-collapse: collapse;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+      }
+      .invoice :is(caption, tr:first-of-type) {
+        background-color: black;
+        color: white;
+        padding: .5rem;
+      }
+      .invoice :is(th, td) {
+        border-bottom: 1px solid black;
+        padding: .5rem;
+      }
+      .invoice .cost {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/"><img src="/html-hobbyist-square-animated-opt.svg" height="160" width="200" alt="The HTML Hobbyist" /></a>
+        <a href="/www/">WWW</a>
+        <a href="/html/">HTML</a>
+        <a href="/css/">CSS</a>
+        <!-- <a href="/img/">IMG</a> -->
+        <!-- <a href="/js/">JS</a> -->
+        <!-- <a href="/ux/">UX</a> -->
+      </nav>
+    </header>
+    <main>
+      <article>
+        <header>
+          <h1>CSS for Tables</h1>
+          <p>The table element, more than any other HTML element, requires additional CSS styling to reach its full potential.</p>
+        </header>
+        <section>
+          <h2 id="tables_concepts">Tables Concepts</h2>
+          <p>As discussed in <a href="/html/tables.html">HTML for Tables</a>, a table is meant to represent tabular data. A table without any CSS styles applied will look something like this:</p>
+          <table>
+            <caption>Table caption</caption>
+            <thead>
+              <tr>
+                <th scope="col">Head cell one info</th><th scope="col">Head cell two info</th><th scope="col">Head cell three info</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cell one info</td><td>Cell two info</td><td>Cell three info</td>
+              </tr>
+              <tr>
+                <td>Cell four info</td><td>Cell five info</td><td>Cell six info</td>
+              </tr>
+              <tr>
+                <td>Cell seven info</td><td>Cell eight info</td><td>Cell nine info</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>Foot cell one info</th><th>Foot cell two info</th><th>Foot cell three info</th>
+              </tr>
+            </tfoot>
+          </table>
+          <p>It puts the information into rows and columns, but it&rsquo;s difficult to read and identify the different parts and structure of the table. With a little styling we can make it much easier for the visitor to recognize the important information in the table, and how it all relates to each other.</p>
+
+          <table class="table">
+            <caption>Table caption</caption>
+            <thead>
+              <tr>
+                <th scope="col">Head cell one info</th><th scope="col">Head cell two info</th><th scope="col">Head cell three info</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cell one info</td><td>Cell two info</td><td>Cell three info</td>
+              </tr>
+              <tr>
+                <td>Cell four info</td><td>Cell five info</td><td>Cell six info</td>
+              </tr>
+              <tr>
+                <td>Cell seven info</td><td>Cell eight info</td><td>Cell nine info</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>Foot cell one info</th><th>Foot cell two info</th><th>Foot cell three info</th>
+              </tr>
+            </tfoot>
+          </table>
+          <p>The styles applied are fairly simple, but this underscores the philosophy of this site. Use HTML first, and add in CSS (and JavaScript) where it will make your site better.</p>
+          <pre><code>.table {
+  border: 1px solid black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  table-layout: fixed;
+}
+.table caption {
+  background-color: black;
+  color: white;
+  padding: .25rem;
+}
+.table th {
+  background-color: gainsboro;
+  padding: .25rem;
+}
+.table td {
+  background-color: whitesmoke;
+  padding: .25rem;
+}</code></pre>
+          <p>For more information about why the second table looks so much better see <a href="/css/#getting_better_at_design">Getting Better at Design</a>.</p>
+        </section>
+        <section>
+          <h2 id="css_used_in_tables">CSS used in tables</h2>
+          <p>The following standard CSS properties (<code>border</code>, <code>padding</code>, <code>text-align</code>, and <code>background-color</code>) are the most common properties that you&rsquo;ll end up using on tables.</p>
+          
+          <h3><code>border</code></h3>
+          <p>Adding a border to different elemments of the table can help differentiate the elements from each other.</p>
+
+          <h3><code>padding</code></h3>
+          <p>The default styles on a table doesn&rsquo;t include cell padding. Adding just a little helps to differentiate the information in each cell.</p>
+
+          <h3><code>text-align</code></h3>
+          <p>The convention used in most tables is that digits are right-aligned, and other forms of data are left-aligned.</p>
+          <table class="table">
+            <caption>Alignment examples</caption>
+            <tbody>
+              <tr>
+                <td class="first">left</td><td>center</td><td class="number">$3.00</td>
+              </tr>
+              <tr>
+                <td class="first">left</td><td>center</td><td class="number">$6.00</td>
+              </tr>
+              <tr>
+                <td class="first">left</td><td>center</td><td class="number">$9.00</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3><code>background-color</code></h3>
+          <p>The <code>background-color</code> property when used in tables can help differentiate captions and headers from normal table cells.</p>
+          <table class="table">
+            <caption>Table caption</caption>
+            <thead>
+              <tr>
+                <th>Head cell one info</th><th>Head cell two info</th><th>Head cell three info</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cell one info</td><td>Cell two info</td><td>Cell three info</td>
+              </tr>
+              <tr>
+                <td>Cell four info</td><td>Cell five info</td><td>Cell six info</td>
+              </tr>
+              <tr>
+                <td>Cell seven info</td><td>Cell eight info</td><td>Cell nine info</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>Foot cell one info</th><th>Foot cell two info</th><th>Foot cell three info</th>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+        <section>
+          <h2 id="table_display_properties">Table display properties</h2>
+          <p></p>
+          <ul>
+            <li>display: inline-table</li>
+            <li>display: table</li>
+            <li>display: table-caption</li>
+            <li>display: table-row</li>
+            <li>display: table-cell</li>
+            <li>display: table-column</li>
+            <li>display: table-column-group</li>
+            <li>display: table-header-group</li>
+            <li>display: table-footer-group</li>
+          </ul>
+          <p>Using the different table display properties it&rsquo;s entirely possible to recreate a table structure using non-table elements.</p>
+          <div class="fake">
+            <div class="table-caption">Fake Table Caption</div>
+            <div class="table-header-group">
+              <div class="table-row">
+                <div class="table-cell">Fake Header Cell</div><div class="table-cell">Fake Header Cell</div><div class="table-cell">Fake Header Cell</div>
+              </div>
+            </div>
+            <div class="table-row">
+              <div class="table-cell">Fake Table Cell</div><div class="table-cell">Fake Table Cell</div><div class="table-cell">Fake Table Cell</div>
+            </div>
+          </div>
+          <p>Even though it&rsquo;s possible, you&rsquo;re still better off using real table elements when you need a table. The best actual use case for these properties is if you set the <code>display</code> property to <code>none</code> on a table or table element, and need to set it back to the original value.</p>
+        </section>
+        <section>
+          <h2 id="table_specific_properties">Table Specific Properties</h2>
+          <p>The table specific properties can only be used on tables or table elements.</p>
+          <h3><code>border-collapse</code></h3>
+          <p>The <code>border-collapse</code> property controls the space between cell borders. By setting it to <code>collapse</code> you can remove that spacing.</p>
+          <table class="table" style="border-collapse: collapse;">
+            <caption><code>border-collapse: collapse;</code> Example</caption>
+            <tbody>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3><code>border-spacing</code></h3>
+          <p>The <code>border-spacing</code> property controls the amount space between cell borders. Using <code>border-spacing: 0px;</code> is effectively the same as using <code>border-collapse: collapse;</code>.</p>
+          <table class="table" style="border-spacing: 10px;">
+            <caption><code>border-spacing: 10px;</code> Example</caption>
+            <tbody>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3><code>caption-side</code></h3>
+          <p>Using <code>caption-side</code> can change the location of the table&rsquo;s caption. The default value is <code>top</code>.</p>
+          <table class="table" style="caption-side: bottom;">
+            <caption><code>caption-side: bottom;</code> Example</caption>
+            <tbody>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <h3><code>empty-cells</code></h3>
+          <p>The <code>empty-cells</code> property controls how the table handles the display of empty cells. The default value is <code>show</code>.</p>
+          <table class="table" style="empty-cells: hide;">
+            <caption><code>empty-cells: hide;</code> Example</caption>
+            <tbody>
+              <tr>
+                <td></td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td></td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <h3><code>table-layout</code></h3>
+          <p>The <code>table-layout</code> property can even out the columns on a table, when the value is set to <code>fixed</code>. The default style is <code>auto</code>.</p>
+          <table class="table" style="table-layout: auto;">
+            <caption><code>table-layout: auto;</code> Example</caption>
+            <tbody>
+              <tr>
+                <td>Other cell</td><td>cell</td><td>Last cell</td>
+              </tr>
+              <tr>
+                <td>4</td><td>111</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>867-5309</td><td>cell</td><td>42</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table" style="table-layout: fixed;">
+            <caption><code>table-layout: fixed;</code> Example</caption>
+            <tbody>
+              <tr>
+                <td>Other cell</td><td>cell</td><td>Last cell</td>
+              </tr>
+              <tr>
+                <td>4</td><td>111</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>867-5309</td><td>cell</td><td>42</td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </section>
+        <section>
+          <h2 id="table_helpers">Table Helpers</h2>
+          <h3>Zebra Stripes</h3>
+          <p>Using the <code>:nth-child(odd)</code> pseudo-class you can have the table row colors alternate.</p>
+          <pre><code>.table.zebra tr:nth-child(odd) td {
+  background-color: gainsboro;
+}</code></pre>
+          <table class="table zebra">
+            <caption>Zebra Stripes Example</caption>
+            <tbody>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Highlighting</h3>
+          <p>Using the <code>:hover</code> pseudo-selector you can set a row to change color on hover, highlighting the row that the visitor is focused on.</p>
+          <pre><code>.table.hightlighting tr:hover td {
+  background-color: yellow;
+}</code></pre>
+          <table class="table hightlighting">
+            <caption>Highlighting Example</caption>
+            <tbody>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+              <tr>
+                <td>cell</td><td>cell</td><td>cell</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Responsive</h3>
+          <p>Wide tables on small devices can be a challenge. For exceptionally wide tables, you might consider wrapping the table in an element with <code>width: 100%; overflow-x: auto;</code> values.</p>
+          <pre><code>width: 100%;
+overflow-x: auto;</code></pre>
+          <div style="width: 100%; overflow-x: auto;">
+            <table class="table" style="white-space: nowrap; table-layout: auto;">
+              <caption>Responsive Example</caption>
+              <tbody>
+                <tr>
+                  <td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td>
+                </tr>
+                <tr>
+                  <td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td>
+                </tr>
+                <tr>
+                  <td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td>
+                </tr>
+                <tr>
+                  <td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td><td>responsive cell</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2 id="types_of_tables">Types of Tables</h2>
+          <p>Tables are usually intimately tied to the data within them. Various types of tables include:</p>
+
+          <h3>Multiplication</h3>
+
+          <table class="multiplication">
+            <caption>Multiplication Table</caption>
+            <tbody>
+              <tr>
+                <th scope="col">&times;</th>
+                <th scope="col">0</th>
+                <th scope="col">1</th>
+                <th scope="col">2</th>
+                <th scope="col">3</th>
+                <th scope="col">4</th>
+                <th scope="col">5</th>
+                <th scope="col">6</th>
+                <th scope="col">7</th>
+              </tr>
+              <tr>
+                <th scope="row">0</th>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>0</td>
+                <td>2</td>
+                <td>4</td>
+                <td>6</td>
+                <td>8</td>
+                <td>10</td>
+                <td>12</td>
+                <td>14</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>0</td>
+                <td>3</td>
+                <td>6</td>
+                <td>9</td>
+                <td>12</td>
+                <td>15</td>
+                <td>18</td>
+                <td>21</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Calendar</h3>
+
+          <table class="calendar">
+            <caption>January 2022</caption>
+            <thead>
+              <tr>
+                <th scope="col">Sun</th>
+                <th scope="col">Mon</th>
+                <th scope="col">Tue</th>
+                <th scope="col">Wed</th>
+                <th scope="col">Thu</th>
+                <th scope="col">Fri</th>
+                <th scope="col">Sat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+              </tr>
+              <tr>
+                <td>16</td>
+                <td>17</td>
+                <td class="today">18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+              </tr>
+              <tr>
+                <td>23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+              </tr>
+              <tr>
+                <td>30</td>
+                <td>31</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Rows</h3>
+
+          <table class="lined">
+            <caption>Internet Movies</caption>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Actor</th>
+                <th>Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">War Games</th>
+                <td>Matthew Broderick</td>
+                <td>1983</td>
+              </tr>
+              <tr>
+                <th scope="row">The Net</th>
+                <td>Sandra Bullock</td>
+                <td>1995</td>
+              </tr>
+              <tr>
+                <th scope="row">Hackers</th>
+                <td>Angelina Jolie</td>
+                <td>1995</td>
+              </tr>
+              <tr>
+                <th scope="row">The Matrix</th>
+                <td>Keanu Reeves</td>
+                <td>1999</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Lookup</h3>
+
+          <table class="alignment">
+            <caption>Alignment</caption>
+            <tbody>
+              <tr>
+                <th scope="row"></th>
+                <th scope="col">Lawful</th>
+                <th scope="col">Neutral</th>
+                <th scope="col">Chaotic</th>
+              </tr>
+              <tr>
+                <th scope="row">Good</th>
+                <td>Lawful Good</td>
+                <td>Neutral Good</td>
+                <td>Chaotic Good</td>
+              </tr>
+              <tr>
+                <th scope="row">Neutral</th>
+                <td>Lawful Neutral</td>
+                <td>True Neutral</td>
+                <td>Chaotic Neutral</td>
+              </tr>
+              <tr>
+                <th scope="row">Evil</th>
+                <td>Lawful Evil</td>
+                <td>Neutral Evil</td>
+                <td>Chaotic Evil</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Comparison</h3>
+
+          <div style="width: 100%; overflow-x: auto;">
+            <table class="comparison">
+              <caption>Space Opera</caption>
+              <thead>
+                <tr>
+                  <th scope="row"></th>
+                  <th scope="col">Star Trek</th>
+                  <th scope="col">Star Wars</th>
+                  <th scope="col">Dune</th>
+                  <th scope="col">The Foundation</th>
+                  <th scope="col">Firefly</th>
+                  <th scope="col">Cowboy Bebop</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Galactic Empire</th>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                  <td>&cross;</td>
+                  <td>&cross;</td>
+                </tr>
+                <tr>
+                  <th scope="row">Rebels</th>
+                  <td>&cross;</td>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                  <td>&cross;</td>
+                  <td>&check;</td>
+                  <td>&cross;</td>
+                </tr>
+                <tr>
+                  <th scope="row">Bountyhunters</th>
+                  <td>&cross;</td>
+                  <td>&check;</td>
+                  <td>&cross;</td>
+                  <td>&cross;</td>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                </tr>
+                <tr>
+                  <th scope="row">Robots</th>
+                  <td>&check;</td>
+                  <td>&check;</td>
+                  <td>&cross;</td>
+                  <td>&check;</td>
+                  <td>&cross;</td>
+                  <td>&cross;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>CRUD Dashboard</h3>
+
+          <table class="crud">
+            <caption>An Author Database</caption>
+            <tbody>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>Edgar Allan Poe</td>
+                <td class="description">Writer, poet, editor, and literary critic.</td>
+                <td><button class="update">edit</button></td>
+                <td><button class="delete">delete</button></td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td>William Hope Hodgson</td>
+                <td class="description">Author of horror, fantastic fiction, and science fiction.</td>
+                <td><button class="update">edit</button></td>
+                <td><button class="delete">delete</button></td>
+              </tr>
+              <tr>
+                <td>15</td>
+                <td>H.P. Lovecraft</td>
+                <td class="description">Writer of weird, science, fantasy, and horror fiction.</td>
+                <td><button class="update">edit</button></td>
+                <td><button class="delete">delete</button></td>
+              </tr>
+              <tr>
+                <td>28</td>
+                <td>Isaac Asimov</td>
+                <td class="description">Writer and professor of biochemistry at Boston University.</td>
+                <td><button class="update">edit</button></td>
+                <td><button class="delete">delete</button></td>
+              </tr>
+              <tr>
+                <td>29</td>
+                <td>Ray Bradbury</td>
+                <td class="description">Author and screenwriter of the fantastic.</td>
+                <td><button class="update">edit</button></td>
+                <td><button class="delete">delete</button></td>
+              </tr>
+              <tr>
+                <td>32</td>
+                <td>Frank Herbert</td>
+                <td class="description">Author, journalist, photographer,and ecological consultant.</td>
+                <td><button class="update">edit</button></td>
+                <td><button class="delete">delete</button></td>
+              </tr>
+              <tr>
+                <td>42</td>
+                <td>Douglas Adams</td>
+                <td class="description">English author, screenwriter, essayist, humorist, satirist and dramatist.</td>
+                <td><button class="update">edit</button></td>
+                <td><button class="delete">delete</button></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td><button class="create" aria-label="">Add New Author</button></td>
+                <td class="description"></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+
+          <h3>Invoice</h3>
+
+          <table class="invoice">
+            <caption>Web Development Invoice</caption>
+            <tbody>
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Units</th>
+                <th scope="col">Cost</th>
+              </tr>
+              <tr>
+                <td>HTML</td>
+                <td>1</td>
+                <td class="cost">$16.00</td>
+              </tr>
+              <tr>
+                <td>Advice</td>
+                <td></td>
+                <td class="cost">$0.02</td>
+              </tr>
+              <tr>
+                <td>Red Ballons</td>
+                <td>99</td>
+                <td class="cost">$0.99</td>
+              </tr>
+              <tr>
+                <td>Whitespace</td>
+                <td>12</td>
+                <td class="cost">$0.00</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="2">Total:</th><td class="cost">$17.01</td>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+        <nav>
+          <a href="/css/layout.html">Layout</a> &rarr;
+        </nav>
+      </article>
+    </main>
+    <footer>
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/faqs/">FAQs</a>
+        <a href="/contact/">Contact</a>
+        <a href="/announcements/">Announcements</a>
+        <a href="/links/">Links</a>
+      </nav>
+      <p><a href="https://validator.w3.org/nu/" class="validator"><img src="/images/validate_html5.svg" height="32" width="90" alt="W3C HTML Validator" /></a></p>
+      <p>See the code in the <a href="https://github.com/nelilly/html-hobbyist/" target="_blank" rel="noopener noreferrer"><svg id="github" height="21" width="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path fill="currentColor" d="M14.06 11.92c.39 0 .72.19 1 .58.28.38.43.86.43 1.42 0 .56-.14 1.04-.43 1.42-.28.38-.62.58-1 .58-.41 0-.76-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.29-.39.64-.58 1.05-.58zm5.03-5.2c1.1 1.19 1.65 2.63 1.65 4.32 0 1.1-.13 2.08-.38 2.96-.25.87-.57 1.59-.96 2.14s-.86 1.04-1.43 1.44c-.57.42-1.09.72-1.56.91-.47.19-1.01.34-1.63.45-.61.11-1.06.16-1.38.18-.31.01-.64.02-1 .02-.08 0-.35.01-.8.02-.44.02-.82.03-1.11.03-.29 0-.67-.01-1.11-.03-.45-.01-.72-.02-.8-.02-.36 0-.7 0-1-.02-.32-.02-.78-.07-1.38-.18-.62-.1-1.16-.25-1.63-.45-.47-.19-.99-.49-1.56-.91a6.3 6.3 0 01-1.43-1.44C1.2 15.59.88 14.88.62 14c-.25-.88-.38-1.86-.38-2.96 0-1.69.55-3.13 1.65-4.32-.1-.06-.11-.66 0-1.78.1-1.13.34-2.17.73-3.12 1.37.14 3.06.92 5.07 2.32.68-.18 1.62-.27 2.8-.27 1.25 0 2.18.09 2.81.27.92-.62 1.8-1.13 2.64-1.52.85-.38 1.47-.61 1.85-.67l.58-.13c.39.95.63 1.99.73 3.12.11 1.12.11 1.72-.01 1.78zm-8.54 11.43c2.46 0 4.32-.3 5.58-.89 1.26-.59 1.9-1.81 1.9-3.65 0-1.07-.4-1.96-1.2-2.67-.41-.39-.9-.62-1.45-.71-.54-.09-1.38-.09-2.51 0s-1.9.13-2.31.13c-.56 0-1.18-.03-1.94-.09s-1.36-.09-1.78-.11c-.44-.01-.9.04-1.4.16-.51.12-.92.32-1.25.62-.77.69-1.16 1.58-1.16 2.68 0 1.84.62 3.06 1.87 3.65 1.24.6 3.1.89 5.56.89h.09zm-3.56-6.23c.39 0 .72.19 1 .58.28.38.42.86.42 1.42 0 .56-.14 1.04-.42 1.42-.28.38-.62.58-1 .58-.42 0-.77-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.28-.39.63-.58 1.05-.58z"></path></svg>HTML Hobbyist repository on GitHub</a>.</p>
+      <p>&copy;2022 N.E.Lilly</p>
+    </footer>
+  </body>
+</html>

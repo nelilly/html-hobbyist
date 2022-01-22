@@ -1,0 +1,22 @@
+body > header.splash > nav,
+body > header:not(.splash) > nav :not(:first-child) {
+  display: none;
+}
+
+body > footer > nav {
+  display: none;
+}
+
+body > footer::after {
+  content: "source: www.htmlhobbyist.com";
+}
+
+
+a {
+  text-decoration: none;
+}
+
+a[href*="//"]:not([href*="www.htmlhobbyist.com"])::after{
+  content: " " attr(href) " ";
+  text-decoration: underline;
+}

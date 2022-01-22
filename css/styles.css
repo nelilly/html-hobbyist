@@ -1,0 +1,45 @@
+.palette {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.palette > div {
+  height: 1rem;
+  padding: 0;
+}
+
+.swatches {
+  height: 23.75rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.swatches > div {
+  padding: 1rem;
+}
+
+input[type=color] {
+  display: block;
+  height: 5rem;
+  width: 5rem;
+}
+
+.table {
+  border: 1px solid black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  table-layout: fixed;
+}
+.table caption {
+  background-color: black;
+  color: white;
+  padding: .25rem;
+}
+.table th {
+  background-color: gainsboro;
+  padding: .25rem;
+}
+.table td {
+  background-color: whitesmoke;
+  padding: .25rem;
+}

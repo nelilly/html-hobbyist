@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dimension: The HTML Hobbyist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
+    <meta name="keywords" content="CSS, Cascading Stylesheets, HTML, World Wide Web, WWW, Web Design, Web Development">
+    <meta name="description" content="Everything that exists has dimension: it has a height and a width and it takes up space.">
+    <link rel="canonical" href="https://www.htmlhobbyist.com/css/dimension.html" />
+    <meta property="og:title" content="CSS Dimensions" />
+    <meta property="og:url" content="https://www.htmlhobbyist.com/css/dimension.html" />
+    <meta property="og:description" content="Everything that exists has dimension: it has a height and a width and it takes up space." />
+    <meta property="og:image" content="https://www.htmlhobbyist.com/images/og/css/css.webp" />
+    <meta property="twitter:image" content="https://www.htmlhobbyist.com/images/og/css/css.webp" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
+    <script src="/scripts.js" defer></script>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <style>
+      .box {
+        background-color: whitesmoke;
+        border: 1px solid grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .padding {
+        background-color: whitesmoke;
+        border: 1px solid grey;
+      }
+      .margin {
+        background-color: whitesmoke;
+        border: 1px solid grey;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/"><img src="/html-hobbyist-square-animated-opt.svg" height="160" width="200" alt="The HTML Hobbyist" /></a>
+        <a href="/www/">WWW</a>
+        <a href="/html/">HTML</a>
+        <a href="/css/">CSS</a>
+        <!-- <a href="/img/">IMG</a> -->
+        <!-- <a href="/js/">JS</a> -->
+        <!-- <a href="/ux/">UX</a> -->
+      </nav>
+    </header>
+    <main>
+      <article>
+        <header>
+          <h1>Dimension</h1>
+          <p>Everything that exists has dimension: it has a height and a width and it takes up space. Things have borders to separate one thing from another. When more than one thing exists in an environment they have a relationship to each other.</p>
+        </header>
+        <section>
+          <h2 id="the_box_model">The Box Model</h2>
+          <p>CSS allows you to adjust the dimension and density of elements through <em>The Box Model</em>.</p>
+          <p>Every block level element is contained within a block. That block is made up of the margins, borders, and padding for that block. Putting margins, borders, and padding allows you to group similar content together.</p>
+
+          <h3><code>box-sizing</code> property</h3>
+          <p>The <code>box-sizing</code> property controls how the browser calculates the size of your boxes. There are two basic settings for the <code>border-box</code> property: <code>content-box</code> (the size of the box for the content) and <code>border-box</code> (the size of the box up to and including the border).</p>
+
+          <p>Using the <code>content-box</code> value will add the declared height/width, padding sizes, and border sizes to give you a total size for the block that you&rsquo;re declaring.</p>
+
+          <figure>
+            <figcaption>The box model for a 200 wide by 200 high element with <code>box-sizing: content-box;</code>.</figcaption>
+            <svg viewBox="0,0 500,300" font-family="Verdana, sans-serif" stroke="gray" stroke-width="1" dominant-baseline="middle">
+              <rect height="100%" width="100%" stroke-width="2" fill="silver" stroke-dasharray="4" />
+              <rect x="10%" y="15%" height="75%" width="80%" fill="#000" />
+              <rect x="20%" y="25%" height="55%" width="60%" fill="#d7d7d7" stroke-dasharray="4" />
+              <rect x="30%" y="35%" height="35%" width="40%" fill="#fff" stroke="none" />
+              <g stroke="none">
+                <text x="3%" y="10%">margin</text>
+                <text x="11%" y="20%" fill="white">border</text>
+                <text x="21%" y="30%">padding</text>
+                <g text-anchor="middle">
+                  <text x="50%" y="10%">20</text>
+                  <text x="50%" y="20%" fill="white">1</text>
+                  <text x="50%" y="30%">20</text>
+                  <text x="50%" y="52.5%">200&times;200</text>
+                </g>
+              </g>
+            </svg>
+          </figure>
+
+          <p>Using <code>content-box</code>, the total size for a 200 pixel box with a 20 pixel padding and a 1 pixel border will be 242 pixels (200 + 20 + 20 + 1 + 1 = 242).</p>
+
+          <p>The <code>border-box</code> value seems to behave much more inline with how our minds work. When you set the <code>box-sizing</code> to <code>border-box</code>, the calculations are done by the browser and it will factor the padding and borders into the total dimensions, so that the total size of a 200 pixel box with a 20 pixel padding and a 1 pixel border will remain 200 pixels.</p>
+
+          <figure>
+            <figcaption>The box model for a 200 wide by 200 high element with <code>box-sizing: border-box;</code>.</figcaption>
+            <svg viewBox="0,0 500,300" font-family="Verdana, sans-serif" stroke="gray" stroke-width="1" dominant-baseline="middle">
+              <rect height="100%" width="100%" stroke-width="2" fill="silver" stroke-dasharray="4" />
+              <rect x="10%" y="15%" height="75%" width="80%" fill="#000" />
+              <rect x="20%" y="25%" height="55%" width="60%" fill="#d7d7d7" stroke-dasharray="4" />
+              <rect x="30%" y="35%" height="35%" width="40%" fill="#fff" stroke="none" />
+              <g stroke="none">
+                <text x="3%" y="10%">margin</text>
+                <text x="11%" y="20%" fill="white">border</text>
+                <text x="21%" y="30%">padding</text>
+                <g text-anchor="middle">
+                  <text x="50%" y="10%">20</text>
+                  <text x="50%" y="20%" fill="white">1</text>
+                  <text x="50%" y="30%">20</text>
+                  <text x="50%" y="52.5%">158&times;158</text>
+                </g>
+              </g>
+            </svg>
+          </figure>
+
+          <p>You can see the difference that using <code>content-box</code> versus  <code>content-box</code> as the value for your <code>box-sizing</code> property here:</p>
+          <figure>
+            <div style="display: grid; grid-template-columns: 1fr 1fr;">
+              <div class="box" style="box-sizing:content-box; height: 150px; width: 150px; padding: 10px;">
+                <code>content-box</code>
+              </div>
+              <div class="box" style="height: 150px; width: 150px; padding: 10px;">
+                <code>border-box</code>
+              </div>
+            </div>
+            <figcaption>Comparing <code>content-box</code> with  <code>border-box</code> values on a box set to <code>height: 150px; width: 150px; padding: 10px;</code>.</figcaption>
+          </figure>
+
+          <p>I like to set the <code>border-box</code> property globally, with the following rule so that I never have to worry about it again:</p>
+          <pre><code>*,:after,:before{ box-sizing: border-box; }</code></pre>
+        </section>
+        <aside>
+          <h2 id="unit_values">Unit Values</h2>
+          <p>Here are the most common units you would use to set a property&rsquo;s value.</p>
+          <h3>Pixels</h3>
+          <p>Without going into a detailed description of modern screen technology, a pixel is the size of one dot on your computer screen. Setting an element to 200 pixels by 200 pixels would look like this:</p>
+          
+          <div class="box" style="height: 200px; width: 200px;">
+            200px &times; 200px
+          </div>
+
+          <h3>Percentages</h3>
+          <p>The targeted selector will be a percentage of the parent element.</p>
+          <div class="box" style="height: 200px; width: 100%;">
+            100% width
+          </div>
+          <p>This element only fills 45% of the parent container.</p>
+          <div class="box" style="height: 200px; width: 45%;">
+            45% width
+          </div>
+
+          <h3>Em &amp; Rem</h3>
+          <p>An <code>em</code> and a <code>rem</code> are values based on <code>font-size</code>. <code>em</code> is based on the font-size of the parent element. <code>rem</code> is based on the font-size of the page&rsquo;s root element (usually <code>&lt;html&gt;</code>).</p>
+          <p>Fonts can be measured in a variety of units, but pixel, em, and rem are most common. A pixel is a single dot on a screen. An <code>em</code> unit is the size of the letter m, but is equal to <code>16px</code>. A <code>rem</code> unit stands for <em>root em</em>. It&rsquo;s the size of the document set at the root element, usually with the :root or html selector.</p>
+          <p>Given that the current page&rsquo;s font size for the root element on this page is set to 20px, a 10rem by 10rem box will fill 200px by 200px.</p>
+          <div class="box" style="height: 10rem; width: 10rem;">
+            10rem &times; 10rem
+          </div>
+
+          <h3>Viewport Units</h3>
+          <p><code>vh</code> for view height and <code>vw</code> for view width. An element with a width set to <code>100vw</code> will be just as wide as the visitor&rsquo;s view width, regardless of the width of the parent element.</p>
+          <div class="box" style="height: 30vh; width: 30vw;">
+            30vh &times; 30vw
+          </div>
+        </aside>
+        <section>
+          <h2 id="size_properties">Size Properties</h2>
+          <h3>Width Properties</h3>
+          <p>Since most pages are on an infinite scroll the <code>width</code> property tends to carry more importance than the <code>height</code> property.</p>
+          <p>The <code>min-width</code> prevents the width of the element from becoming smaller than the expressed value.</p>
+          <p>The <code>max-width</code> prevents the width of the element from becoming larger than the expressed value. For example: the current page is set to <code>max-width: 640px;</code>.</p>
+
+          <h3>Height Properties</h3>
+          <p><code>height</code></p>
+          <p>The <code>min-height</code> prevents the height of the element from becoming smaller than the expressed value.</p>
+          <p>The <code>max-height</code> prevents the height of the element from becoming larger than the expressed value.</p>
+          
+          <h3>Overflow</h3>
+          <p>The <code>overflow</code> property is what controls the presentation of the contents of an element, if the width and height are smaller than what is needed for the content.</p>
+
+          <figure>
+            <iframe src="/css/examples/space_overflow.html" title="Sample overflow" height="480" width="640"></iframe>
+            <figcaption><a href="/css/examples/space_overflow.html">Sample overflow</a></figcaption>
+          </figure>
+        </section>
+        <section>
+          <h2 id="desinty">Density</h2>
+          <p>Density, like proximity, is the relationship between elements. Proper use of the spacing within and between elements makes your content easier to digest.</p>
+          <p>You&rsquo;ll often hear designers speak about <em>white space</em>. What they really mean is the density of your content. Think about the density of your content. You can make the spacing tightly packed, or expansive.</p>
+
+          <h3>Margins</h3>
+          <p><code>margin</code> sets the spacing on the exterior of the box model. Margins on different adjacent elements will overlap each other. Setting a bottom margin of 1rem on one element, and a top margin of 1rem on the element below it won&rsquo;t have a combined margin of 2rem between the two. The margins will overlap for a total of 1rem margin between the two.</p>
+          
+          <figure>
+            <iframe src="/css/examples/space_margins.html" title="Sample margins" height="480" width="640"></iframe>
+            <figcaption><a href="/css/examples/space_margins.html">Sample margins</a></figcaption>
+          </figure>
+
+          <p><code>margin</code>: all sides</p>
+          <div class="margin" style="margin: 1rem;">margin: 1rem;</div>
+
+          <p><code>margin</code>: top/bottom, left/right</p>
+          <div class="margin" style="margin: 1rem 2rem;">margin: 1rem 2rem;</div>
+
+          <p><code>margin</code>: top, sides, bottom</p>
+          <div class="margin" style="margin: 1rem 2rem 3rem;">margin: 1rem 2rem 3rem;</div>
+
+          <p><code>margin</code>: top, right, bottom, left</p>
+          <div class="margin" style="margin: 1rem 2rem 3rem 4rem;">margin: 1rem 2rem 3rem 4rem;</div>
+
+          <p>You can set the margin for the different sides individually with <code>margin-top</code>, <code>margin-bottom</code>, <code>margin-left</code>, or <code>margin-right</code>.</p>
+
+          <p>Setting <code>margin: auto;</code> will allow the browser to fill in the space. If you inspect the <code>&lt;body&gt;</code> element on this page, you will see.</p>
+          <pre><code>margin: 0 auto;</code></pre>
+          <p>That allows the body to have zero top margin, but effectively centers the <code>&lt;body&gt;</code> element.</p>
+
+          <h3>Borders</h3>
+          <p><code>border: 4px solid red;</code></p>
+          <div class="box" style="border: 4px solid red; height: 100px;">border: 4px solid red;</div>
+
+          <p><code>border-top</code></p>
+          <div class="box" style="border-top: 4px solid red; height: 100px;">border-top: 4px solid red;</div>
+          <p><code>border-bottom</code></p>
+          <div class="box" style="border-bottom: 4px solid red; height: 100px;">border-bottom: 4px solid red;</div>
+          <p><code>border-left</code></p>
+          <div class="box" style="border-left: 4px solid red; height: 100px;">border-left: 4px solid red;</div>
+          <p><code>border-right</code></p>
+          <div class="box" style="border-right: 4px solid red; height: 100px;">border-right: 4px solid red;</div>
+
+          <p><code>border-color</code></p>
+          <div class="box" style="border-color: blue; border-width: 4px; height: 100px;">border-color: blue;</div>
+
+          <p><code>border-color: top/bottom, sides;</code></p>
+          <div class="box" style="border-color: red green; border-width: 4px; height: 100px;">border-color: red green;</div>
+
+          <p><code>border-color: top, right, bottom, left;</code></p>
+          <div class="box" style="border-color: red green blue orange; border-width: 4px; height: 100px;">border-color: red green blue orange;</div>
+
+          <p><code>border-style</code></p>
+          <div class="box" style="border-style: solid; border-width: 4px; height: 100px;">border-style: solid;</div>
+          <div class="box" style="border-style: dashed; border-width: 4px; height: 100px;">border-style: dashed;</div>
+          <div class="box" style="border-style: dotted; border-width: 4px; height: 100px;">border-style: dotted;</div>
+          <div class="box" style="border-style: double; border-width: 4px; height: 100px;">border-style: double;</div>
+          <div class="box" style="border-style: groove; border-width: 4px; height: 100px;">border-style: groove;</div>
+          <div class="box" style="border-style: inset; border-width: 4px; height: 100px;">border-style: inset;</div>
+
+          <h4>Border Radius</h4>
+          <p>Before CSS came to the rescue with <code>border-radius</code>, we used to have to use a complicated mess of images and tables to make a block with rounded corders. </p>
+          <p><code>border-radius</code></p>
+          <div class="box" style="border-radius: 20px; height: 100px;">border-radius: 20px;</div>
+          <div class="box" style="border-radius: 100%; height: 100px;">border-radius: 100%;</div>
+          <div class="box" style="border-radius: 50% 10px 100% 10%; height: 100px;">border-radius: 50% 10px 100% 10%;</div>
+
+          <p><code>border-top-left-radius</code></p>
+          <div class="box" style="border-top-left-radius: 20px; height: 100px;">border-top-left-radius: 20px;</div>
+
+          <p><code>border-top-right-radius</code></p>
+          <div class="box" style="border-top-right-radius: 20px; height: 100px;">border-top-right-radius: 20px;</div>
+          
+          <p><code>border-bottom-left-radius</code></p>
+          <div class="box" style="border-bottom-left-radius: 20px; height: 100px;">border-bottom-left-radius: 20px;</div>
+          
+          <p><code>border-bottom-right-radius</code></p>
+          <div class="box" style="border-bottom-right-radius: 20px; height: 100px;">border-bottom-right-radius: 20px;</div>
+
+          <h3>Padding</h3>
+          <p><code>padding</code> sets the spacing on the interior of the box model.</p>
+          
+          <p><code>padding</code>: all sides</p>
+          <div class="padding" style="padding: 1rem;">padding: 1rem;</div>
+
+          <p><code>padding</code>: top/bottom, left/right</p>
+          <div class="padding" style="padding: 1rem 2rem;">padding: 1rem 2rem;</div>
+
+          <p><code>padding</code>: top, sides, bottom</p>
+          <div class="padding" style="padding: 1rem 2rem 3rem;">padding: 1rem 2rem 3rem;</div>
+
+          <p><code>padding</code>: top, right, bottom, left</p>
+          <div class="padding" style="padding: 1rem 2rem 3rem 4rem;">padding: 1rem 2rem 3rem 4rem;</div>
+
+          <p>You can set the padding for the different sides individually with <code>padding-top</code>, <code>padding-bottom</code>, <code>padding-left</code>, or <code>padding-right</code>.</p>
+        </section>
+        <section>
+          <h2 id="aspect_ratio">Aspect Ratio</h2>
+          <p>The <code>ascpect-ratio</code> sets the preferred aspect ratio for the element. It can be overridden if you explicitly set the height and widht of the element.</p>
+          <pre><code>aspect-ratio: 4 / 3;</code></pre>
+          <div class="box" style="aspect-ratio: 4 / 3;">
+            4:3
+          </div>
+
+          <div class="box" style="aspect-ratio: 16 / 9;">
+            16:9
+          </div>
+
+          <div class="box" style="aspect-ratio: 1.85 / 1;">
+            1.85:1
+          </div>
+
+          <div class="box" style="aspect-ratio: 1.61803398875 / 1;">
+            1.61803398875:1 (The Golden Mean)
+          </div>
+
+          <p>If you set either the height or the width of the element, then the aspect ratio will fill out the remaining dimension.</p>
+          <div class="box" style="width: 300px; aspect-ratio: 16 / 9;">
+            16:9 (300px width)
+          </div>
+          <div class="box" style="height: 200px; aspect-ratio: 16 / 9;">
+            16:9 (200px height)
+          </div>
+
+          <p>Then aspect ratio could be ignored if you explicitly set both the height and width properties.</p>
+          <div class="box" style="height: 300px; width: 300px; aspect-ratio: 16 / 9;">
+            16:9 (300px &times; 300px)
+          </div>
+
+        </section>
+        <aside>
+          <h2 id="scale">Scale</h2>
+          <p>Hieratic scaling is an artistic technique in which the most essential objects in a painting or sculpture are the largest, and the least essential objects are the smallest. This is the basic principle behind making headlines larger than body copy and footnotes smaller than body copy.</p>
+
+          <p>Changing the font size for the various headers allows you to create a typographic scale, with the more important headers gathering more attention.</p>
+          <figure>
+            <iframe src="/css/examples/fonts_scale.html" title="Sample page showing a typographic scale" height="480" width="640"></iframe>
+            <figcaption><a href="/css/examples/fonts_scale.html">Sample page showing a typographic scale</a></figcaption>
+          </figure>
+        </aside>
+        <nav>
+          <a href="/css/color.html">Color</a> &rarr;
+        </nav>
+      </article>
+    </main>
+    <footer>
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/faqs/">FAQs</a>
+        <a href="/contact/">Contact</a>
+        <a href="/announcements/">Announcements</a>
+        <a href="/links/">Links</a>
+      </nav>
+      <p><a href="https://validator.w3.org/nu/" class="validator"><img src="/images/validate_html5.svg" height="32" width="90" alt="W3C HTML Validator" /></a></p>
+      <p>See the code in the <a href="https://github.com/nelilly/html-hobbyist/" target="_blank" rel="noopener noreferrer"><svg id="github" height="21" width="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path fill="currentColor" d="M14.06 11.92c.39 0 .72.19 1 .58.28.38.43.86.43 1.42 0 .56-.14 1.04-.43 1.42-.28.38-.62.58-1 .58-.41 0-.76-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.29-.39.64-.58 1.05-.58zm5.03-5.2c1.1 1.19 1.65 2.63 1.65 4.32 0 1.1-.13 2.08-.38 2.96-.25.87-.57 1.59-.96 2.14s-.86 1.04-1.43 1.44c-.57.42-1.09.72-1.56.91-.47.19-1.01.34-1.63.45-.61.11-1.06.16-1.38.18-.31.01-.64.02-1 .02-.08 0-.35.01-.8.02-.44.02-.82.03-1.11.03-.29 0-.67-.01-1.11-.03-.45-.01-.72-.02-.8-.02-.36 0-.7 0-1-.02-.32-.02-.78-.07-1.38-.18-.62-.1-1.16-.25-1.63-.45-.47-.19-.99-.49-1.56-.91a6.3 6.3 0 01-1.43-1.44C1.2 15.59.88 14.88.62 14c-.25-.88-.38-1.86-.38-2.96 0-1.69.55-3.13 1.65-4.32-.1-.06-.11-.66 0-1.78.1-1.13.34-2.17.73-3.12 1.37.14 3.06.92 5.07 2.32.68-.18 1.62-.27 2.8-.27 1.25 0 2.18.09 2.81.27.92-.62 1.8-1.13 2.64-1.52.85-.38 1.47-.61 1.85-.67l.58-.13c.39.95.63 1.99.73 3.12.11 1.12.11 1.72-.01 1.78zm-8.54 11.43c2.46 0 4.32-.3 5.58-.89 1.26-.59 1.9-1.81 1.9-3.65 0-1.07-.4-1.96-1.2-2.67-.41-.39-.9-.62-1.45-.71-.54-.09-1.38-.09-2.51 0s-1.9.13-2.31.13c-.56 0-1.18-.03-1.94-.09s-1.36-.09-1.78-.11c-.44-.01-.9.04-1.4.16-.51.12-.92.32-1.25.62-.77.69-1.16 1.58-1.16 2.68 0 1.84.62 3.06 1.87 3.65 1.24.6 3.1.89 5.56.89h.09zm-3.56-6.23c.39 0 .72.19 1 .58.28.38.42.86.42 1.42 0 .56-.14 1.04-.42 1.42-.28.38-.62.58-1 .58-.42 0-.77-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.28-.39.63-.58 1.05-.58z"></path></svg>HTML Hobbyist repository on GitHub</a>.</p>
+      <p>&copy;2022 N.E.Lilly</p>
+    </footer>
+  </body>
+</html>

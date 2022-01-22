@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Your title</title>
+    <base target="_top" />
+    <style>
+      html {
+        font-family: sans-serif;
+        font-size: 20px;
+      }
+
+      body {
+        padding: 1rem;
+        margin: 0 auto;
+        max-width: 640px;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      a {
+        color: red;
+      }
+
+      label {
+        display: block;
+      }
+    </style>
+    <script>
+      const updateName = () => {
+        let name = prompt("What's your name?");
+        if (name){
+          document.querySelector('h1').innerHTML = `Howdy, ${name}`;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>HTML Hobbyist</h1>
+    <p>Click this button to get an alert message.</p>
+    <button onclick="alert('This is an alert message!')">Alert Message!</button>
+
+    <p>Click this button to get a message in the console.</p>
+    <button onclick="console.log('This is a message in the console!')">Console Message</button>
+
+    <p>Click this button to update the <code>h1</code> text.</p>
+    <button onclick="updateName()">Prompt Message</button>
+
+    <p>Use this form to change the page colors.</p>
+    <fieldset>
+      <legend>Choose a theme</legend>
+      <label for="white"><input type="radio" id="white" name="color" value="white" onclick="document.body.style.backgroundColor='white';document.body.style.color='black';" /> White</label>
+      <label for="gainsboro"><input type="radio" id="gainsboro" name="color" value="gainsboro" onclick="document.body.style.backgroundColor='gainsboro';document.body.style.color='black';" /> Gainsboro</label>
+      <label for="silver"><input type="radio" id="silver" name="color" value="silver" onclick="document.body.style.backgroundColor='silver';document.body.style.color='black';" checked /> Silver</label>
+      <label for="dark"><input type="radio" id="dark" name="color" value="dark" onclick="document.body.style.backgroundColor='#444';document.body.style.color='white';" /> Dark Mode</label>
+      <label for="eagles"><input type="radio" id="eagles" name="color" value="eagles" onclick="document.body.style.backgroundColor='yellow';document.body.style.color='darkorange';" /> Fauvism</label>
+    </fieldset>
+  </body>
+</html>

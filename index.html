@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- That's good. You've taken your first step into a larger world. -->
+  <head>
+    <title>The HTML Hobbyist</title>
+    <!-- I solved my burnout with HTML -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
+    <meta name="keywords" content="HTML, World Wide Web, WWW, Web Design, Web Development">
+    <meta name="description" content="Learning HTML to build your website, fanzine, or personal site.">
+    <link rel="canonical" href="https://www.htmlhobbyist.com/" />
+    <meta property="og:title" content="The HTML Hobbyist" />
+    <meta property="og:url" content="https://www.htmlhobbyist.com/" />
+    <meta property="og:description" content="Learning HTML to build your website, fanzine, or personal site." />
+    <meta property="og:image" content="https://www.htmlhobbyist.com/images/og/home.webp" />
+    <meta property="twitter:image" content="https://www.htmlhobbyist.com/images/og/home.webp" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
+    <script src="/scripts.js" defer></script>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header class="splash">
+      <h1><img src="html-hobbyist-square-animated-opt.svg" height="300" width="400" alt="The HTML Hobbyist" /></h1>
+        <p>The Web is for everyone.</p>
+      <nav>
+        <a href="/www/">WWW</a>
+        <a href="/html/">HTML</a>
+        <a href="/css/">CSS</a>
+      </nav>
+    </header>
+    <main>
+      <article>
+        <section>
+          <h2 id="intro">Once upon a time on the World Wide Web&hellip;</h2>
+          <!-- The World Wide Web. Cyberspace. Online. The &rsquo;Net. The Matrix. -->
+          <!-- 
+            Hypertext and Our Collective Destiny https://www.w3.org/Talks/9510_Bush/Talk.html
+            
+            I had (and still have) a dream that the web could be less of a television channel and more of an interactive sea of shared knowledge. I imagine it immersing us as a warm, friendly environment made of the things we and our friends have seen, heard, believe or have figured out. I would like it to bring our friends and colleagues closer, in that by working on this knowledge together we can come to better understandings. If misunderstandings are the cause of many of the world's woes, then can we not work them out in cyberspace. And, having worked them out, we leave for those who follow a trail of our reasoning and assumptions for them to adopt, or correct.
+            
+            - Tim Bernes-Lee
+          -->
+          <!-- The Internet has bred in its engineers a respect for decentralized systems which has in some cases led to anarchic political views.  -->
+          <p><strong>Once upon a time, the World Wide Web was the Wild Wild West.</strong> It was an <em>Information Superhighway</em> that contained research from 1,000 different universities, and 1,000 different research centers, 1,000 different scientific organizations. The late 1900s was a tidal wave of published content where you could surf <a href="https://twitter.com/nelilly/status/1013765538584121344">1,000 different fanzines</a>; 1,000 different personal sites; and 1,000 different hobby sites. The World Wide Web promised a democratization of publication and a liberation of information; an open community of sharing for mutual benefit. Anyone<!-- in theory --> could get online and create a website.</p>
+          <p>25 years later, the barrier to entry in creating, publishing, and maintaining a website is not any higher than it was in 1994. If anything, it is cheaper and easier to publish a website than it has ever been before. Domain names can be had for under $20 a year and hosting is as low as $2 a month &mdash; meaning that you can keep a website online for a year for less than the price of a video game. To build your own website just takes access to a computer that can reach the Internet, <a href="/html/">a little knowledge of HTML</a>, and <a href="/www/">a method to get your HTML files up to a server</a>. There&rsquo;s much more that you can learn after that, but this will get you started.</p>
+          <aside>
+            <h2 id="one_page_starter">One Page Starter</h2>
+            <p>You can see how quick and easy it is to get a website running.</p>
+            <ol>
+              <li>
+                <details>
+                  <summary>Get your web space.</summary>
+                  <div>
+                    <p>Go to <a href="https://www.dreamhost.com/hosting/shared/">Dreamhost</a> and sign up for a Shared Hosting account.</p>
+                    <figure>
+                      <img src="images/www/dreamhost/signup-0-shared-hosting.webp" alt="" />
+                    </figure>
+                    <ol>
+                      <li>Choose a hosting plan.
+                        <p>The <strong>Shared Unlimited plan</strong> comes with email, and the yearly payment option gives you a discount over the monthly price, so that&rsquo;s probably a good place to start.</p>
+                        <figure>
+                          <img src="images/www/dreamhost/signup-1-choose-plan.webp" alt="" />
+                        </figure>
+                      </li>
+                      <li>Register a domain name.
+                        <p>If you choose a domain name now, Dreamhost will cover the cost for the first year (some restrictions apply). If you choose a domain name later you have up to a month to use the 1 year free domain name offer. In the meantime, you&rsquo;ll get a temporary subdomain that you can use on <em>dreamhosters.com</em>.</p>
+                        <figure>
+                          <img src="images/www/dreamhost/signup-2-domain-choice.webp" alt="" />
+                        </figure>
+                      </li>
+                      <li>Enter payment and account information.
+                        <p>I like getting the Dreamhost newsletter, so I leave that checked. Uncheck the additional options, if you don&rsquo;t want them. We don&rsquo;t need them for what we&rsquo;re doing at the moment, and we can always add them later.</p>
+                        <figure>
+                          <img src="images/www/dreamhost/signup-3-payment.webp" alt="" />
+                        </figure>
+                      </li>
+                    </ol>
+                    <p>It may take up to 48 hours for your domain name to start working. Sometimes it works in as little as 15 minutes, but the connection may be a little flaky. Just try to be patient while the DNS is propagating. Let&rsquo;s move onto the next step and make a web page while we&rsquo;re waiting&hellip;</p>
+                  </div>
+                </details>
+              </li>
+              <li>
+                <details>
+                <summary>Create your website files.</summary>
+                <div>
+                  <ol>
+                    <li>Create a folder on your desktop called <code>website</code>.</li>
+                    <li>Create a file called <code>index.html</code> in that folder.</li>
+                  <li>Open a plain text editor, like Notepad, and add some HTML document structure into the <code>index.html</code> file.
+                  <p>Here is a basic template.</p>
+                  <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;title&gt;Your title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    more text will go here...
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    <p>Add some HTML content into the <code>&lt;body&gt;</code> element.</p>
+                    <ol>
+                      <li>Create a headline and put some text in it: <pre><code>&lt;h1&gt;?&lt;/h1&gt;</code></pre></li>
+                      <li>Create a paragraph and put some text in it: <pre><code>&lt;p&gt;?&lt;/p&gt;</code></pre></li>
+                      <li>Create a link, you could go to any website and copy their URL into the <code>href</code>: <pre><code>&lt;p&gt;&lt;a href="https://www.htmlhobbyist.com/"&gt; HTML Hobbyist &lt;/a&gt;&lt;/p&gt;</code></pre></li>
+                      <li>Create a folder called <code>images</code> in your <code>website</code> folder.</li>
+                      <li>Find an image that you like and put that in the <code>images</code> folder.</li>
+                      <li>Add the code below but replace <code>image.png</code> with the name of the image that you found: <pre><code>&lt;img src="images/image.png" height="200" width="200" /&gt;</code></pre></li>
+                    </ol>
+                    </li>
+                  </ol>
+                  <p>Open a browser window. Using <code>File > Open File&hellip;</code> in your browser menu open <code>index.html</code> and you should have something that looks like this:</p>
+                  <figure>
+                    <figcaption>Your site so far:</figcaption>
+                    <img src="/images/sample-site.png" alt="headline: HTML Hobbyist. HTML, all by itself, can be viewed on any browser. HTML, all by itself, can be viewed on any platform. HTML, all by itself, can be viewed on any device. HTML, all by itself, is 99% accessible. link: HTML Hobbyist. image: sample-site.png" />
+                  </figure>
+                  </div>
+                </details>
+              </li>
+              <li>
+                <details>
+                  <summary>Upload your files.</summary>
+                  <div>
+                    <figure>
+                      <figcaption>Go into your control panel at <a href="https://panel.dreamhost.com/">panel.dreamhost.com</a>.</figcaption>
+                      <img src="images/www/dreamhost/upload-panel.webp" alt="" />
+                    </figure>
+                    <figure>
+                      <figcaption>In the left menu click on <code>Domains</code> and then <code>Manage Domains</code>. Under your new domain name, click on <code>WebFTP</code> to open the WebFTP window.</figcaption>
+                      <img src="images/www/dreamhost/upload-panel-domains.webp" alt="" />
+                    </figure>
+                    <figure>
+                      <figcaption>The window will be mostly empty. You can use the upload button at the bottom of the page or drag and drop your files from your <code>website</code> folder into the WebFTP window.</figcaption>
+                      <img src="images/www/dreamhost/upload-webftp.webp" alt="" />
+                    </figure>
+                  </div>
+                </details>
+              </li>
+            </ol>
+            <p><strong>That&rsquo;s it!</strong> <strong>Your website should be ready to view online!</strong><!-- Just edit your files and repeat the upload step to make changes and updates to your website. --></p>
+            <p>This is an extremely streamlined path to show you how easy it can be to build a website for the World Wide Web. I suggest reading the rest of the site before attempting to follow the One Page Starter instructions. I give more details about coding HTML and building websites &mdash; and more details and options about domain names, hosting, and uploading than we just went through in the One Page Starter. There are some other hosting options that you could take advantage of that are free but with some restrictions. You&rsquo;ll need to consider the pros and cons and find what works for you.</p>
+            <p>You can start by:</p>
+            <ol>
+              <li><a href="/www/">Learning About the <abbr title="World Wide Web">WWW</abbr></a></li>
+              <li><a href="/html/">Learning <abbr title="Hyper Text Markup Language">HTML</abbr></a></li>
+            </ol>
+            <p>You can also check out other <a href="https://www.htmlhobbyist.com/www/choosing_a_web_host.html#hosting">Hosting Walk-throughs</a>.</p>
+          </aside>
+        </section>
+        <section>
+          <hr />
+          <h2 id="mission">The HTML Hobbyist Mission</h2>
+          <ol>
+            <li>Show how quick, easy, and affordable it has become to get a website up and running.</li>
+            <li>Show how enjoyable building a simple hand-coded artisanal HTML website can be.</li>
+            <li>Provide instructions and guidance on how others could build and upload a similar hobbyist website to share with the community.</li>
+          </ol>
+          <h3>We left the  World Wide Web&hellip;</h3>
+          <p>We left the World Wide Web for commercial magazines and we got advertisements. We left the World Wide Web for eCommerce and got cookies and tracking, so that they can tell us we&rsquo;ve forgotten products in their shopping cart, or send ads to follow us after we&rsquo;ve just purchased that exact same thing. We left the World Wide Web for centralized blogging platforms and we lost control of our code, relying on prebuilt templates. We left the World Wide Web for social media and we got locked in to algorithm driven walled-gardens, and we don&rsquo;t even have a wall any more, we have a stream and all manner of refuse flows through it. We left the World Wide Web when we decided that user visits and going viral was more important than just writing good content, even if only five other people in the world found it useful.</p>
+          <p>We left the World Wide Web when we didn&rsquo;t realize that those five people are a treasure.</p>
+          <p>There are a myriad of problems with the modern Web, everything mentioned so far: advertising driven monetization of content, blogging software, social media sites, and mobile apps, each in turn, came along and changed the Web and how we use it. The current user experience is dreadful: over-animated advertising, an abundance of pop-ups, cookie opt-ins, paywalls, and notification permissions.</p>
+          <!-- There were problems with the Web 20+ years ago too, but they were different problems than today. -->
+          <p>The advances in web development and design are no better than the advances in the web experience. The designers begged for additional control of colors, typography, and layout that would become <abbr title="Cascading Style Sheets">CSS</abbr> and the developers desired more control and interaction, in which JavaScript would eventually become the clear winner. <strong>The modern JavaScript heavy, framework driven, post-processed, package imported tool chain is just a very fancy, very complicated, and very automated way to deliver HTML.</strong> We just feel clever by calling it a <em>web application</em>.</p>
+          <aside>
+            <h3>Badly explain your profession: Web Developer</h3>
+            <p>&ldquo;I write programs that display HTML in web browsers.&rdquo;</p>
+          </aside>
+          <h3>&hellip;The World Wide Web didn&rsquo;t leave us</h3>
+          <p>The World Wide Web is still here, we&rsquo;re just not using it like we were. It&rsquo;s not a matter of making the web simple. It doesn&rsquo;t need to be complicated to allow us a free and open expression of creativity.</p>
+          <p>This isn&rsquo;t a new movement by any means, maybe I&rsquo;m only just now being pulled into the zeitgeist.</p>
+          <blockquote>
+            <p>I am tired of living in an online world where people are isolated from each other in boring, spied-on gated communities, and are given generic templates which define what people are supposed to know about each other. It&rsquo;s time we took back our personalities from these sterilized, lifeless, monetized, monitored entities and let our creativity flourish again.</p>
+            <cite><a href="https://web.archive.org/web/20130707062738/https://neocities.org/about">About Neocities</a>, in 2013</cite>
+          </blockquote>
+          <p>Even now, the World Wide Web is finding more champions&hellip;</p>
+          <blockquote>
+            <p>What these rebellious programmers are building goes by many names &mdash; indieweb, yesterweb, folk internet &mdash; and relies on simple design choices, often borrowing elements from the 1980s and 1990s. For some in their 30s and 40s, it&rsquo;s a recreation of an Internet experience they encountered as teenagers traversing bulletin boards and peeking into small, tightly knit online communities.</p>
+            <cite><a href="https://thedebrief.org/tech-workers-rebel-against-a-lame-ass-internet-by-bringing-back-geocities-style-webrings/">Eli Motycka</a>, The Debrief, in September of 2021</cite>
+          </blockquote>
+          <p>You were able to land on this website and just start reading&hellip; how refreshing was that? No layout shifts caused by loading ads. No begging for you to allow web notifications. No pop-up appeals to sign up for our newsletter. Just simple, relatively unadulterated <strong>H</strong> <strong>T</strong> <strong>M</strong> <strong>L</strong>.</p>
+          <p>I think that Tim Berners-Lee sums it up best, about the promise of the World Wide Web, and gives us a clear picture of its intent:</p>
+          <blockquote>
+            <p>The dream behind the Web is of a common information space in which we communicate by sharing information. Its universality is essential: the fact that a hypertext link can point to anything, be it personal, local or global, be it draft or highly polished. There was a second part of the dream, too, dependent on the Web being so generally used that it became a realistic mirror (or in fact the primary embodiment) of the ways in which we work and play and socialize. That was that once the state of our interactions was on line, we could then use computers to help us analyze it, make sense of what we are doing, where we individually fit in, and how we can better work together.</p>
+            <cite><a href="https://www.w3.org/People/Berners-Lee/FAQ.html#What2">Tim Berners-Lee, FAQs</a></cite>
+          </blockquote>
+          <!-- <p>It&rsquo;s even more refreshing as a web developer. In the good old days I was able to simply open up a text editor and start creating a web page. I used to laugh (on the inside) at the back end developers who were always having issues with their dev environment because some framework was misconfigured or some other library was throwing errors. That&rsquo;s my life now.</p> -->
+          <p><!-- Let&rsquo;s get back to the Web that was, and the Web we want it to be. --> We&rsquo;re not building the next mega-global-cyber-conglomerate &mdash; we&rsquo;re building a simple hobby site and sharing it with the World Wide Web.</p>
+        </section>
+      </article>
+      <aside>
+        <section>
+          <h2 id="web_badge">Get the HTML Hobbyist web badge:</h2>
+          <p>What do you need to do to earn it? Just pledge to make a simple, honest website with the proper use of HTML, the use of CSS <em>only</em> where essential, and the use of JavaScript <em>only where it&rsquo;s absolutely necessary</em>.</p>
+          <figure>
+            <a href="https://www.htmlhobbyist.com/">
+              <img src="/images/html-hobbyist-badge.svg" height="250" width="250" alt="I am an HTML Hobbyist" />
+            </a>
+          </figure>
+          <p>Right click the image and <code>Save Image</code> into the folder where you&rsquo;ve decided to store your images for your website. Then copy the HTML code below onto your page and make sure the <code>src</code> attribute points to the location of the image on your site.</p>
+          <pre><code>&lt;a href="https://www.htmlhobbyist.com/"&gt;
+  &lt;img src="/images/html-hobbyist-badge.svg" height="250" width="250" alt="I am an HTML Hobbyist" /&gt;
+&lt;/a&gt;</code></pre>
+          <p>Since it&rsquo;s an SVG image, you can adjust the size to best suit your site without causing issues.</p>
+        </section>
+      </aside>
+
+      <iframe height="260" width="640" src="https://webring.htmlhobbyist.com/site/www.htmlhobbyist.com/" title="The HTML Hobbyist Webring"></iframe>
+    </main>
+    <footer>
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/faqs/">FAQs</a>
+        <a href="/contact/">Contact</a>
+        <a href="/announcements/">Announcements</a>
+        <a href="/links/">Links</a>
+      </nav>
+      <p><a href="https://validator.w3.org/nu/" class="validator"><img src="/images/validate_html5.svg" height="32" width="90" alt="W3C HTML Validator" /></a></p>
+      <p>See the code in the <a href="https://github.com/nelilly/html-hobbyist/" target="_blank" rel="noopener noreferrer"><svg id="github" height="21" width="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path fill="currentColor" d="M14.06 11.92c.39 0 .72.19 1 .58.28.38.43.86.43 1.42 0 .56-.14 1.04-.43 1.42-.28.38-.62.58-1 .58-.41 0-.76-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.29-.39.64-.58 1.05-.58zm5.03-5.2c1.1 1.19 1.65 2.63 1.65 4.32 0 1.1-.13 2.08-.38 2.96-.25.87-.57 1.59-.96 2.14s-.86 1.04-1.43 1.44c-.57.42-1.09.72-1.56.91-.47.19-1.01.34-1.63.45-.61.11-1.06.16-1.38.18-.31.01-.64.02-1 .02-.08 0-.35.01-.8.02-.44.02-.82.03-1.11.03-.29 0-.67-.01-1.11-.03-.45-.01-.72-.02-.8-.02-.36 0-.7 0-1-.02-.32-.02-.78-.07-1.38-.18-.62-.1-1.16-.25-1.63-.45-.47-.19-.99-.49-1.56-.91a6.3 6.3 0 01-1.43-1.44C1.2 15.59.88 14.88.62 14c-.25-.88-.38-1.86-.38-2.96 0-1.69.55-3.13 1.65-4.32-.1-.06-.11-.66 0-1.78.1-1.13.34-2.17.73-3.12 1.37.14 3.06.92 5.07 2.32.68-.18 1.62-.27 2.8-.27 1.25 0 2.18.09 2.81.27.92-.62 1.8-1.13 2.64-1.52.85-.38 1.47-.61 1.85-.67l.58-.13c.39.95.63 1.99.73 3.12.11 1.12.11 1.72-.01 1.78zm-8.54 11.43c2.46 0 4.32-.3 5.58-.89 1.26-.59 1.9-1.81 1.9-3.65 0-1.07-.4-1.96-1.2-2.67-.41-.39-.9-.62-1.45-.71-.54-.09-1.38-.09-2.51 0s-1.9.13-2.31.13c-.56 0-1.18-.03-1.94-.09s-1.36-.09-1.78-.11c-.44-.01-.9.04-1.4.16-.51.12-.92.32-1.25.62-.77.69-1.16 1.58-1.16 2.68 0 1.84.62 3.06 1.87 3.65 1.24.6 3.1.89 5.56.89h.09zm-3.56-6.23c.39 0 .72.19 1 .58.28.38.42.86.42 1.42 0 .56-.14 1.04-.42 1.42-.28.38-.62.58-1 .58-.42 0-.77-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.28-.39.63-.58 1.05-.58z"></path></svg>HTML Hobbyist repository on GitHub</a>.</p>
+      <p>&copy;2022 N.E.Lilly</p>
+    </footer>
+  </body>
+</html>

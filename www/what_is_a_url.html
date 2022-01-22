@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>What is a URL?: The HTML Hobbyist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
+    <meta name="keywords" content="HTML, Web Hosting, Domain Name, World Wide Web, WWW, Web Design, Web Development">
+    <meta name="description" content="A tour of the URL, and why understanding them is important.">
+    <link rel="canonical" href="https://www.htmlhobbyist.com/www/what_is_a_url.html" />
+    <meta property="og:title" content="What is a URL?" />
+    <meta property="og:url" content="https://www.htmlhobbyist.com/www/what_is_a_url.html" />
+    <meta property="og:description" content="A tour of the URL, and why understanding them is important." />
+    <meta property="og:image" content="https://www.htmlhobbyist.com/images/og/home.webp" />
+    <meta property="twitter:image" content="https://www.htmlhobbyist.com/images/og/home.webp" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
+    <script src="/scripts.js" defer></script>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <style>
+      .url_tour span {
+        cursor: pointer;
+        font-size: 1.5rem;
+        word-break: break-all;
+      }
+      .url_tour:hover span:hover {
+        color: maroon;
+      }
+      .url_tour:hover .item_protocol:hover a,
+      .url_tour:hover .item_host:hover a,
+      .url_tour:hover .item_path:hover a,
+      .url_tour:hover .item_query:hover a,
+      .url_tour:hover .item_fragment:hover a {
+        background-color: maroon;
+        color: white;
+        text-decoration: none;
+      }
+      
+      .url_tour:hover .item_protocol:hover ~ .url_protocol,
+      .url_tour:hover .item_host:hover ~ .url_host,
+      .url_tour:hover .item_path:hover ~ .url_path,
+      .url_tour:hover .item_query:hover ~ .url_query,
+      .url_tour:hover .item_fragment:hover ~ .url_fragment {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/"><img src="/html-hobbyist-square-animated-opt.svg" height="160" width="200" alt="The HTML Hobbyist" /></a>
+        <a href="/www/">WWW</a>
+        <a href="/html/">HTML</a>
+        <a href="/css/">CSS</a>
+        <!-- <a href="/img/">IMG</a> -->
+        <!-- <a href="/js/">JS</a> -->
+        <!-- <a href="/ux/">UX</a> -->
+      </nav>
+    </header>
+    <main>
+      <article>
+        <header>
+          <h1>What is a URL?</h1>
+        </header>
+        <section>
+          <p>A URL (Uniform Resource Locator) is the web address of a document on the World Wide Web. URLs are the first step the user takes when interacting with your website. <strong>URLs are like the command line to the World Wide Web.</strong> It is a string of text that you can use to pass instructions in through the location bar, and you receive a web page with information back.</p>
+          <p>A link is a way for the browser to utilize a URL from within a document. This interaction is often hidden within links.</p>
+          
+          <h2 id="a_tour_of_the_url">A Tour of the URL</h2>
+          <p>To understand links, first we need to understand URLs&hellip;</p>
+          <figure><!-- style="max-width: 100vw; margin: 0 calc(50% - 50vw)" -->
+            <img src="/images/html/url_tour.svg" alt="Protocol: http:// Host: www.htmlhobbyist.com Pathname: /html/search.html Query String: ?q=links&filter=elements Fragment: #result" />
+          </figure>
+          <p>A URL is one type of Uniform Resource Identifier (URI). “Web address” is a synonym for a URL that uses the <abbr title="HyperText Transfer Protocol">HTTP</abbr> <a href="#protocol">protocol</a>.</p>
+          <p>The five major parts of the URL:</p>
+          <ol>
+            <li class="item_protocol"><a href="#protocol">Protocol/Scheme</a></li>
+            <li class="item_host"><a href="#host">Host</a></li>
+            <!-- <li class="item_hostname"><a href="#hostname">Hostname</a></li> -->
+            <!-- <li class="item_port"><a href="#port">Port</a></li> -->
+            <li class="item_path"><a href="#pathname">Pathname</a></li>
+            <li class="item_query"><a href="#query_string">Query String</a></li>
+            <li class="item_fragment"><a href="#fragment_identifier">Fragment Identifier</a></li>
+          </ol>
+          <figure class="url_tour">
+            <figcaption>A sample URL</figcaption>
+            <code><span class="url_protocol" title="protocol">http://</span><span class="url_host" title="host">www.htmlhobbyist.com</span><span class="url_path" title="pathname">/html/search.html</span><span class="url_query" title="query string">?q=links&amp;filter=elements</span><span class="url_fragment" title="fragment identifier">#results</span></code>
+          </figure>
+          <p>URLs are universal. They work in every browser, in cURL requests, wget requests, your mobile devices, and even written down on sticky notes. </p>
+
+          <h3 id="protocol">Protocol</h3>
+          <p>The <code>http:</code> protocol isn&rsquo;t the only protocol there is. We also have <code>ftp:</code>, <code>mailto:</code>, and <code>javascript:</code>. There are classic protocols like <code>telnet:</code> and <code>gopher:</code> There are <a href="https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app">custom protocols</a>  that can launch specific browsers or apps.</p>
+          <p>The two most common that you will use are <abbr title="HyperText Transfer Protocol">HTTP</abbr> and <abbr title="HyperText Transfer Protocol Secure">HTTPS</abbr>. HTTPS is the secure version of HTTP and it encrypts data passed between the client and the server using <abbr title="Secure Socket Layer">SSL</abbr>.</p>
+          <ul>
+            <li>http:</li>
+            <li>https:</li>
+            <li>ftp:</li>
+            <li>mailto:</li>
+            <li>javascript:</li>
+            <li>gopher:</li>
+          </ul>
+
+          <h3 id="host">Host / Domain</h3>
+          <pre><code>http://nelilly:pass1234@www.htmlhobbyist.com:80/</code></pre>
+          <p>The host or domain portion of a URL usually only contains the domain name, but it can also contain authentication credentials and/or a port number.</p>
+          <ul>
+            <li>Authentication Credentials</li>
+            <li>Hostname or Domain Name</li>
+            <li>Port</li>
+          </ul>
+
+          <h4>Authentication Credentials</h4>
+          <p>The authentication credentials were used to pass username and password credentials to the server. It isn&rsquo;t typically used anymore and the ability is disabled in some browsers.</p>
+          <pre><code>nelilly:pass1234@</code></pre>
+
+          <h4 id="hostname">Hostname or Domain Name</h4>
+          <p>The domain name is typically what most people think of when talking about a website.</p>
+          <pre><code>www.htmlhobbyist.com</code></pre>
+          <p>Hostname has an effect on how cookies can be used throughout the site, based on your canonical domain name.</p>
+
+          <h5>Domain Name Extension</h5>
+          <p>The hostname contains a domain name extension, also referred to as a TLD (Top Level Domain).</p>
+          <pre><code>.com</code></pre>
+          <p>Common domain name extensions:</p>
+          <ol>
+            <li>.com</li>
+            <li>.net</li>
+            <li>.org</li>
+            <li>.edu</li>
+            <li>.mil</li>
+          </ol>
+          <p>Uncommon domain name extensions:</p>
+          <ol>
+            <li>.art</li>
+            <li>.biz</li>
+            <li>.horse</li>
+            <li>.surf</li>
+            <li>.website</li>
+          </ol>
+
+          <h4 id="port">Port</h4>
+          <p>You won&rsquo;t typically need to worry about port numbers. A port number is a way to identify a specific process to which an Internet or other network message is to be forwarded when it arrives at a server. The concept of registering a port predates the Internet.</p>
+          <p>Some popular default ports are:</p>
+          <dl>
+            <dt>:80</dt>
+            <dd>HTTP port used for the World Wide Web</dd>
+            <dt>:443</dt>
+            <dd>SSL port for secure sites (HTTPS)</dd>
+            <dt>:25</dt>
+            <dd>Simple Mail Transfer Protocol (SMTP) used for email</dd>
+            <dt>:21</dt>
+            <dd>File Transfer Protocol (FTP)</dd>
+            <dt>:22</dt>
+            <dd>Secure Shell (SSH) for directly interacting with a server on the command line</dd>
+          </dl>
+
+          <h3 id="pathname">Pathname</h3>
+          <pre><code>/html/hypertext_links.html</code></pre>
+          <p>The path portion of a URL usually corresponds to a directory path and file name. If the file name is left out the server will often be set up to check for <code>index.html</code> or <code>default.html</code> and use that. Servers can be configured to interpret a URL path or file name any way they like.</p>
+
+          <h3 id="query_string">Query String</h3>
+          <!-- <p>Before form elements, query strings were how users interacted with a web page using the <code>&lt;ISINDEX&gt;</code> element. They are no longer supported by browsers.</p> -->
+          <p>Query strings do nothing without programming to back them up. If the page isn&rsquo;t setup to read query strings on the server side, JavaScript can still utilize them. We&rsquo;ll cover them more in depth when we discuss forms in <a href="/www/">Webmastering & the Server</a>.</p>
+          <pre><code>?q=links&filter=elements</code></pre>
+
+          <h3 id="fragment_identifier">Fragment Identfiers</h3>
+          <p>The fragment identifier (<code>#</code>), sometimes referred to as a hash, identifies something specific as a function of the document. In HTML you can deep link into a specific <em>fragment</em> of a web page by adding a fragment identifier to the <code>href</code>, the link will bring you to an element with an <code>id</code> that matches the fragment id. If no id on the page matches the fragment identfier then it will simply bring you to the top of the designated page.</p>
+          <figure>
+            <figcaption>Examples of Fragment Identifiers in links going to their respective locations.</figcaption>
+            <ul>
+              <li><a href="#a_url_strategy">A URL Strategy</a></li>
+              <li><a href="/#one_page_starter">One Page Starter</a></li>
+              <li><a href="/html/page_structure_elements.html#section">Page Structure Elements: Section</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Hypertext#History">Hypertext History on Wikipedia</a></li>
+            </ul>
+          </figure>
+          <p>A liberal use of ids in your documents will help others link to specific locations within your content. You may not use duplicate ids on a page. If you do the url will only take the visitor to the first matching id that it finds.</p>
+        </section>
+        <section>
+          <h2 id="a_url_strategy">A URL Strategy</h2>
+          <p>Keep in mind some best practices when constructing and changing your URLs.</p>
+          <blockquote>
+            <p>I want people to be able to copy URLs. I want people to be able to hack URLs. I&rsquo;m not ashamed of my URLs …I&rsquo;m downright proud.</p>
+            <cite><a href="https://twitter.com/adactio/status/734875747169501185?lang=en">@adactio, Jeremy Keith</a>, May 23, 2016</cite>
+          </blockquote>
+          <p>Here are some basic guidelines when creating URLs for your site:</p>
+          <ol>
+            <li>URLs should not harm a user or, through inaction, allow a user to come to harm. <p>URLs should not cause confusion, expose users to security holes, be untrustworthy, etc. Pay attention to the status of the external websites that you link to.</p></li>
+            <li>URL structure should follow orders, except where this would conflict with the first law. <p>The URL should always display the expected content. The URL should be visible, logical, predictable, and meaningful. The user should be able to make guesses about the structure of the site when they look at the URL. URLs should use real words instead of random strings to increase URL accessibility.</p></li>
+            <li>URLs should continue to exist in the future, except where this would conflict with the first two laws.
+            <!-- http://blog.archive.org/2015/02/11/locking-the-web-open-a-call-for-a-distributed-web/ -->
+            <!-- https://blog.neocities.org/blog/2015/09/08/its-time-for-the-distributed-web.html -->
+            <p>You should strive to keep your directory structure and file names as stable as possible. Broken URLs have always been a problem online. In 1996 Keith Shafer and several others proposed a solution to the problem. In a fit of irony, the link to this solution is now broken (<a href="http://purl.oclc.org/OCLC/PURL/INET96">purl.oclc.org/OCLC/PURL/INET96</a>). It&rsquo;s luckily <a href="https://web.archive.org/web/19990501183456/http://purl.oclc.org/OCLC/PURL/INET96">preserved on the Internet Archive&rsquo;s Wayback Machine</a>, but not all pages are preserved there, and not all users are aware that the <a href="https://web.archive.org/">Internet Archive&rsquo;s Wayback Machine</a> exists. When your URLs inevitably change, you should do your best to provide a redirect to the new location and providing fallback support to help visitors find missing pages.</p>
+            <p>When you click the back button you should arrive at the previous page, and not some other location.</p>
+          </ol>
+          <p>Modern JavaScript practices doesn&rsquo;t always allow us to maintain these ideals as they often include components with state, calls to server side data, and single page applications that aren&rsquo;t tracked in the URL.</p>
+        </section>
+        <nav>
+          <a href="/www/what_is_a_file.html">What is a File?</a> &rarr;
+        </nav>
+      </article>
+    </main>
+    <footer>
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/faqs/">FAQs</a>
+        <a href="/contact/">Contact</a>
+        <a href="/announcements/">Announcements</a>
+        <a href="/links/">Links</a>
+      </nav>
+      <p><a href="https://validator.w3.org/nu/" class="validator"><img src="/images/validate_html5.svg" height="32" width="90" alt="W3C HTML Validator" /></a></p>
+      <p>See the code in the <a href="https://github.com/nelilly/html-hobbyist/" target="_blank" rel="noopener noreferrer"><svg id="github" height="21" width="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path fill="currentColor" d="M14.06 11.92c.39 0 .72.19 1 .58.28.38.43.86.43 1.42 0 .56-.14 1.04-.43 1.42-.28.38-.62.58-1 .58-.41 0-.76-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.29-.39.64-.58 1.05-.58zm5.03-5.2c1.1 1.19 1.65 2.63 1.65 4.32 0 1.1-.13 2.08-.38 2.96-.25.87-.57 1.59-.96 2.14s-.86 1.04-1.43 1.44c-.57.42-1.09.72-1.56.91-.47.19-1.01.34-1.63.45-.61.11-1.06.16-1.38.18-.31.01-.64.02-1 .02-.08 0-.35.01-.8.02-.44.02-.82.03-1.11.03-.29 0-.67-.01-1.11-.03-.45-.01-.72-.02-.8-.02-.36 0-.7 0-1-.02-.32-.02-.78-.07-1.38-.18-.62-.1-1.16-.25-1.63-.45-.47-.19-.99-.49-1.56-.91a6.3 6.3 0 01-1.43-1.44C1.2 15.59.88 14.88.62 14c-.25-.88-.38-1.86-.38-2.96 0-1.69.55-3.13 1.65-4.32-.1-.06-.11-.66 0-1.78.1-1.13.34-2.17.73-3.12 1.37.14 3.06.92 5.07 2.32.68-.18 1.62-.27 2.8-.27 1.25 0 2.18.09 2.81.27.92-.62 1.8-1.13 2.64-1.52.85-.38 1.47-.61 1.85-.67l.58-.13c.39.95.63 1.99.73 3.12.11 1.12.11 1.72-.01 1.78zm-8.54 11.43c2.46 0 4.32-.3 5.58-.89 1.26-.59 1.9-1.81 1.9-3.65 0-1.07-.4-1.96-1.2-2.67-.41-.39-.9-.62-1.45-.71-.54-.09-1.38-.09-2.51 0s-1.9.13-2.31.13c-.56 0-1.18-.03-1.94-.09s-1.36-.09-1.78-.11c-.44-.01-.9.04-1.4.16-.51.12-.92.32-1.25.62-.77.69-1.16 1.58-1.16 2.68 0 1.84.62 3.06 1.87 3.65 1.24.6 3.1.89 5.56.89h.09zm-3.56-6.23c.39 0 .72.19 1 .58.28.38.42.86.42 1.42 0 .56-.14 1.04-.42 1.42-.28.38-.62.58-1 .58-.42 0-.77-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.28-.39.63-.58 1.05-.58z"></path></svg>HTML Hobbyist repository on GitHub</a>.</p>
+      <p>&copy;2022 N.E.Lilly</p>
+    </footer>
+  </body>
+</html>

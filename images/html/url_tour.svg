@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0 950,200" stroke-width="2" dominant-baseline="middle" text-anchor="middle" font-family="Courier, Courier New Bold, monospace" font-size="20">
+  <circle id="protocol" cx="48" cy="98" r="32" fill="#0002" />
+  <circle id="hostname" cx="224" cy="98" r="123" fill="#0002" />
+  <circle id="pathname" cx="452" cy="98" r="98" fill="#0002" />
+  <circle id="query_string" cx="694" cy="98" r="143" fill="#0002" />
+  <circle id="fragment_identifier" cx="885" cy="98" r="48" fill="#0002" />
+  <text x="475" y="100">http://www.htmlhobbyist.com/html/search.html?q=links&amp;filter=elements#results</text>
+  <text x="48" y="50">Protocol</text>
+  <text x="224" y="50">Host</text>
+  <text x="452" y="50">Pathname</text>
+  <text x="694" y="50">Query String</text>
+  <text x="885" y="50">Fragment</text>
+</svg>

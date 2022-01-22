@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Color on the Web: The HTML Hobbyist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
+    <meta name="keywords" content="CSS, Cascading Stylesheets, HTML, World Wide Web, WWW, Web Design, Web Development">
+    <meta name="description" content="Learning about using color in CSS.">
+    <link rel="canonical" href="https://www.htmlhobbyist.com/css/color.html" />
+    <meta property="og:title" content="Color on the Web" />
+    <meta property="og:url" content="https://www.htmlhobbyist.com/css/color.html" />
+    <meta property="og:description" content="Learning about using color in CSS." />
+    <meta property="og:image" content="https://www.htmlhobbyist.com/images/og/css/css.webp" />
+    <meta property="twitter:image" content="https://www.htmlhobbyist.com/images/og/css/css.webp" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
+    <script src="/scripts.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" />
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <style>
+      .box {
+        border: 4px solid currentColor;
+        padding: .25rem;
+      }
+      .redBox {
+        color: red;
+      }
+      .greenBox {
+        color: green;
+      }
+      .blueBox {
+        color: blue;
+      }
+      .redBox:hover {
+        color: maroon;
+      }
+      .greenBox:hover {
+        color: lime;
+      }
+      .blueBox:hover {
+        color: cyan;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/"><img src="/html-hobbyist-square-animated-opt.svg" height="160" width="200" alt="The HTML Hobbyist" /></a>
+        <a href="/www/">WWW</a>
+        <a href="/html/">HTML</a>
+        <a href="/css/">CSS</a>
+        <!-- <a href="/img/">IMG</a> -->
+        <!-- <a href="/js/">JS</a> -->
+        <!-- <a href="/ux/">UX</a> -->
+      </nav>
+    </header>
+    <main>
+      <article>
+        <header>
+          <h1>Color on the Web</h1>
+          <p>Color is an enhancement.</p>
+        </header>
+        <section>
+          <h2 id="color_theory">Color Theory</h2>
+          <p>I don&rsquo;t want to delve too deeply into Color Theory, but hopefully I can cover just enough so that you&rsquo;re not too lost.</p>
+          <p>Color on your screen are based on Red, Green, and Blue as primary colors. There are different color systems that we can use to access those values, each with their own pros and cons. Your computer monitor can&rsquo;t display every color, but they can display so many that the point is effectively moot (over 9 million in the RGB color space!).</p>
+          <p>Forget what you were taught in elementary school about color. Modern screens work slightly differently.</p>
+          <p>The color model, called the subtractive color model, that we learned was that red, blue, and yellow combine to make other colors. In printers the colors cyan (blue), magenta (red), and yellow can be combined to make nearly every other color.</p>
+
+          <figure>
+            <svg width="320" height="320" viewBox="0,0 120,120" color-interpolation-filters="linearRGB" class="subtractive">
+              <style>
+                .subtractive circle {
+                  cy: 39;
+                  transition: cy 1s linear;
+                  filter: contrast(4);
+                }
+                .subtractive:hover circle {
+                  cy: 60;
+                }
+                .mixed > circle {
+                  mix-blend-mode: multiply;
+                }
+              </style>
+              <g>
+                <circle cx="60" cy="59" r="38" fill="white" />
+                <circle cx="60" cy="59" r="38" fill="white" transform="rotate(120 60 60)" />
+                <circle cx="60" cy="59" r="38" fill="white" transform="rotate(240 60 60)" />
+              </g>
+              <g class="mixed">
+                <circle cx="60" cy="59" r="38" fill="cyan" />
+                <circle cx="60" cy="59" r="38" fill="yellow" transform="rotate(120 60 60)" />
+                <circle cx="60" cy="59" r="38" fill="magenta" transform="rotate(240 60 60)" />
+              </g>
+            </svg>
+            <figcaption>Subtractive Primary Colors</figcaption>
+          </figure>
+
+          <p>Color on your screen are based on Red, Green, and Blue values. The color model that screens use is called the additive color model. The colors red, green, and blue add up to make white.</p>
+
+          <figure>
+            <svg width="320" height="320" viewBox="0,0 120,120" color-interpolation-filters="sRGB" class="additive">
+              <style>
+                .additive circle {
+                  cy: 39;
+                  transition: cy 1s linear;
+                }
+                .additive:hover circle {
+                  cy: 60;
+                }
+              </style>
+              <g>
+                <circle cx="60" cy="59" r="38" fill="#f00" />
+                <circle cx="60" cy="59" r="38" fill="#0f0" transform="rotate(120 60 60)" />
+                <circle cx="60" cy="59" r="38" fill="#00f" transform="rotate(240 60 60)" />
+              </g>
+              <g>
+                <circle cx="60" cy="59" r="38" fill="#f00" style="mix-blend-mode: lighten;" />
+                <circle cx="60" cy="59" r="38" fill="#0f0" transform="rotate(120 60 60)" style="mix-blend-mode: lighten;" />
+                <circle cx="60" cy="59" r="38" fill="#00f" transform="rotate(240 60 60)" style="mix-blend-mode: lighten;" />
+              </g>
+            </svg>
+            <figcaption>Additive Primary Colors</figcaption>
+          </figure>
+          <p>There are different color systems that we can use to access those values, each with their own pros and cons. Using the RGB values we can make millions of colors on the screen.</p>
+          <figure>
+            <div role="img" aria-label="" style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 1rem;"><div style="display: inline-block; background: radial-gradient(#ffff 1%, #fff0 67%), conic-gradient(hsl(0,100%,50%), hsl(60,100%,50%), hsl(120,100%,50%), hsl(180,100%,50%), hsl(240,100%,50%), hsl(300,100%,50%), hsl(0,100%,50%)); max-width: 100%; border-radius: 100%; aspect-ratio: 1 / 1;"></div>
+            <div style="display: inline-block; background: radial-gradient(#000f 1%, #0000 67%), conic-gradient(hsl(0,100%,50%), hsl(60,100%,50%), hsl(120,100%,50%), hsl(180,100%,50%), hsl(240,100%,50%), hsl(300,100%,50%), hsl(0,100%,50%)); max-width: 100%; border-radius: 100%; aspect-ratio: 1 / 1;"></div></div>
+            <figcaption>Millions of colors possible using the RGB color model</figcaption>
+          </figure>
+          <!-- <p>Color terms: black, white, red, and then green and yellow, then blue.</p>
+          <ol>
+            <li>Red</li>
+            <li>Orange</li>
+            <li>Yellow</li>
+            <li>Chartreuse</li>
+            <li>Green</li>
+            <li>Aquamarine/Spring</li>
+            <li>Cyan</li>
+            <li>Cerulean</li>
+            <li>Blue (Ultramarine)</li>
+            <li>Violet</li>
+            <li>Magenta</li>
+            <li>Rose</li>
+          </ol> -->
+          
+          <p>Color depth is how we describe the number of colors possible.</p>
+          <dl>
+            <dt>1-bit color depth</dt>
+            <dd>Only black or white, such as in a simple bit map.</dd>
+            <dt>4-bit color depth</dt>
+            <dd>16 colors, usually shades of gray, such as in classic Macintosh systems.</dd>
+            <dt>8-bit color depth</dt>
+            <dd>256 colors, as seen in early video game systems, and early web design.</dd>
+            <dt>16-bit color depth</dt>
+            <dd>65,536 (thousands) colors</dd>
+            <dt>24-bit color depth</dt>
+            <dd>16,777,216 (millions) colors, usually describes color in three chanels of 256 values for red, green, and blue.</dd>
+            <dt>32-bit color depth</dt>
+            <dd>16,777,216 (millions) colors, usually describes color in four chanels of 256 values for cyan, magenta, yellow, and key (black). Primarily used in printing.</dd>
+          </dl>
+          <aside>
+            <h2 id="accessibility">Accessibility Considerations for Color</h2>
+            <p>Two of your main considerations when choosing colors will be to address color contrast. When you choose any color combination other than black and white, you need to make sure that the combination doesn&rsquo;t impact the ability to read the content. Some people have difficulty with low contrast.  Some people have a harder time seeing certain color combinations due to color blindness.</p>
+            <p>Your goal for the <a href="https://webaim.org/resources/contrastchecker/">W3C Color Contrast Checker</a> at a minimum should be to pass the AA rating. Use whatever colors that you deem necessary, just be aware that you might be excluding some visitors.</p>
+          </aside>
+        </section>
+        <section>
+          <h2 id="named_colors">Named Colors</h2>
+          <!-- https://en.wikipedia.org/wiki/Web_colors -->
+          <p>A list of names for 140 colors that can be used. Using color names is possibly the worst way to choose colors.</p>
+          <figure>
+            <figcaption>Basic 16 HTML Color List</figcaption>
+            <div class="swatches">
+              <div style="background-color: black"><code style="color: white">black</code></div>
+              <div style="background-color: silver"><code style="color: black">silver</code></div>
+              <div style="background-color: gray"><code style="color: black">gray</code></div>
+              <div style="background-color: white"><code style="color: black">white</code></div>
+              <div style="background-color: maroon"><code style="color: white">maroon</code></div>
+              <div style="background-color: red"><code>red</code></div>
+              <div style="background-color: purple"><code style="color: white">purple</code></div>
+              <div style="background-color: fuchsia"><code style="color: black">fuchsia</code></div>
+              <div style="background-color: navy"><code style="color: white">navy</code></div>
+              <div style="background-color: blue"><code style="color: white">blue</code></div>
+              <div style="background-color: teal"><code style="color: black">teal</code></div>
+              <div style="background-color: aqua"><code style="color: black">aqua</code></div>
+              <div style="background-color: green"><code style="color: white">green</code></div>
+              <div style="background-color: lime"><code style="color: white">lime</code></div>
+              <div style="background-color: olive"><code style="color: black">olive</code></div>
+              <div style="background-color: yellow"><code style="color: black">yellow</code></div>
+            </div>
+          </figure>
+          <figure>
+            <figcaption>Extended Color List (All 140 Named Colors)</figcaption>
+            <div class="swatches">
+              <div style="background-color: white"><code style="color: black">white</code></div>
+              <div style="background-color: ivory"><code style="color: black">ivory</code></div>
+              <div style="background-color: snow"><code style="color: black">snow</code></div>
+              <div style="background-color: mintcream"><code style="color: black">mintcream</code></div>
+              <div style="background-color: azure"><code style="color: black">azure</code></div>
+              <div style="background-color: floralwhite"><code style="color: black">floralwhite</code></div>
+              <div style="background-color: honeydew"><code style="color: black">honeydew</code></div>
+              <div style="background-color: ghostwhite"><code style="color: black">ghostwhite</code></div>
+              <div style="background-color: seashell"><code style="color: black">seashell</code></div>
+              <div style="background-color: aliceblue"><code style="color: black">aliceblue</code></div>
+              <div style="background-color: oldlace"><code style="color: black">oldlace</code></div>
+              <div style="background-color: lavenderblush"><code style="color: black">lavenderblush</code></div>
+              <div style="background-color: whitesmoke"><code style="color: black">whitesmoke</code></div>
+              <div style="background-color: beige"><code style="color: black">beige</code></div>
+              <div style="background-color: linen"><code style="color: black">linen</code></div>
+              <div style="background-color: antiquewhite"><code style="color: black">antiquewhite</code></div>
+              <div style="background-color: mistyrose"><code style="color: black">mistyrose</code></div>
+              <div style="background-color: mediumvioletred"><code style="color: black">mediumvioletred</code></div>
+              <div style="background-color: deeppink"><code style="color: black">deeppink</code></div>
+              <div style="background-color: palevioletred"><code style="color: black">palevioletred</code></div>
+              <div style="background-color: hotpink"><code style="color: black">hotpink</code></div>
+              <div style="background-color: lightpink"><code style="color: black">lightpink</code></div>
+              <div style="background-color: pink"><code style="color: black">pink</code></div>
+              <div style="background-color: darkred"><code style="color: white">darkred</code></div>
+              <div style="background-color: red"><code style="color: white">red</code></div>
+              <div style="background-color: firebrick"><code style="color: white">firebrick</code></div>
+              <div style="background-color: crimson"><code style="color: black">crimson</code></div>
+              <div style="background-color: indianred"><code style="color: black">indianred</code></div>
+              <div style="background-color: lightcoral"><code style="color: black">lightcoral</code></div>
+              <div style="background-color: salmon"><code style="color: black">salmon</code></div>
+              <div style="background-color: darksalmon"><code style="color: black">darksalmon</code></div>
+              <div style="background-color: lightsalmon"><code style="color: black">lightsalmon</code></div>
+              <div style="background-color: orangered"><code style="color: black">orangered</code></div>
+              <div style="background-color: tomato"><code style="color: black">tomato</code></div>
+              <div style="background-color: darkorange"><code style="color: black">darkorange</code></div>
+              <div style="background-color: coral"><code style="color: black">coral</code></div>
+              <div style="background-color: orange"><code style="color: black">orange</code></div>
+              <div style="background-color: darkkhaki"><code style="color: black">darkkhaki</code></div>
+              <div style="background-color: gold"><code style="color: black">gold</code></div>
+              <div style="background-color: khaki"><code style="color: black">khaki</code></div>
+              <div style="background-color: peachpuff"><code style="color: black">peachpuff</code></div>
+              <div style="background-color: yellow"><code style="color: black">yellow</code></div>
+              <div style="background-color: palegoldenrod"><code style="color: black">palegoldenrod</code></div>
+              <div style="background-color: moccasin"><code style="color: black">moccasin</code></div>
+              <div style="background-color: papayawhip"><code style="color: black">papayawhip</code></div>
+              <div style="background-color: lightgoldenrodyellow"><code style="color: black">lightgoldenrodyellow</code></div>
+              <div style="background-color: lemonchiffon"><code style="color: black">lemonchiffon</code></div>
+              <div style="background-color: lightyellow"><code style="color: black">lightyellow</code></div>
+              <div style="background-color: maroon"><code style="color: white">maroon</code></div>
+              <div style="background-color: brown"><code style="color: black">brown</code></div>
+              <div style="background-color: saddlebrown"><code style="color: black">saddlebrown</code></div>
+              <div style="background-color: sienna"><code style="color: black">sienna</code></div>
+              <div style="background-color: chocolate"><code style="color: black">chocolate</code></div>
+              <div style="background-color: darkgoldenrod"><code style="color: black">darkgoldenrod</code></div>
+              <div style="background-color: peru"><code style="color: black">peru</code></div>
+              <div style="background-color: rosybrown"><code style="color: black">rosybrown</code></div>
+              <div style="background-color: goldenrod"><code style="color: black">goldenrod</code></div>
+              <div style="background-color: sandybrown"><code style="color: black">sandybrown</code></div>
+              <div style="background-color: tan"><code style="color: black">tan</code></div>
+              <div style="background-color: burlywood"><code style="color: black">burlywood</code></div>
+              <div style="background-color: wheat"><code style="color: black">wheat</code></div>
+              <div style="background-color: navajowhite"><code style="color: black">navajowhite</code></div>
+              <div style="background-color: bisque"><code style="color: black">bisque</code></div>
+              <div style="background-color: blanchedalmond"><code style="color: black">blanchedalmond</code></div>
+              <div style="background-color: cornsilk"><code style="color: black">cornsilk</code></div>
+              <div style="background-color: darkgreen"><code style="color: white">darkgreen</code></div>
+              <div style="background-color: green"><code style="color: white">green</code></div>
+              <div style="background-color: darkolivegreen"><code style="color: black">darkolivegreen</code></div>
+              <div style="background-color: forestgreen"><code style="color: white">forestgreen</code></div>
+              <div style="background-color: seagreen"><code style="color: black">seagreen</code></div>
+              <div style="background-color: olive"><code style="color: black">olive</code></div>
+              <div style="background-color: olivedrab"><code style="color: black">olivedrab</code></div>
+              <div style="background-color: mediumseagreen"><code style="color: black">mediumseagreen</code></div>
+              <div style="background-color: limegreen"><code style="color: white">limegreen</code></div>
+              <div style="background-color: lime"><code style="color: black">lime</code></div>
+              <div style="background-color: springgreen"><code style="color: black">springgreen</code></div>
+              <div style="background-color: mediumspringgreen"><code style="color: black">mediumspringgreen</code></div>
+              <div style="background-color: darkseagreen"><code style="color: black">darkseagreen</code></div>
+              <div style="background-color: mediumaquamarine"><code style="color: black">mediumaquamarine</code></div>
+              <div style="background-color: yellowgreen"><code style="color: black">yellowgreen</code></div>
+              <div style="background-color: lawngreen"><code style="color: black">lawngreen</code></div>
+              <div style="background-color: chartreuse"><code style="color: black">chartreuse</code></div>
+              <div style="background-color: lightgreen"><code style="color: black">lightgreen</code></div>
+              <div style="background-color: greenyellow"><code style="color: black">greenyellow</code></div>
+              <div style="background-color: palegreen"><code style="color: black">palegreen</code></div>
+              <div style="background-color: teal"><code style="color: black">teal</code></div>
+              <div style="background-color: darkcyan"><code style="color: black">darkcyan</code></div>
+              <div style="background-color: lightseagreen"><code style="color: black">lightseagreen</code></div>
+              <div style="background-color: cadetblue"><code style="color: black">cadetblue</code></div>
+              <div style="background-color: darkturquoise"><code style="color: black">darkturquoise</code></div>
+              <div style="background-color: mediumturquoise"><code style="color: black">mediumturquoise</code></div>
+              <div style="background-color: turquoise"><code style="color: black">turquoise</code></div>
+              <div style="background-color: aqua"><code style="color: black">aqua</code></div>
+              <div style="background-color: cyan"><code style="color: black">cyan</code></div>
+              <div style="background-color: aquamarine"><code style="color: black">aquamarine</code></div>
+              <div style="background-color: paleturquoise"><code style="color: black">paleturquoise</code></div>
+              <div style="background-color: lightcyan"><code style="color: black">lightcyan</code></div>
+              <div style="background-color: navy"><code style="color: white">navy</code></div>
+              <div style="background-color: darkblue"><code style="color: white">darkblue</code></div>
+              <div style="background-color: mediumblue"><code style="color: white">mediumblue</code></div>
+              <div style="background-color: blue"><code style="color: white">blue</code></div>
+              <div style="background-color: midnightblue"><code style="color: white">midnightblue</code></div>
+              <div style="background-color: royalblue"><code style="color: black">royalblue</code></div>
+              <div style="background-color: steelblue"><code style="color: black">steelblue</code></div>
+              <div style="background-color: dodgerblue"><code style="color: black">dodgerblue</code></div>
+              <div style="background-color: deepskyblue"><code style="color: black">deepskyblue</code></div>
+              <div style="background-color: cornflowerblue"><code style="color: black">cornflowerblue</code></div>
+              <div style="background-color: skyblue"><code style="color: black">skyblue</code></div>
+              <div style="background-color: lightskyblue"><code style="color: black">lightskyblue</code></div>
+              <div style="background-color: lightsteelblue"><code style="color: black">lightsteelblue</code></div>
+              <div style="background-color: lightblue"><code style="color: black">lightblue</code></div>
+              <div style="background-color: powderblue"><code style="color: black">powderblue</code></div>
+              <div style="background-color: indigo"><code style="color: white">indigo</code></div>
+              <div style="background-color: purple"><code style="color: white">purple</code></div>
+              <div style="background-color: darkmagenta"><code style="color: white">darkmagenta</code></div>
+              <div style="background-color: darkviolet"><code style="color: white">darkviolet</code></div>
+              <div style="background-color: darkslateblue"><code style="color: white">darkslateblue</code></div>
+              <div style="background-color: blueviolet"><code style="color: black">blueviolet</code></div>
+              <div style="background-color: darkorchid"><code style="color: black">darkorchid</code></div>
+              <div style="background-color: fuchsia"><code style="color: black">fuchsia</code></div>
+              <div style="background-color: magenta"><code style="color: black">magenta</code></div>
+              <div style="background-color: slateblue"><code style="color: black">slateblue</code></div>
+              <div style="background-color: mediumslateblue"><code style="color: black">mediumslateblue</code></div>
+              <div style="background-color: mediumorchid"><code style="color: black">mediumorchid</code></div>
+              <div style="background-color: mediumpurple"><code style="color: black">mediumpurple</code></div>
+              <div style="background-color: orchid"><code style="color: black">orchid</code></div>
+              <div style="background-color: violet"><code style="color: black">violet</code></div>
+              <div style="background-color: plum"><code style="color: black">plum</code></div>
+              <div style="background-color: thistle"><code style="color: black">thistle</code></div>
+              <div style="background-color: lavender"><code style="color: black">lavender</code></div>
+              <div style="background-color: black"><code style="color: white">black</code></div>
+              <div style="background-color: darkslategray"><code style="color: white">darkslategray</code></div>
+              <div style="background-color: dimgray"><code style="color: black">dimgray</code></div>
+              <div style="background-color: slategray"><code style="color: black">slategray</code></div>
+              <div style="background-color: gray"><code style="color: black">gray</code></div>
+              <div style="background-color: lightslategray"><code style="color: black">lightslategray</code></div>
+              <div style="background-color: darkgray"><code style="color: black">darkgray</code></div>
+              <div style="background-color: silver"><code style="color: black">silver</code></div>
+              <div style="background-color: lightgray"><code style="color: black">lightgray</code></div>
+              <div style="background-color: gainsboro"><code style="color: black">gainsboro</code></div>
+            </div>
+          </figure>
+        </section>
+        <section>
+          <h2 id="color_systems">Color Systems</h2>
+          <p>When you&rsquo;re in the flow and coding a site quickly, sometimes it&rsquo;s easiest to just type in a color name and continue developing. The downside is you&rsquo;re just limited to the named colors. If you wanted a gray that&rsquo;s between <code>silver</code> and <code>lightgray</code>, you&rsquo;d be out of luck. But, there are various color systems that you can use to be more specific about the color that you want. The systems that you&rsquo;ll most likely use on the web are Hexadecimal, RGB, and HSL.</p>
+
+          <aside>
+            <p>Open this color picker. Click around to see the different color values. Change the color system from RGB to HSL to Hexadecimal.</p>
+            <figure>
+              <label for="colorPicker">Color Picker</label>
+              <input type="color" id="colorPicker" name="colorPicker" value="#ff0000">
+            </figure>
+            <p>Notice how the color values change as you choose different colors.</p>
+          </aside>
+
+          <h3>Hexadecimal Colors</h3>
+          <p>A Decimal number is a numbering system that uses the digits <code>0</code> through <code>9</code>. When you get to double digits (the number ten), then we put a <code>0</code> in the ones column (<code>10</code>). A Hexadecimal number uses the digits <code>0</code> through <code>F</code>. When you get to double digits (the number sixteen), then we put a <code>0</code> in the ones column (<code>10</code>). It&rsquo;s okay to think this is a little strange if this is your first time encountering it.</p>
+          <p>A Hexadecimal color string start this a hash character (<code>#</code>) and is followed by six Hexadecimal numbers. The first two columns stand for a red value, the second two columns stand for a green value, and the last two columns stand for a blue value. Using a two digit Hexadecimal number from <code>00</code> through <code>FF</code> and give you 256 different values (from 0 to 255).</p>
+          
+          <h4>The Web Safe Palette</h4>
+          <p>The web safe palette was developed back when video cards were limited to 8-bit color. The limit on 8-bit video cards was just 256 colors, of which 216 of them made up the web safe palette.</p>
+          <p>The value for a hex code color looks like this: <code>#00FF00</code>.</p>
+          <figure>
+            <figcaption>Web Safe Palette</figcaption>
+            <div class="palette" role="img" aria-label="">
+              <div style="background-color: #000000;"></div>
+              <div style="background-color: #000033;"></div>
+              <div style="background-color: #000066;"></div>
+              <div style="background-color: #000099;"></div>
+              <div style="background-color: #0000cc;"></div>
+              <div style="background-color: #0000ff;"></div>
+              <div style="background-color: #003300;"></div>
+              <div style="background-color: #003333;"></div>
+              <div style="background-color: #003366;"></div>
+              <div style="background-color: #003399;"></div>
+              <div style="background-color: #0033cc;"></div>
+              <div style="background-color: #0033ff;"></div>
+              <div style="background-color: #006600;"></div>
+              <div style="background-color: #006633;"></div>
+              <div style="background-color: #006666;"></div>
+              <div style="background-color: #006699;"></div>
+              <div style="background-color: #0066cc;"></div>
+              <div style="background-color: #0066ff;"></div>
+              <div style="background-color: #009900;"></div>
+              <div style="background-color: #009933;"></div>
+              <div style="background-color: #009966;"></div>
+              <div style="background-color: #009999;"></div>
+              <div style="background-color: #0099cc;"></div>
+              <div style="background-color: #0099ff;"></div>
+              <div style="background-color: #00cc00;"></div>
+              <div style="background-color: #00cc33;"></div>
+              <div style="background-color: #00cc66;"></div>
+              <div style="background-color: #00cc99;"></div>
+              <div style="background-color: #00cccc;"></div>
+              <div style="background-color: #00ccff;"></div>
+              <div style="background-color: #00ff00;"></div>
+              <div style="background-color: #00ff33;"></div>
+              <div style="background-color: #00ff66;"></div>
+              <div style="background-color: #00ff99;"></div>
+              <div style="background-color: #00ffcc;"></div>
+              <div style="background-color: #00ffff;"></div>
+              <div style="background-color: #330000;"></div>
+              <div style="background-color: #330033;"></div>
+              <div style="background-color: #330066;"></div>
+              <div style="background-color: #330099;"></div>
+              <div style="background-color: #3300cc;"></div>
+              <div style="background-color: #3300ff;"></div>
+              <div style="background-color: #333300;"></div>
+              <div style="background-color: #333333;"></div>
+              <div style="background-color: #333366;"></div>
+              <div style="background-color: #333399;"></div>
+              <div style="background-color: #3333cc;"></div>
+              <div style="background-color: #3333ff;"></div>
+              <div style="background-color: #336600;"></div>
+              <div style="background-color: #336633;"></div>
+              <div style="background-color: #336666;"></div>
+              <div style="background-color: #336699;"></div>
+              <div style="background-color: #3366cc;"></div>
+              <div style="background-color: #3366ff;"></div>
+              <div style="background-color: #339900;"></div>
+              <div style="background-color: #339933;"></div>
+              <div style="background-color: #339966;"></div>
+              <div style="background-color: #339999;"></div>
+              <div style="background-color: #3399cc;"></div>
+              <div style="background-color: #3399ff;"></div>
+              <div style="background-color: #33cc00;"></div>
+              <div style="background-color: #33cc33;"></div>
+              <div style="background-color: #33cc66;"></div>
+              <div style="background-color: #33cc99;"></div>
+              <div style="background-color: #33cccc;"></div>
+              <div style="background-color: #33ccff;"></div>
+              <div style="background-color: #33ff00;"></div>
+              <div style="background-color: #33ff33;"></div>
+              <div style="background-color: #33ff66;"></div>
+              <div style="background-color: #33ff99;"></div>
+              <div style="background-color: #33ffcc;"></div>
+              <div style="background-color: #33ffff;"></div>
+              <div style="background-color: #660000;"></div>
+              <div style="background-color: #660033;"></div>
+              <div style="background-color: #660066;"></div>
+              <div style="background-color: #660099;"></div>
+              <div style="background-color: #6600cc;"></div>
+              <div style="background-color: #6600ff;"></div>
+              <div style="background-color: #663300;"></div>
+              <div style="background-color: #663333;"></div>
+              <div style="background-color: #663366;"></div>
+              <div style="background-color: #663399;"></div>
+              <div style="background-color: #6633cc;"></div>
+              <div style="background-color: #6633ff;"></div>
+              <div style="background-color: #666600;"></div>
+              <div style="background-color: #666633;"></div>
+              <div style="background-color: #666666;"></div>
+              <div style="background-color: #666699;"></div>
+              <div style="background-color: #6666cc;"></div>
+              <div style="background-color: #6666ff;"></div>
+              <div style="background-color: #669900;"></div>
+              <div style="background-color: #669933;"></div>
+              <div style="background-color: #669966;"></div>
+              <div style="background-color: #669999;"></div>
+              <div style="background-color: #6699cc;"></div>
+              <div style="background-color: #6699ff;"></div>
+              <div style="background-color: #66cc00;"></div>
+              <div style="background-color: #66cc33;"></div>
+              <div style="background-color: #66cc66;"></div>
+              <div style="background-color: #66cc99;"></div>
+              <div style="background-color: #66cccc;"></div>
+              <div style="background-color: #66ccff;"></div>
+              <div style="background-color: #66ff00;"></div>
+              <div style="background-color: #66ff33;"></div>
+              <div style="background-color: #66ff66;"></div>
+              <div style="background-color: #66ff99;"></div>
+              <div style="background-color: #66ffcc;"></div>
+              <div style="background-color: #66ffff;"></div>
+              <div style="background-color: #990000;"></div>
+              <div style="background-color: #990033;"></div>
+              <div style="background-color: #990066;"></div>
+              <div style="background-color: #990099;"></div>
+              <div style="background-color: #9900cc;"></div>
+              <div style="background-color: #9900ff;"></div>
+              <div style="background-color: #993300;"></div>
+              <div style="background-color: #993333;"></div>
+              <div style="background-color: #993366;"></div>
+              <div style="background-color: #993399;"></div>
+              <div style="background-color: #9933cc;"></div>
+              <div style="background-color: #9933ff;"></div>
+              <div style="background-color: #996600;"></div>
+              <div style="background-color: #996633;"></div>
+              <div style="background-color: #996666;"></div>
+              <div style="background-color: #996699;"></div>
+              <div style="background-color: #9966cc;"></div>
+              <div style="background-color: #9966ff;"></div>
+              <div style="background-color: #999900;"></div>
+              <div style="background-color: #999933;"></div>
+              <div style="background-color: #999966;"></div>
+              <div style="background-color: #999999;"></div>
+              <div style="background-color: #9999cc;"></div>
+              <div style="background-color: #9999ff;"></div>
+              <div style="background-color: #99cc00;"></div>
+              <div style="background-color: #99cc33;"></div>
+              <div style="background-color: #99cc66;"></div>
+              <div style="background-color: #99cc99;"></div>
+              <div style="background-color: #99cccc;"></div>
+              <div style="background-color: #99ccff;"></div>
+              <div style="background-color: #99ff00;"></div>
+              <div style="background-color: #99ff33;"></div>
+              <div style="background-color: #99ff66;"></div>
+              <div style="background-color: #99ff99;"></div>
+              <div style="background-color: #99ffcc;"></div>
+              <div style="background-color: #99ffff;"></div>
+              <div style="background-color: #cc0000;"></div>
+              <div style="background-color: #cc0033;"></div>
+              <div style="background-color: #cc0066;"></div>
+              <div style="background-color: #cc0099;"></div>
+              <div style="background-color: #cc00cc;"></div>
+              <div style="background-color: #cc00ff;"></div>
+              <div style="background-color: #cc3300;"></div>
+              <div style="background-color: #cc3333;"></div>
+              <div style="background-color: #cc3366;"></div>
+              <div style="background-color: #cc3399;"></div>
+              <div style="background-color: #cc33cc;"></div>
+              <div style="background-color: #cc33ff;"></div>
+              <div style="background-color: #cc6600;"></div>
+              <div style="background-color: #cc6633;"></div>
+              <div style="background-color: #cc6666;"></div>
+              <div style="background-color: #cc6699;"></div>
+              <div style="background-color: #cc66cc;"></div>
+              <div style="background-color: #cc66ff;"></div>
+              <div style="background-color: #cc9900;"></div>
+              <div style="background-color: #cc9933;"></div>
+              <div style="background-color: #cc9966;"></div>
+              <div style="background-color: #cc9999;"></div>
+              <div style="background-color: #cc99cc;"></div>
+              <div style="background-color: #cc99ff;"></div>
+              <div style="background-color: #cccc00;"></div>
+              <div style="background-color: #cccc33;"></div>
+              <div style="background-color: #cccc66;"></div>
+              <div style="background-color: #cccc99;"></div>
+              <div style="background-color: #cccccc;"></div>
+              <div style="background-color: #ccccff;"></div>
+              <div style="background-color: #ccff00;"></div>
+              <div style="background-color: #ccff33;"></div>
+              <div style="background-color: #ccff66;"></div>
+              <div style="background-color: #ccff99;"></div>
+              <div style="background-color: #ccffcc;"></div>
+              <div style="background-color: #ccffff;"></div>
+              <div style="background-color: #ff0000;"></div>
+              <div style="background-color: #ff0033;"></div>
+              <div style="background-color: #ff0066;"></div>
+              <div style="background-color: #ff0099;"></div>
+              <div style="background-color: #ff00cc;"></div>
+              <div style="background-color: #ff00ff;"></div>
+              <div style="background-color: #ff3300;"></div>
+              <div style="background-color: #ff3333;"></div>
+              <div style="background-color: #ff3366;"></div>
+              <div style="background-color: #ff3399;"></div>
+              <div style="background-color: #ff33cc;"></div>
+              <div style="background-color: #ff33ff;"></div>
+              <div style="background-color: #ff6600;"></div>
+              <div style="background-color: #ff6633;"></div>
+              <div style="background-color: #ff6666;"></div>
+              <div style="background-color: #ff6699;"></div>
+              <div style="background-color: #ff66cc;"></div>
+              <div style="background-color: #ff66ff;"></div>
+              <div style="background-color: #ff9900;"></div>
+              <div style="background-color: #ff9933;"></div>
+              <div style="background-color: #ff9966;"></div>
+              <div style="background-color: #ff9999;"></div>
+              <div style="background-color: #ff99cc;"></div>
+              <div style="background-color: #ff99ff;"></div>
+              <div style="background-color: #ffcc00;"></div>
+              <div style="background-color: #ffcc33;"></div>
+              <div style="background-color: #ffcc66;"></div>
+              <div style="background-color: #ffcc99;"></div>
+              <div style="background-color: #ffcccc;"></div>
+              <div style="background-color: #ffccff;"></div>
+              <div style="background-color: #ffff00;"></div>
+              <div style="background-color: #ffff33;"></div>
+              <div style="background-color: #ffff66;"></div>
+              <div style="background-color: #ffff99;"></div>
+              <div style="background-color: #ffffcc;"></div>
+              <div style="background-color: #ffffff;"></div>
+            </div>
+          </figure>
+          <figure>
+            <figcaption>Web Safe Color List</figcaption>
+            <div class="swatches">
+              <div style="background-color: #000000"><code style="color: white">#000000</code></div>
+              <div style="background-color: #000033"><code style="color: white">#000033</code></div>
+              <div style="background-color: #000066"><code style="color: white">#000066</code></div>
+              <div style="background-color: #000099"><code style="color: white">#000099</code></div>
+              <div style="background-color: #0000cc"><code style="color: white">#0000CC</code></div>
+              <div style="background-color: #0000ff"><code style="color: white">#0000FF</code></div>
+              <div style="background-color: #003300"><code style="color: white">#003300</code></div>
+              <div style="background-color: #003333"><code style="color: white">#003333</code></div>
+              <div style="background-color: #003366"><code style="color: white">#003366</code></div>
+              <div style="background-color: #003399"><code style="color: white">#003399</code></div>
+              <div style="background-color: #0033cc"><code style="color: white">#0033CC</code></div>
+              <div style="background-color: #0033ff"><code style="color: white">#0033FF</code></div>
+              <div style="background-color: #006600"><code style="color: white">#006600</code></div>
+              <div style="background-color: #006633"><code style="color: white">#006633</code></div>
+              <div style="background-color: #006666"><code style="color: white">#006666</code></div>
+              <div style="background-color: #006699"><code style="color: white">#006699</code></div>
+              <div style="background-color: #0066cc"><code style="color: black">#0066CC</code></div>
+              <div style="background-color: #0066ff"><code style="color: black">#0066FF</code></div>
+              <div style="background-color: #009900"><code style="color: white">#009900</code></div>
+              <div style="background-color: #009933"><code style="color: white">#009933</code></div>
+              <div style="background-color: #009966"><code style="color: black">#009966</code></div>
+              <div style="background-color: #009999"><code style="color: black">#009999</code></div>
+              <div style="background-color: #0099cc"><code style="color: black">#0099CC</code></div>
+              <div style="background-color: #0099ff"><code style="color: black">#0099FF</code></div>
+              <div style="background-color: #00cc00"><code style="color: white">#00CC00</code></div>
+              <div style="background-color: #00cc33"><code style="color: white">#00CC33</code></div>
+              <div style="background-color: #00cc66"><code style="color: black">#00CC66</code></div>
+              <div style="background-color: #00cc99"><code style="color: black">#00CC99</code></div>
+              <div style="background-color: #00cccc"><code style="color: black">#00CCCC</code></div>
+              <div style="background-color: #00ccff"><code style="color: black">#00CCFF</code></div>
+              <div style="background-color: #00ff00"><code style="color: white">#00FF00</code></div>
+              <div style="background-color: #00ff33"><code style="color: white">#00FF33</code></div>
+              <div style="background-color: #00ff66"><code style="color: black">#00FF66</code></div>
+              <div style="background-color: #00ff99"><code style="color: black">#00FF99</code></div>
+              <div style="background-color: #00ffcc"><code style="color: black">#00FFCC</code></div>
+              <div style="background-color: #00ffff"><code style="color: black">#00FFFF</code></div>
+              <div style="background-color: #330000"><code style="color: white">#330000</code></div>
+              <div style="background-color: #330033"><code style="color: white">#330033</code></div>
+              <div style="background-color: #330066"><code style="color: white">#330066</code></div>
+              <div style="background-color: #330099"><code style="color: white">#330099</code></div>
+              <div style="background-color: #3300cc"><code style="color: white">#3300CC</code></div>
+              <div style="background-color: #3300ff"><code style="color: white">#3300FF</code></div>
+              <div style="background-color: #333300"><code style="color: white">#333300</code></div>
+              <div style="background-color: #333333"><code style="color: white">#333333</code></div>
+              <div style="background-color: #333366"><code style="color: white">#333366</code></div>
+              <div style="background-color: #333399"><code style="color: white">#333399</code></div>
+              <div style="background-color: #3333cc"><code style="color: white">#3333CC</code></div>
+              <div style="background-color: #3333ff"><code style="color: white">#3333FF</code></div>
+              <div style="background-color: #336600"><code style="color: white">#336600</code></div>
+              <div style="background-color: #336633"><code style="color: white">#336633</code></div>
+              <div style="background-color: #336666"><code style="color: white">#336666</code></div>
+              <div style="background-color: #336699"><code style="color: white">#336699</code></div>
+              <div style="background-color: #3366cc"><code style="color: black">#3366CC</code></div>
+              <div style="background-color: #3366ff"><code style="color: black">#3366FF</code></div>
+              <div style="background-color: #339900"><code style="color: white">#339900</code></div>
+              <div style="background-color: #339933"><code style="color: white">#339933</code></div>
+              <div style="background-color: #339966"><code style="color: black">#339966</code></div>
+              <div style="background-color: #339999"><code style="color: black">#339999</code></div>
+              <div style="background-color: #3399cc"><code style="color: black">#3399CC</code></div>
+              <div style="background-color: #3399ff"><code style="color: black">#3399FF</code></div>
+              <div style="background-color: #33cc00"><code style="color: white">#33CC00</code></div>
+              <div style="background-color: #33cc33"><code style="color: white">#33CC33</code></div>
+              <div style="background-color: #33cc66"><code style="color: black">#33CC66</code></div>
+              <div style="background-color: #33cc99"><code style="color: black">#33CC99</code></div>
+              <div style="background-color: #33cccc"><code style="color: black">#33CCCC</code></div>
+              <div style="background-color: #33ccff"><code style="color: black">#33CCFF</code></div>
+              <div style="background-color: #33ff00"><code style="color: white">#33FF00</code></div>
+              <div style="background-color: #33ff33"><code style="color: white">#33FF33</code></div>
+              <div style="background-color: #33ff66"><code style="color: black">#33FF66</code></div>
+              <div style="background-color: #33ff99"><code style="color: black">#33FF99</code></div>
+              <div style="background-color: #33ffcc"><code style="color: black">#33FFCC</code></div>
+              <div style="background-color: #33ffff"><code style="color: black">#33FFFF</code></div>
+              <div style="background-color: #660000"><code style="color: white">#660000</code></div>
+              <div style="background-color: #660033"><code style="color: white">#660033</code></div>
+              <div style="background-color: #660066"><code style="color: white">#660066</code></div>
+              <div style="background-color: #660099"><code style="color: white">#660099</code></div>
+              <div style="background-color: #6600cc"><code style="color: black">#6600CC</code></div>
+              <div style="background-color: #6600ff"><code style="color: black">#6600FF</code></div>
+              <div style="background-color: #663300"><code style="color: white">#663300</code></div>
+              <div style="background-color: #663333"><code style="color: white">#663333</code></div>
+              <div style="background-color: #663366"><code style="color: white">#663366</code></div>
+              <div style="background-color: #663399"><code style="color: white">#663399</code></div>
+              <div style="background-color: #6633cc"><code style="color: black">#6633CC</code></div>
+              <div style="background-color: #6633ff"><code style="color: black">#6633FF</code></div>
+              <div style="background-color: #666600"><code style="color: white">#666600</code></div>
+              <div style="background-color: #666633"><code style="color: white">#666633</code></div>
+              <div style="background-color: #666666"><code style="color: white">#666666</code></div>
+              <div style="background-color: #666699"><code style="color: white">#666699</code></div>
+              <div style="background-color: #6666cc"><code style="color: black">#6666CC</code></div>
+              <div style="background-color: #6666ff"><code style="color: black">#6666FF</code></div>
+              <div style="background-color: #669900"><code style="color: black">#669900</code></div>
+              <div style="background-color: #669933"><code style="color: black">#669933</code></div>
+              <div style="background-color: #669966"><code style="color: black">#669966</code></div>
+              <div style="background-color: #669999"><code style="color: black">#669999</code></div>
+              <div style="background-color: #6699cc"><code style="color: black">#6699CC</code></div>
+              <div style="background-color: #6699ff"><code style="color: black">#6699FF</code></div>
+              <div style="background-color: #66cc00"><code style="color: black">#66CC00</code></div>
+              <div style="background-color: #66cc33"><code style="color: black">#66CC33</code></div>
+              <div style="background-color: #66cc66"><code style="color: black">#66CC66</code></div>
+              <div style="background-color: #66cc99"><code style="color: black">#66CC99</code></div>
+              <div style="background-color: #66cccc"><code style="color: black">#66CCCC</code></div>
+              <div style="background-color: #66ccff"><code style="color: black">#66CCFF</code></div>
+              <div style="background-color: #66ff00"><code style="color: black">#66FF00</code></div>
+              <div style="background-color: #66ff33"><code style="color: black">#66FF33</code></div>
+              <div style="background-color: #66ff66"><code style="color: black">#66FF66</code></div>
+              <div style="background-color: #66ff99"><code style="color: black">#66FF99</code></div>
+              <div style="background-color: #66ffcc"><code style="color: black">#66FFCC</code></div>
+              <div style="background-color: #66ffff"><code style="color: black">#66FFFF</code></div>
+              <div style="background-color: #990000"><code style="color: white">#990000</code></div>
+              <div style="background-color: #990033"><code style="color: white">#990033</code></div>
+              <div style="background-color: #990066"><code style="color: white">#990066</code></div>
+              <div style="background-color: #990099"><code style="color: black">#990099</code></div>
+              <div style="background-color: #9900cc"><code style="color: black">#9900CC</code></div>
+              <div style="background-color: #9900ff"><code style="color: black">#9900FF</code></div>
+              <div style="background-color: #993300"><code style="color: white">#993300</code></div>
+              <div style="background-color: #993333"><code style="color: white">#993333</code></div>
+              <div style="background-color: #993366"><code style="color: white">#993366</code></div>
+              <div style="background-color: #993399"><code style="color: black">#993399</code></div>
+              <div style="background-color: #9933cc"><code style="color: black">#9933CC</code></div>
+              <div style="background-color: #9933ff"><code style="color: black">#9933FF</code></div>
+              <div style="background-color: #996600"><code style="color: white">#996600</code></div>
+              <div style="background-color: #996633"><code style="color: white">#996633</code></div>
+              <div style="background-color: #996666"><code style="color: white">#996666</code></div>
+              <div style="background-color: #996699"><code style="color: black">#996699</code></div>
+              <div style="background-color: #9966cc"><code style="color: black">#9966CC</code></div>
+              <div style="background-color: #9966ff"><code style="color: black">#9966FF</code></div>
+              <div style="background-color: #999900"><code style="color: black">#999900</code></div>
+              <div style="background-color: #999933"><code style="color: black">#999933</code></div>
+              <div style="background-color: #999966"><code style="color: black">#999966</code></div>
+              <div style="background-color: #999999"><code style="color: black">#999999</code></div>
+              <div style="background-color: #9999cc"><code style="color: black">#9999CC</code></div>
+              <div style="background-color: #9999ff"><code style="color: black">#9999FF</code></div>
+              <div style="background-color: #99cc00"><code style="color: black">#99CC00</code></div>
+              <div style="background-color: #99cc33"><code style="color: black">#99CC33</code></div>
+              <div style="background-color: #99cc66"><code style="color: black">#99CC66</code></div>
+              <div style="background-color: #99cc99"><code style="color: black">#99CC99</code></div>
+              <div style="background-color: #99cccc"><code style="color: black">#99CCCC</code></div>
+              <div style="background-color: #99ccff"><code style="color: black">#99CCFF</code></div>
+              <div style="background-color: #99ff00"><code style="color: black">#99FF00</code></div>
+              <div style="background-color: #99ff33"><code style="color: black">#99FF33</code></div>
+              <div style="background-color: #99ff66"><code style="color: black">#99FF66</code></div>
+              <div style="background-color: #99ff99"><code style="color: black">#99FF99</code></div>
+              <div style="background-color: #99ffcc"><code style="color: black">#99FFCC</code></div>
+              <div style="background-color: #99ffff"><code style="color: black">#99FFFF</code></div>
+              <div style="background-color: #cc0000"><code style="color: white">#CC0000</code></div>
+              <div style="background-color: #cc0033"><code style="color: white">#CC0033</code></div>
+              <div style="background-color: #cc0066"><code style="color: black">#CC0066</code></div>
+              <div style="background-color: #cc0099"><code style="color: black">#CC0099</code></div>
+              <div style="background-color: #cc00cc"><code style="color: black">#CC00CC</code></div>
+              <div style="background-color: #cc00ff"><code style="color: black">#CC00FF</code></div>
+              <div style="background-color: #cc3300"><code style="color: white">#CC3300</code></div>
+              <div style="background-color: #cc3333"><code style="color: white">#CC3333</code></div>
+              <div style="background-color: #cc3366"><code style="color: black">#CC3366</code></div>
+              <div style="background-color: #cc3399"><code style="color: black">#CC3399</code></div>
+              <div style="background-color: #cc33cc"><code style="color: black">#CC33CC</code></div>
+              <div style="background-color: #cc33ff"><code style="color: black">#CC33FF</code></div>
+              <div style="background-color: #cc6600"><code style="color: black">#CC6600</code></div>
+              <div style="background-color: #cc6633"><code style="color: black">#CC6633</code></div>
+              <div style="background-color: #cc6666"><code style="color: black">#CC6666</code></div>
+              <div style="background-color: #cc6699"><code style="color: black">#CC6699</code></div>
+              <div style="background-color: #cc66cc"><code style="color: black">#CC66CC</code></div>
+              <div style="background-color: #cc66ff"><code style="color: black">#CC66FF</code></div>
+              <div style="background-color: #cc9900"><code style="color: black">#CC9900</code></div>
+              <div style="background-color: #cc9933"><code style="color: black">#CC9933</code></div>
+              <div style="background-color: #cc9966"><code style="color: black">#CC9966</code></div>
+              <div style="background-color: #cc9999"><code style="color: black">#CC9999</code></div>
+              <div style="background-color: #cc99cc"><code style="color: black">#CC99CC</code></div>
+              <div style="background-color: #cc99ff"><code style="color: black">#CC99FF</code></div>
+              <div style="background-color: #cccc00"><code style="color: black">#CCCC00</code></div>
+              <div style="background-color: #cccc33"><code style="color: black">#CCCC33</code></div>
+              <div style="background-color: #cccc66"><code style="color: black">#CCCC66</code></div>
+              <div style="background-color: #cccc99"><code style="color: black">#CCCC99</code></div>
+              <div style="background-color: #cccccc"><code style="color: black">#CCCCCC</code></div>
+              <div style="background-color: #ccccff"><code style="color: black">#CCCCFF</code></div>
+              <div style="background-color: #ccff00"><code style="color: black">#CCFF00</code></div>
+              <div style="background-color: #ccff33"><code style="color: black">#CCFF33</code></div>
+              <div style="background-color: #ccff66"><code style="color: black">#CCFF66</code></div>
+              <div style="background-color: #ccff99"><code style="color: black">#CCFF99</code></div>
+              <div style="background-color: #ccffcc"><code style="color: black">#CCFFCC</code></div>
+              <div style="background-color: #ccffff"><code style="color: black">#CCFFFF</code></div>
+              <div style="background-color: #ff0000"><code style="color: white">#FF0000</code></div>
+              <div style="background-color: #ff0033"><code style="color: white">#FF0033</code></div>
+              <div style="background-color: #ff0066"><code style="color: black">#FF0066</code></div>
+              <div style="background-color: #ff0099"><code style="color: black">#FF0099</code></div>
+              <div style="background-color: #ff00cc"><code style="color: black">#FF00CC</code></div>
+              <div style="background-color: #ff00ff"><code style="color: black">#FF00FF</code></div>
+              <div style="background-color: #ff3300"><code style="color: white">#FF3300</code></div>
+              <div style="background-color: #ff3333"><code style="color: white">#FF3333</code></div>
+              <div style="background-color: #ff3366"><code style="color: black">#FF3366</code></div>
+              <div style="background-color: #ff3399"><code style="color: black">#FF3399</code></div>
+              <div style="background-color: #ff33cc"><code style="color: black">#FF33CC</code></div>
+              <div style="background-color: #ff33ff"><code style="color: black">#FF33FF</code></div>
+              <div style="background-color: #ff6600"><code style="color: black">#FF6600</code></div>
+              <div style="background-color: #ff6633"><code style="color: black">#FF6633</code></div>
+              <div style="background-color: #ff6666"><code style="color: black">#FF6666</code></div>
+              <div style="background-color: #ff6699"><code style="color: black">#FF6699</code></div>
+              <div style="background-color: #ff66cc"><code style="color: black">#FF66CC</code></div>
+              <div style="background-color: #ff66ff"><code style="color: black">#FF66FF</code></div>
+              <div style="background-color: #ff9900"><code style="color: black">#FF9900</code></div>
+              <div style="background-color: #ff9933"><code style="color: black">#FF9933</code></div>
+              <div style="background-color: #ff9966"><code style="color: black">#FF9966</code></div>
+              <div style="background-color: #ff9999"><code style="color: black">#FF9999</code></div>
+              <div style="background-color: #ff99cc"><code style="color: black">#FF99CC</code></div>
+              <div style="background-color: #ff99ff"><code style="color: black">#FF99FF</code></div>
+              <div style="background-color: #ffcc00"><code style="color: black">#FFCC00</code></div>
+              <div style="background-color: #ffcc33"><code style="color: black">#FFCC33</code></div>
+              <div style="background-color: #ffcc66"><code style="color: black">#FFCC66</code></div>
+              <div style="background-color: #ffcc99"><code style="color: black">#FFCC99</code></div>
+              <div style="background-color: #ffcccc"><code style="color: black">#FFCCCC</code></div>
+              <div style="background-color: #ffccff"><code style="color: black">#FFCCFF</code></div>
+              <div style="background-color: #ffff00"><code style="color: black">#FFFF00</code></div>
+              <div style="background-color: #ffff33"><code style="color: black">#FFFF33</code></div>
+              <div style="background-color: #ffff66"><code style="color: black">#FFFF66</code></div>
+              <div style="background-color: #ffff99"><code style="color: black">#FFFF99</code></div>
+              <div style="background-color: #ffffcc"><code style="color: black">#FFFFCC</code></div>
+              <div style="background-color: #ffffff"><code style="color: black">#FFFFFF</code></div>
+            </div>
+          </figure>
+          <p>You create your own colors using any hexadecimal numbers from <code>0</code> though <code>F</code>.</p>
+          <figure>
+            <div class="swatches">
+              <div style="background-color: #ffffff"><span style="color: black"><code>#FFFFFF</code>: Pure White</span></div>
+              <div style="background-color: #e4e4e4"><span style="color: black"><code>#E4E4E4</code>: Slight Gray</span></div>
+              <div style="background-color: #e4e4ff"><span style="color: black"><code>#E4E4FF</code>: Slight Grey favoring Blue</span></div>
+              <div style="background-color: #7F7F7F"><span style="color: black"><code>#7F7F7F</code>: Mid-grey by number value</span></div>
+              <div style="background-color: #767676"><span style="color: black"><code>#767676</code>: Mid-grey by contrast <span style="color: white" title="Good for black or white text">*</span></span></div>
+              <div style="background-color: #ff0000"><span style="color: black"><code>#FF0000</code>: Pure Red</span></div>
+              <div style="background-color: #00ff00"><span style="color: black"><code>#00FF00</code>: Pure Green</span></div>
+              <div style="background-color: #0000ff"><span style="color: black"><code>#00FF00</code>: Pure Blue</span></div>
+              <div style="background-color: #aa0000"><span style="color: black"><code>#AA0000</code>: A Darker Red</span></div>
+              <div style="background-color: #003300"><span style="color: white"><code>#003300</code>: Darkest Web Safe Green</span></div>
+              <div style="background-color: #6666ff"><span style="color: black"><code>#66FF66</code>: A Lighter Blue</span></div>
+            </div>
+          </figure>
+
+          <aside>
+            <p>If you&rsquo;re trying to recreate early web designs, you&rsquo;ll most likely be choosing colors from the web safe palette, and the basic 16 color names.</p>
+          </aside>
+
+          <h3><code>rgb()</code> color function</h3>
+          <p>The <code>rgb()</code> color function is a CSS function that converts rgb values into a value that the browser will understand. Standard 24-bit color made up of three channels (Red, Green, and Blue), with 256 values (from 0 to 255) for each channel. You&rsquo;ll most often see this format in image applications like Photoshop or GIMP. The value for an RGB color looks like this: <code>rgb(255, 0, 0)</code>.</p>
+          <pre><code>color: rgb(255, 255, 255);</code></pre>
+
+          <h3><code>hsl()</code> color function</h3>
+          <p>The <code>hsl()</code> color function is a CSS function that converts rgb values into a value that the browser will understand. The three values in HSL are Hue, Saturation, and Lightness. What you&rsquo;ll see on the screen is an RBG color. The value for an HSL color looks like this:</p>
+          <pre><code>color: hsl(120, 50%, 50%);</code></pre>
+          
+          <figure>
+            <!-- Make a JavaScript color picker. -->
+            <div style="background: radial-gradient(#ffff 3%, #fff0 67%), conic-gradient(hsl(0,100%,50%), hsl(60,100%,50%), hsl(120,100%,50%), hsl(180,100%,50%), hsl(240,100%,50%), hsl(300,100%,50%), hsl(0,100%,50%)); width: 20rem; max-width: 100%; border-radius: 100%; aspect-ratio: 1 / 1; margin: 0 auto;"></div>
+            <figcaption>
+              <dl>
+                <dt>Hue</dt>
+                <dd>360 degrees of value. Red is at the top at 0 degrees (or 360 degrees), green is at 120 degrees, and blue is at 240 degrees.</dd>
+                <dt>Saturation</dt>
+                <dd>From 0% saturation (pure gray) to 100% saturation (pure hue).</dd>
+                <dt>Lightness</dt>
+                <dd>From 0% lightness (pure black) to 50% lightness (pure hue) to 100% lightness (pure white)</dd>
+              </dl>
+            </figcaption>
+          </figure>
+          <aside>
+            <p>Colors can vary from device to device. They may appear too bright on your smart phone. Or too blue on your laptop. The factory tint setting is always too high. <!-- Going from the screen to the printer the differences can be even more drastic. --> Try not to stress too much. Some things are just beyond our control. Sometimes close enough is good enough.</p>
+          </aside>
+        </section>
+        <section>
+          <h2 id="color_properties">Color Properties</h2>
+          <p>The most common color proprties that you&rsquo;ll use are <code>color</code>, <code>background-color</code>, <code>border-color</code>.</p>
+          
+
+          <h3><code>color</code></h3>
+          <p><code>color</code> sets the color of the font for the selected element.</p>
+
+          <h3><code>background-color</code></h3>
+          <p><code>background-color</code> sets the background color of the font for the selected element.</p>
+
+          <h3><code>border-color</code></h3>
+          <p><code>border-color</code> sets the border color of the font for the selected element.</p>
+
+          <h3><code>currentColor</code> value keyword</h3>
+          <p>The <code>currentColor</code> value reflects the value of the <code>color</code> property. If the color of the element changes so will the associated properties using the <code>currentColor</code> keyword.</p>
+          <p class="box redBox">This is styled text.</p>
+          <p class="box greenBox">This is styled text.</p>
+          <p class="box blueBox">This is styled text.</p>
+          <pre><code>.currentBox {
+  border: 4px solid currentColor;
+}
+.redBox {
+  color: red;
+}
+.greenBox {
+  color: green;
+}
+.blueBox {
+  color: blue;
+}
+.redBox:hover {
+  color: maroon;
+}
+.greenBox:hover {
+  color: lime;
+}
+.blueBox:hover {
+  color: cyan;
+}</code></pre>
+        </section>
+        <section>
+          <h2 id="exercises">Exercises</h2>
+          <ol>
+            <li>Change the background-color on your web page.</li>
+            <li>Change the color of the text on your web page.</li>
+            <li>Change the background-color for all the aside elements of your web page.</li>
+            <li>Change the background-color for just one section of your web page.</li>
+          </ol>
+        </section>
+        <nav>
+          <a href="/css/using_images_with_css.html">Using Images with CSS</a> &rarr;
+        </nav>
+      </article>
+    </main>
+    <footer>
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/faqs/">FAQs</a>
+        <a href="/contact/">Contact</a>
+        <a href="/announcements/">Announcements</a>
+        <a href="/links/">Links</a>
+      </nav>
+      <p><a href="https://validator.w3.org/nu/" class="validator"><img src="/images/validate_html5.svg" height="32" width="90" alt="W3C HTML Validator" /></a></p>
+      <p>See the code in the <a href="https://github.com/nelilly/html-hobbyist/" target="_blank" rel="noopener noreferrer"><svg id="github" height="21" width="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path fill="currentColor" d="M14.06 11.92c.39 0 .72.19 1 .58.28.38.43.86.43 1.42 0 .56-.14 1.04-.43 1.42-.28.38-.62.58-1 .58-.41 0-.76-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.29-.39.64-.58 1.05-.58zm5.03-5.2c1.1 1.19 1.65 2.63 1.65 4.32 0 1.1-.13 2.08-.38 2.96-.25.87-.57 1.59-.96 2.14s-.86 1.04-1.43 1.44c-.57.42-1.09.72-1.56.91-.47.19-1.01.34-1.63.45-.61.11-1.06.16-1.38.18-.31.01-.64.02-1 .02-.08 0-.35.01-.8.02-.44.02-.82.03-1.11.03-.29 0-.67-.01-1.11-.03-.45-.01-.72-.02-.8-.02-.36 0-.7 0-1-.02-.32-.02-.78-.07-1.38-.18-.62-.1-1.16-.25-1.63-.45-.47-.19-.99-.49-1.56-.91a6.3 6.3 0 01-1.43-1.44C1.2 15.59.88 14.88.62 14c-.25-.88-.38-1.86-.38-2.96 0-1.69.55-3.13 1.65-4.32-.1-.06-.11-.66 0-1.78.1-1.13.34-2.17.73-3.12 1.37.14 3.06.92 5.07 2.32.68-.18 1.62-.27 2.8-.27 1.25 0 2.18.09 2.81.27.92-.62 1.8-1.13 2.64-1.52.85-.38 1.47-.61 1.85-.67l.58-.13c.39.95.63 1.99.73 3.12.11 1.12.11 1.72-.01 1.78zm-8.54 11.43c2.46 0 4.32-.3 5.58-.89 1.26-.59 1.9-1.81 1.9-3.65 0-1.07-.4-1.96-1.2-2.67-.41-.39-.9-.62-1.45-.71-.54-.09-1.38-.09-2.51 0s-1.9.13-2.31.13c-.56 0-1.18-.03-1.94-.09s-1.36-.09-1.78-.11c-.44-.01-.9.04-1.4.16-.51.12-.92.32-1.25.62-.77.69-1.16 1.58-1.16 2.68 0 1.84.62 3.06 1.87 3.65 1.24.6 3.1.89 5.56.89h.09zm-3.56-6.23c.39 0 .72.19 1 .58.28.38.42.86.42 1.42 0 .56-.14 1.04-.42 1.42-.28.38-.62.58-1 .58-.42 0-.77-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.28-.39.63-.58 1.05-.58z"></path></svg>HTML Hobbyist repository on GitHub</a>.</p>
+      <p>&copy;2022 N.E.Lilly</p>
+    </footer>
+  </body>
+</html>

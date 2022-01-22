@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OOCSS Media Object</title>
+    <base target="_top" />
+    <style>
+      html {
+        background-color: silver;
+        font-family: sans-serif;
+        font-size: 20px;
+      }
+
+      body {
+        padding: 1rem;
+        margin: 0 auto;
+        max-width: 640px;
+      }
+      
+      .media {margin:10px;}
+      .media, .bd {overflow:hidden; _overflow:visible; zoom:1;}
+      .media .img {float:left; margin-right: 10px;}
+      .media .img img{display:block;}
+      .media .imgExt{float:right; margin-left: 10px;}
+    </style>
+    <script src="scripts.js" defer></script>
+  </head>
+  <body>
+    <h1>OOCSS Media Object</h1>
+    <figure>
+      <section>
+        <div class="media attribution">
+          <a href="http://twitter.com/nelilly" class="img">
+            <img src="/images/css/nelilly_2018_small.webp" alt="@nelilly" />
+          </a>
+          <div class="bd">
+            @nelilly 14 minutes ago
+          </div>
+        </div>
+        <div class="media attribution">
+          <a href="http://twitter.com/nelilly" class="img">
+            <img src="/images/css/nelilly_2018_small.webp" alt="@nelilly" />
+          </a>
+          <div class="bd">
+            @nelilly 15 minutes ago
+          </div>
+        </div>
+        <div class="media attribution">
+          <a href="http://twitter.com/nelilly" class="img">
+            <img src="/images/css/nelilly_2018_small.webp" alt="@nelilly" />
+          </a>
+          <div class="bd">
+            @nelilly 16 minutes ago
+          </div>
+        </div>
+      </section>
+      <figcaption>
+        <p><a href="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/">media object</a></p></figcaption>
+    </figure>
+    <a href="https://www.htmlhobbyist.com/" class="back">HTML Hobbyist</a>
+  </body>
+</html>

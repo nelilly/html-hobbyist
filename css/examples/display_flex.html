@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Your title</title>
+    <base target="_top" />
+    <style>
+      html {
+        background-color: whitesmoke;
+        font-size: 20px;
+      }
+
+      body {
+        padding: 1rem;
+        margin: 0 auto;
+        max-width: 640px;
+      }
+
+      .flex {
+        display: flex;
+      }
+      .item {
+        border: 1px solid black;
+        padding: 1rem;
+      }
+      .around {
+        justify-content: space-around;
+      }
+      .between {
+        justify-content: space-between;
+      }
+      .evenly {
+        justify-content: space-evenly;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HTML Hobbyist</h1>
+    <section>
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+    </section>
+    
+    <h2 id="flex"><code>flex</code></h2>
+    <section class="flex">
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+    </section>
+    
+    <h2 id="space_around"><code>space-around</code></h2>
+    <section class="flex around">
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+    </section>
+    
+    <h2 id="space_between"><code>space-between</code></h2>
+    <section class="flex between">
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+    </section>
+    
+    <h2 id="space_evenly"><code>space-evenly</code></h2>
+    <section class="flex evenly">
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+    </section>
+    <p><a href="https://www.htmlhobbyist.com/">HTML Hobbyist</a></p>
+  </body>
+</html>

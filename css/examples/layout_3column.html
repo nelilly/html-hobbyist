@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Your title</title>
+    <base target="_top" />
+    <style>
+      html {
+        background-color: whitesmoke;
+        font-size: 20px;
+      }
+
+      body {
+        padding: 1rem;
+        margin: 0 auto;
+        max-width: 640px;
+        display: grid; 
+        grid-template-columns: 1fr 1fr 1fr 1fr; 
+        grid-template-rows: 1fr 1fr 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+          "header header header header"
+          "nav main main aside"
+          "footer footer footer footer"; 
+      }
+      header,
+      nav,
+      main,
+      aside,
+      footer {
+        border: 1px solid black;
+        padding: 1rem;
+      }
+
+      header { grid-area: header; }
+      nav { grid-area: nav; }
+      main { grid-area: main; }
+      aside { grid-area: aside; }
+      footer { grid-area: footer; }
+    </style>
+    <script src="scripts.js" defer></script>
+  </head>
+  <body>
+    <header>Header</header>
+    <nav>Menu</nav>
+    <main>Main</main>
+    <aside>Aside</aside>
+    <footer>Footer</footer>
+    <a href="https://www.htmlhobbyist.com/" class="back">HTML Hobbyist</a>
+  </body>
+</html>

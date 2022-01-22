@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Using CSS: The HTML Hobbyist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
+    <meta name="keywords" content="CSS, Cascading Stylesheets, HTML, World Wide Web, WWW, Web Design, Web Development">
+    <meta name="description" content="How and where do we write the CSS code to get it to change the presentation of your page?">
+    <link rel="canonical" href="https://www.htmlhobbyist.com/css/" />
+    <meta property="og:title" content="Using CSS" />
+    <meta property="og:url" content="https://www.htmlhobbyist.com/css/" />
+    <meta property="og:description" content="How and where do we write the CSS code to get it to change the presentation of your page?" />
+    <meta property="og:image" content="https://www.htmlhobbyist.com/images/og/css/css.webp" />
+    <meta property="twitter:image" content="https://www.htmlhobbyist.com/images/og/css/css.webp" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
+    <script src="/scripts.js" defer></script>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/"><img src="/html-hobbyist-square-animated-opt.svg" height="160" width="200" alt="The HTML Hobbyist" /></a>
+        <a href="/www/">WWW</a>
+        <a href="/html/">HTML</a>
+        <a href="/css/">CSS</a>
+        <!-- <a href="/img/">IMG</a> -->
+        <!-- <a href="/js/">JS</a> -->
+        <!-- <a href="/ux/">UX</a> -->
+      </nav>
+    </header>
+    <main>
+      <article>
+        <header>
+          <h1>Using CSS</h1>
+          <p>How and where do we write the CSS code to get it to change the presentation of your page?</p>
+        </header>
+        <section>
+          <h2 id="inline_css">Inline CSS</h2>
+          <p>You can write CSS rules directly into your HTML elements using the <code>style</code> attribute. These rules will only affect the specific element with the attribute, and potentially any elements that it contains.</p>
+          <pre><code>&lt;p style="color: red;"&gt;&lt;strong&gt;Error:&lt;/strong&gt; This contains error text.&lt;/p&gt;</code></pre>
+          <figure>
+            <p style="color: red;"><strong>Error:</strong> This contains error text.</p>
+            <figcaption>This is a <code>&lt;p&gt;</code> element with an inline style applied.</figcaption>
+          </figure>
+          <p>This would be extremely tedious if this were the only way to apply styles.</p>
+        </section>
+        <section>
+          <h2 id="local_css">Local CSS</h2>
+          <p>You can use the <code>&lt;style&gt;</code> element to write CSS rule directly on a web page. These rules will only affect the elements on the current HTML page. The <code>&lt;style&gt;</code> element can be placed anywhere on the page, though it&rsquo;s usually placed at the top.</p>
+
+          <p>Open your <code>index.html</code> and add a <code>&lt;style&gt;</code> element into the <code>&lt;head&gt;</code> element at the top of the page.</p>
+          <p>Add the following rules into the element:</p>
+          <pre><code>html {
+  background-color: beige;
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+body {
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+a {
+  color: red;
+}</code></pre>
+          <p>Any rule written within the <code>style</code> element would effect the entire page. The end result should look like this:</p>
+          <figure>
+            <iframe src="/css/examples/local_css.html" title="Sample page with local CSS" name="showcase" height="480" width="640"></iframe>
+            <figcaption><a href="/css/examples/local_css.html">Sample page with local CSS</a></figcaption>
+          </figure>
+
+          <p>We&rsquo;ve changed the default background color, font family, and font size  of the page; the padding, and maximum width of the content in the body; using the <code>auto</code> for the left and right margins, we&rsquo;ve centered the content in the body; and we&rsquo;ve set the default color the link for the page.</p>
+        </section>
+        <section>
+          <h2 id="external_stylesheets">External Stylesheets</h2>
+          <p>Declaring rules in a <code>style</code> element only make changes to the change that the element is on. To have the same styles on every page of your site, you can link to an external CSS file.</p>
+          <ol>
+            <li>
+              <p>Create a new file called <code>styles.css</code> and copy and paste the contents of the <code>&lt;style&gt;</code> element (but not the element itself) into the new file.</p>
+            </li>
+            <li>
+              <p>Replace the <code>&lt;style&gt;</code> with the <code>&lt;link&gt;</code> element.</p>
+              <pre><code>&lt;link rel="stylesheet" type="text/css" href="styles.css"&gt;</code></pre>
+            </li>
+          </ol>
+
+          <p>When you refresh, your page should look the same. Make sure the link element is typed correctly if it&rsquo;s not working. When it is working, you can use the same <code>&lt;link&gt;</code> element on all of your pages to share the styles throughout your website.</p>
+          
+          <p>You can view the stylesheet for The HTML Hobbyist for an example: <a href="/styles.css">styles.css</a>.</p>
+        </section>
+        <section>
+          <h2 id="css_reset">CSS Resets and Normalizations</h2>
+          <p>Any setting that you don&rsquo;t explicitly set in your CSS will be provided by the browser. The problem is that every brand of browser has slightly different default styles. In the early days browsers had different default background colors. If you forgot to explicitly set your background color it would show <code>white</code> in one brand of browser and <code>silver</code> in another. The differences in the default settings of browsers led to the development of CSS resets and normalizations. The goal of both a reset and a normalize is to make the HTML in a browser appear the same in all browsers. They just have different ways of solving that issue.</p>
+          <p>A CSS <em>reset</em> removes the default browser styling.</p>
+          <figure>
+            <iframe src="/css/examples/reset.css" title="CSS Reset" name="showcase" height="480" width="640"></iframe>
+            <figcaption><a href="/css/examples/reset.css">CSS Reset</a></figcaption>
+          </figure>
+          
+          <p>A CSS <em>normalize</em> makes the default browser styling consistent across browsers.</p>
+          <figure>
+            <iframe src="/css/examples/normalize.css" title="CSS Normalize" name="showcase" height="480" width="640"></iframe>
+            <figcaption><a href="/css/examples/normalize.css">CSS Normalize</a></figcaption>
+          </figure>
+
+          <p>My personal preference <!-- (normally) --> is to begin with a normalize set of rules in my stylesheet. For the <a href="/styles.css">HTML Hobbyist website&rsquo;s CSS</a>, I didn&rsquo;t apply a normalize or a reset. There may be subtle differences that show up between browsers, and I&rsquo;m OK with that for this website.</p>
+        </section>
+        <section>
+          <h2 id="exercises">Exercises</h2>
+          <ul>
+            <li>Create an external stylesheet and link to it from all of your pages.</li>
+            <li>Make all of your <code>h2</code> elements <code>navy</code>.</li>
+            <li>Change the standard link color to <code>red</code>.</li>
+            <li>Use the <code>:hover</code> pseudo-selector to make the link turn green when you hover over it.</li>
+            <li>Use the <code>:focus</code> pseudo-selector to make the link turn green when you tab to it.</li>
+          </ul>
+        </section>
+        <nav>
+          <a href="/css/css_custom_properties.html">CSS Custom Properties</a> &rarr;
+        </nav>
+      </article>
+    </main>
+    <footer>
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/faqs/">FAQs</a>
+        <a href="/contact/">Contact</a>
+        <a href="/announcements/">Announcements</a>
+        <a href="/links/">Links</a>
+      </nav>
+      <p><a href="https://validator.w3.org/nu/" class="validator"><img src="/images/validate_html5.svg" height="32" width="90" alt="W3C HTML Validator" /></a></p>
+      <p>See the code in the <a href="https://github.com/nelilly/html-hobbyist/" target="_blank" rel="noopener noreferrer"><svg id="github" height="21" width="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path fill="currentColor" d="M14.06 11.92c.39 0 .72.19 1 .58.28.38.43.86.43 1.42 0 .56-.14 1.04-.43 1.42-.28.38-.62.58-1 .58-.41 0-.76-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.29-.39.64-.58 1.05-.58zm5.03-5.2c1.1 1.19 1.65 2.63 1.65 4.32 0 1.1-.13 2.08-.38 2.96-.25.87-.57 1.59-.96 2.14s-.86 1.04-1.43 1.44c-.57.42-1.09.72-1.56.91-.47.19-1.01.34-1.63.45-.61.11-1.06.16-1.38.18-.31.01-.64.02-1 .02-.08 0-.35.01-.8.02-.44.02-.82.03-1.11.03-.29 0-.67-.01-1.11-.03-.45-.01-.72-.02-.8-.02-.36 0-.7 0-1-.02-.32-.02-.78-.07-1.38-.18-.62-.1-1.16-.25-1.63-.45-.47-.19-.99-.49-1.56-.91a6.3 6.3 0 01-1.43-1.44C1.2 15.59.88 14.88.62 14c-.25-.88-.38-1.86-.38-2.96 0-1.69.55-3.13 1.65-4.32-.1-.06-.11-.66 0-1.78.1-1.13.34-2.17.73-3.12 1.37.14 3.06.92 5.07 2.32.68-.18 1.62-.27 2.8-.27 1.25 0 2.18.09 2.81.27.92-.62 1.8-1.13 2.64-1.52.85-.38 1.47-.61 1.85-.67l.58-.13c.39.95.63 1.99.73 3.12.11 1.12.11 1.72-.01 1.78zm-8.54 11.43c2.46 0 4.32-.3 5.58-.89 1.26-.59 1.9-1.81 1.9-3.65 0-1.07-.4-1.96-1.2-2.67-.41-.39-.9-.62-1.45-.71-.54-.09-1.38-.09-2.51 0s-1.9.13-2.31.13c-.56 0-1.18-.03-1.94-.09s-1.36-.09-1.78-.11c-.44-.01-.9.04-1.4.16-.51.12-.92.32-1.25.62-.77.69-1.16 1.58-1.16 2.68 0 1.84.62 3.06 1.87 3.65 1.24.6 3.1.89 5.56.89h.09zm-3.56-6.23c.39 0 .72.19 1 .58.28.38.42.86.42 1.42 0 .56-.14 1.04-.42 1.42-.28.38-.62.58-1 .58-.42 0-.77-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.28-.39.63-.58 1.05-.58z"></path></svg>HTML Hobbyist repository on GitHub</a>.</p>
+      <p>&copy;2022 N.E.Lilly</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Your title</title>
+    <base target="_top" />
+    <style>
+      html {
+        background-color: whitesmoke;
+        font-size: 20px;
+      }
+
+      body {
+        padding: 1rem;
+        margin: 0 auto;
+        max-width: 640px;
+      }
+
+      .chapters {
+        counter-reset: chapter;
+      }
+
+      .chapters h2::before {
+        content: "Chapter " counter(chapter) ": ";
+        counter-increment: chapter; 
+      }
+
+      .circle_count {
+        counter-reset: section;
+        list-style: none;
+      }
+
+      .circle_count li {
+        line-height: 2;
+      }
+
+      .circle_count li::before {
+        border-radius: 100%;
+        border: 1px solid currentColor;
+        content: counter(section);
+        counter-increment: section; 
+        display: inline-block;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: .75rem;
+        font-weight: bold;
+        height: .85rem;
+        width: 1rem;
+        line-height: 1;
+        margin: 0 .5rem 0 0;
+        padding: .2rem .1rem .1rem;
+        text-align: center;
+      }
+    </style>
+    <script src="scripts.js" defer></script>
+  </head>
+  <body>
+    <h1>HTML Hobbyist</h1>
+    
+    <article class="chapters">
+      <section>
+        <h2 id="html">HTML</h2>
+        <p>The lazy ex-developer quickly uses GIFs, HTML, CSS, and JS on the World Wide Web.</p>
+      </section>
+      <section>
+        <h2 id="css">CSS</h2>
+        <p>The lazy ex-developer quickly uses GIFs, HTML, CSS, and JS on the World Wide Web.</p>
+      </section>
+      <section>
+        <h2 id="javascript">JavaScript</h2>
+        <p>The lazy ex-developer quickly uses GIFs, HTML, CSS, and JS on the World Wide Web.</p>
+      </section>
+    </article>
+
+    <h3>Custom Numbered List Bullets</h3>
+    <ol class="circle_count">
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+      <li>Four</li>
+    </ol>
+    <a href="https://www.htmlhobbyist.com/" class="back">HTML Hobbyist</a>
+  </body>
+</html>

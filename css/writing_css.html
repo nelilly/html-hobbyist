@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Writing CSS: The HTML Hobbyist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
+    <meta name="keywords" content="CSS, Cascading Stylesheets, HTML, World Wide Web, WWW, Web Design, Web Development">
+    <meta name="description" content="Structuring your CSS code and how to order your rules.">
+    <link rel="canonical" href="https://www.htmlhobbyist.com/css/" />
+    <meta property="og:title" content="Writing CSS" />
+    <meta property="og:url" content="https://www.htmlhobbyist.com/css/" />
+    <meta property="og:description" content="Structuring your CSS code and how to order your rules." />
+    <meta property="og:image" content="https://www.htmlhobbyist.com/images/og/css/css.webp" />
+    <meta property="twitter:image" content="https://www.htmlhobbyist.com/images/og/css/css.webp" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
+    <script src="/scripts.js" defer></script>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/"><img src="/html-hobbyist-square-animated-opt.svg" height="160" width="200" alt="The HTML Hobbyist" /></a>
+        <a href="/www/">WWW</a>
+        <a href="/html/">HTML</a>
+        <a href="/css/">CSS</a>
+        <!-- <a href="/img/">IMG</a> -->
+        <!-- <a href="/js/">JS</a> -->
+        <!-- <a href="/ux/">UX</a> -->
+      </nav>
+    </header>
+    <main>
+      <article>
+        <header>
+          <h1>Writing CSS</h1>
+          <p>Structuring your CSS code and how to order your rules.</p>
+        </header>
+        <section>
+          <h2 id="writing_your_own_style">Writing Your Own Style</h2>
+          <p>The design pattern that I typically use borrows from OOCSS, BEM, and SMACSS patterns. How you decide to write your own CSS is entirely up to you. Different websites that I create may have slightly different design patterns based on the needs of the site.</p>
+          <p>Combining the media object with a <a href="/css/css_design_patterns.html#bem">BEM-like</a> CSS class structure.</p>
+          <pre><code>&lt;article class="card"&gt;
+  &lt;header class="card_header"&gt;
+    &lt;h2 class="card_title"&gt;Title&lt;/h2&gt;
+    &lt;div class="card_image"&gt;
+      &lt;img src="image.png" alt="" /&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+  &lt;section class="card_body"&gt;
+    &lt;p&gt;The lazy ex-developer quickly uses GIFs, HTML, CSS, and JS on the World Wide Web.&lt;/p&gt;
+  &lt;/section&gt;
+  &lt;footer class="card_footer"&gt;
+    &lt;p&gt;Footer content&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+
+          <p>And the associated CSS would look like this:</p>
+
+          <pre><code>.card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.card_header {
+  border-bottom: .25rem double navy;
+}
+
+.card_title {
+  margin: 0;
+}</code></pre>
+          <figure>
+            <iframe src="/css/examples/oocss_card1.html" title="A CSS Card Pattern" height="480" width="640"></iframe>
+            <figcaption><a href="/css/examples/oocss_card1.html">A CSS Card Pattern</a></figcaption>
+          </figure>
+        </section>
+        <section>
+          <h2 id="teos">TEOS</h2>
+          <p>Loosely based on principles found in atomic design and object oriented CSS, as well as structure found in design systems and pattern libraries, here&rsquo;s a suggested order for writing CSS.</p>
+          <ol>
+            <li>Tokens: Your basic colors, spacing, fonts, and other values used throughout your website, as well as global pseudo selectors.</li>
+            <li>Elements: This would be where you would add your normalization rules and then any rules for your default elements.</li>
+            <li>Objects: collections of elements, usually with classes, to make some thing: whether you call it a widget, component, or something else.</li>
+            <li>Sections: Headers, Footers, Navigation, etc. Sections aren&rsquo;t quite objects and aren&rsquo;t quite layouts.</li>
+            <li>Layouts: A combination of sections that make up a page.</li>
+          </ol>
+          <h2 id="guidelines">Guidelines</h2>
+          <p>It&rsquo;s your code, and unless I&rsquo;m the lead developer on your team, I&rsquo;m not going to police your CSS. Write it however you want. Here are some CSS guidelines that have worked for me.</p>
+          <ol>
+            <li>Don&rsquo;t write a CSS Rule until you need it.</li>
+            <li>Go with the flow. Use the cascade.</li>
+            <li>Be as simple as possible, but no simpler.</li>
+            <li>Be semantic: If you want to make an error message red, <code>.error</code> is a better class name than <code>.red</code>. Think in objects.</li>
+            <li>Don&rsquo;t use ID selectors if you can avoid it. IDs are best use in URLs and for targetting elements with JavaScript, not to target elements with CSS.</li>
+            <li>Be direct: If you want to target an element, it&rsquo;s better to use <code>.header-link</code> rather than <code>.header .link</code> or <code>.header > .link</code> &mdash; At the point that you&rsquo;re nesting selectors to target something is a good point to use a class instead.</li>
+            <li>Be mindful of your selector specificity.</li>
+          </ol>
+        </section>
+        <aside>
+          <p>Sign up for my <a href="/announcements/">Announcements List</a> and I&rsquo;ll let you know when the site has been updated, when I&rsquo;ve added new content, or when I&rsquo;ve added more to learn.</p>
+        </aside>
+        <!-- Next Section Coming Soon! -->
+        <!-- <nav>
+          <a href="///">???</a> &rarr;
+        </nav> -->
+      </article>
+    </main>
+    <footer>
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/faqs/">FAQs</a>
+        <a href="/contact/">Contact</a>
+        <a href="/announcements/">Announcements</a>
+        <a href="/links/">Links</a>
+      </nav>
+      <p><a href="https://validator.w3.org/nu/" class="validator"><img src="/images/validate_html5.svg" height="32" width="90" alt="W3C HTML Validator" /></a></p>
+      <p>See the code in the <a href="https://github.com/nelilly/html-hobbyist/" target="_blank" rel="noopener noreferrer"><svg id="github" height="21" width="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path fill="currentColor" d="M14.06 11.92c.39 0 .72.19 1 .58.28.38.43.86.43 1.42 0 .56-.14 1.04-.43 1.42-.28.38-.62.58-1 .58-.41 0-.76-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.29-.39.64-.58 1.05-.58zm5.03-5.2c1.1 1.19 1.65 2.63 1.65 4.32 0 1.1-.13 2.08-.38 2.96-.25.87-.57 1.59-.96 2.14s-.86 1.04-1.43 1.44c-.57.42-1.09.72-1.56.91-.47.19-1.01.34-1.63.45-.61.11-1.06.16-1.38.18-.31.01-.64.02-1 .02-.08 0-.35.01-.8.02-.44.02-.82.03-1.11.03-.29 0-.67-.01-1.11-.03-.45-.01-.72-.02-.8-.02-.36 0-.7 0-1-.02-.32-.02-.78-.07-1.38-.18-.62-.1-1.16-.25-1.63-.45-.47-.19-.99-.49-1.56-.91a6.3 6.3 0 01-1.43-1.44C1.2 15.59.88 14.88.62 14c-.25-.88-.38-1.86-.38-2.96 0-1.69.55-3.13 1.65-4.32-.1-.06-.11-.66 0-1.78.1-1.13.34-2.17.73-3.12 1.37.14 3.06.92 5.07 2.32.68-.18 1.62-.27 2.8-.27 1.25 0 2.18.09 2.81.27.92-.62 1.8-1.13 2.64-1.52.85-.38 1.47-.61 1.85-.67l.58-.13c.39.95.63 1.99.73 3.12.11 1.12.11 1.72-.01 1.78zm-8.54 11.43c2.46 0 4.32-.3 5.58-.89 1.26-.59 1.9-1.81 1.9-3.65 0-1.07-.4-1.96-1.2-2.67-.41-.39-.9-.62-1.45-.71-.54-.09-1.38-.09-2.51 0s-1.9.13-2.31.13c-.56 0-1.18-.03-1.94-.09s-1.36-.09-1.78-.11c-.44-.01-.9.04-1.4.16-.51.12-.92.32-1.25.62-.77.69-1.16 1.58-1.16 2.68 0 1.84.62 3.06 1.87 3.65 1.24.6 3.1.89 5.56.89h.09zm-3.56-6.23c.39 0 .72.19 1 .58.28.38.42.86.42 1.42 0 .56-.14 1.04-.42 1.42-.28.38-.62.58-1 .58-.42 0-.77-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.28-.39.63-.58 1.05-.58z"></path></svg>HTML Hobbyist repository on GitHub</a>.</p>
+      <p>&copy;2022 N.E.Lilly</p>
+    </footer>
+  </body>
+</html>

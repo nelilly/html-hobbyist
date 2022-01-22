@@ -1,0 +1,175 @@
+*,:after,:before{ box-sizing: border-box; }
+
+html {
+  background-color: #fff;
+  font-size: 20px;
+}
+
+body {
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+body > header {
+  text-align: center;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+body > header.splash {
+  display: block;
+}
+
+body > header > img {
+  float: left;
+}
+
+aside {
+  border: groove;
+  padding: 1rem;
+}
+
+aside > :first-child,
+aside > section > :first-child {
+  margin-top: 0;
+}
+
+body > footer {
+  border-top: groove;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+footer > nav {
+  text-align: center;
+}
+
+footer > nav a {
+  padding: 0 1rem;
+}
+
+footer > nav a:not(:last-child) {
+  border-right: 2px solid #000;
+}
+
+main > header {
+  text-align: center;
+}
+
+header > nav {
+  text-align: center;
+}
+
+header > nav a {
+  padding: 0 1rem;
+}
+
+header > nav a:not(:last-child) {
+  border-right: 2px solid #000;
+}
+
+section,
+aside {
+  margin-bottom: 2rem;
+}
+aside > section:last-child {
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+hr {
+  border: 1px inset;
+  height: 3px;
+  background-color: #999;
+}
+
+pre {
+  border: 2px inset;
+  overflow: auto;
+  padding: 1rem;
+  white-space: pre-wrap;
+}
+
+summary {
+  cursor: pointer;
+  margin-bottom: .5rem;
+}
+
+li {
+  margin: .5rem 0;
+}
+
+a > svg {
+  padding-right: .25rem;
+  vertical-align: middle;
+}
+
+table {
+  width: 100%;
+}
+
+img,
+svg {
+  height: auto;
+  max-width: 100%;
+}
+
+figure > svg {
+  border: 1px dashed #999;
+}
+
+figcaption {
+  margin: .5rem 0;
+}
+
+fieldset {
+  border: groove;
+  padding: 1rem;
+}
+
+legend {
+  padding: .5rem;
+}
+
+input,
+textarea,
+button {
+  font-size: 1rem;
+  margin: 1rem 0 2rem;
+  padding: .5rem;
+  width: 100%;
+}
+
+textarea {
+  min-height: 12.5rem;
+  min-width: 27.5rem;
+  max-width: 27.5rem;
+}
+
+button {
+  background-color: #bbb;
+  border: 2px outset #ccc;
+  cursor: pointer;
+  margin: 1rem 0 0;
+}
+
+button:hover,
+button:focus {
+  background-color: #ccc;
+  border: 2px outset #bbb;
+  outline: none;
+}
+
+button:active {
+  background-color: #aaa;
+  border: 2px inset #999;
+}
+
+iframe {
+  max-width: 100%;
+}

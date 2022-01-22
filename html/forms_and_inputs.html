@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Forms and Inputs: The HTML Hobbyist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
+    <meta name="keywords" content="HTML, World Wide Web, WWW, Web Design, Web Development">
+    <meta name="description" content="Before JavaScript, forms and input elements were primarily how interactivity was provided.">
+    <link rel="canonical" href="https://www.htmlhobbyist.com/html/forms_and_inputs.html" />
+    <meta property="og:title" content="Forms and Inputs" />
+    <meta property="og:url" content="https://www.htmlhobbyist.com/html/forms_and_inputs.html" />
+    <meta property="og:description" content="Before JavaScript, forms and input elements were primarily how interactivity was provided." />
+    <meta property="og:image" content="https://www.htmlhobbyist.com/images/og/home.webp" />
+    <meta property="twitter:image" content="https://www.htmlhobbyist.com/images/og/home.webp" />
+    <link rel="stylesheet" type="text/css" href="/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
+    <script src="/scripts.js" defer></script>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/"><img src="/html-hobbyist-square-animated-opt.svg" height="160" width="200" alt="The HTML Hobbyist" /></a>
+        <a href="/www/">WWW</a>
+        <a href="/html/">HTML</a>
+        <a href="/css/">CSS</a>
+        <!-- <a href="/img/">IMG</a> -->
+        <!-- <a href="/js/">JS</a> -->
+        <!-- <a href="/ux/">UX</a> -->
+      </nav>
+    </header>
+    <main>
+      <article>
+        <header>
+          <h1>Forms and Inputs</h1>
+          <p>Forms and inputs allow a visitor to enter data that can be sent to a server for processing. Before JavaScript, forms and input elements were primarily how interactivity was provided.</p>
+        </header>
+        <section>
+          <h2 id="types_of_forms">Types of Forms</h2>
+          <p>Forms could be used to send an email, share on a social media network, add the submission to an email list, add information to a database, or a variety of other actions.</p>
+        </section>
+        <section>
+          <h2 id="form"><code>&lt;form&gt;</code></h2>
+          <p>When a visitor fills out a form element and submit the data, that information is sent to a server script. That script will recieve that information and process it, based on what the programmer wants the script to do. Without programming scripts on the back end (or some JavaScript on the front-end) forms won&rsquo;t actually do anything useful.</p>
+          <pre><code>&lt;form action="form.php" method="get"&gt;</code></pre>
+          <dl>
+            <dt><code>action</code></dt>
+            <dd>Directs the form response data to the designated page; usually to a server-side script where the data can be processed.</dd>
+            <dt><code>method</code></dt>
+            <dd>
+              <ul>
+                <li><code>get</code> appends a <a href="/www/what_is_a_url.html#query_string">query string</a>. The query string can then be accessed with either client-side or server-side programming. The resulting page can be bookmarked. Do not put sensitive information into query strings.</li>
+                <li><code>post</code> submits the data from the form to the page, but it cannot be accessed on the client-side. Bookmarking the page will not reserve the data.</li>
+              </ul>
+            </dd>
+          </dl>
+        </section>
+        <section>
+          <h2 id="inputs">Inputs</h2>
+          <p>Included within the <code>&lt;form&gt;</code> element, the <code>&lt;input&gt;</code> elements are a means allow visitors to enter information.</p>
+
+          <h3><code>&lt;input&gt;</code></h3>
+          <h4><code>text</code></h4>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" />
+
+          <h4><code>radio</code></h4>
+          <p>Allows the visitor to choose one item from a list.</p>
+          <label for="small"><input type="radio" id="small" name="color" value="small" checked /> Small</label>
+          <label for="medium"><input type="radio" id="medium" name="color" value="medium" /> Medium</label>
+          <label for="large"><input type="radio" id="large" name="color" value="large" /> Large</label>
+
+          <h4><code>checkbox</code></h4>
+          <p>Allows the visitor to pick zero or more choices.</p>
+          <label for="milk"><input type="checkbox" id="milk" name="shopping" value="milk" /> Milk</label>
+          <label for="eggs"><input type="checkbox" id="eggs" name="shopping" value="eggs" checked /> Eggs</label>
+          <label for="flour"><input type="checkbox" id="flour" name="shopping" value="flour" /> Flour</label>
+
+          <!-- <p>This attribute doesn&rsquo;t really do anything by itself, but it can be a convenient affordance for handling clicks or other events with JavaScript.</p> -->
+
+          <h4><code>number</code></h4>
+          <p>The <code>number</code> input type will only accept numerical data. On mobile devices it may call up the numeric keyboard.</p>
+          <label for="units">Units</label>
+          <input type="number" id="units" name="units" />
+
+          <h4><code>email</code></h4>
+          <p>The <code>email</code> input type accepts email addresses. On mobile devices it may call up the email keyboard.</p>
+          <label for="user_email">User Email</label>
+          <input type="email" id="user_email" name="user_email" />
+
+          <h4><code>date</code></h4>
+          <p>The <code>date</code> input type accepts date information. It may call up a date picker when interacted with.</p>
+          <label for="start_date">Start Date</label>
+          <input type="date" id="start_date" name="start_date" />
+
+          <h4><code>color</code></h4>
+          <p>The <code>color</code> input type accepts color information. It may call up a date picker when interacted with.</p>
+          <label for="text_color"><input type="color" id="text_color" name="text_color" /> Text Color</label>
+
+          <h3><code>&lt;textarea&gt;</code></h3>
+          <p>The <code>&lt;textarea&gt;</code> element allows longer bodies of text to be entered.</p>
+          <label for="message">Message</label>
+          <textarea id="message" name="message"></textarea>
+
+          <h3><code>&lt;hidden&gt;</code></h3>
+          <p>The <code>hidden</code> type allows you to store values hidden from the visitor.</p>
+          <code>&lt;input type="hidden" id="hidden_value" name="hidden_value" value="hidden value" /&gt;</code>
+
+          <h3><code>&lt;button&gt;</code></h3>
+          <p>The <code>&lt;button&gt;</code> element creates a button that interacts with the parent form. The type could be set to either <code>submit</code>, <code>reset</code>, or <code>button</code></p>
+          <dl>
+            <dt><code>submit</code></dt>
+            <dd>Submits the current form.</dd>
+            <dt><code>reset</code></dt>
+            <dd>Resets the current form.</dd>
+            <dt><code>button</code></dt>
+            <dd>Just a clickable button. This would require JavaScript to perform an action.</dd>
+          </dl>
+
+          <button type="button">Button</button>
+
+        </section>
+        <section>
+          <h2 id="example_forms">Example Forms</h2>
+          <p>Here&rsquo;s an example, the HTML Hobbyist Announcements List page, with form and input elements that use a third-party script from my web host to actually collect email addresses for people interested in receiving announcements. The subscribing and unsubscribing is all handled automatically in the script.</p>
+          <iframe src="/announcements/" title="Page with Form Elements" name="showcase" height="480" width="640"></iframe>
+          
+          <p>Here&rsquo;s another example, the HTML Hobbyist Contact page, with form and input elements that use a third-party script hosted on another server to actually send the information to me by email.</p>
+          <iframe src="/contact/" title="Page with Form Elements" name="showcase" height="480" width="640"></iframe>
+          
+          <p>Here&rsquo;s an example of inputs using JavaScript to make changes to the HTML page. I&rsquo;ll go into more detail about JavaScript when I add a JavaScript section to this web site.</p>
+          <iframe src="examples/form_javascript.html" title="Page with Form Elements and JavaScript" name="showcase" height="480" width="640"></iframe>
+          <p>Forms and inputs are incredibly useful, but require the programming to make them actually work.</p>
+        </section>
+        <nav>
+          <p><a href="/html/using_images.html">Using Images</a> &rarr;</p>
+        </nav>
+      </article>
+    </main>
+    <footer>
+      <nav>
+        <a href="/about/">About</a>
+        <a href="/faqs/">FAQs</a>
+        <a href="/contact/">Contact</a>
+        <a href="/announcements/">Announcements</a>
+        <a href="/links/">Links</a>
+      </nav>
+      <p><a href="https://validator.w3.org/nu/" class="validator"><img src="/images/validate_html5.svg" height="32" width="90" alt="W3C HTML Validator" /></a></p>
+      <p>See the code in the <a href="https://github.com/nelilly/html-hobbyist/" target="_blank" rel="noopener noreferrer"><svg id="github" height="21" width="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path fill="currentColor" d="M14.06 11.92c.39 0 .72.19 1 .58.28.38.43.86.43 1.42 0 .56-.14 1.04-.43 1.42-.28.38-.62.58-1 .58-.41 0-.76-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.29-.39.64-.58 1.05-.58zm5.03-5.2c1.1 1.19 1.65 2.63 1.65 4.32 0 1.1-.13 2.08-.38 2.96-.25.87-.57 1.59-.96 2.14s-.86 1.04-1.43 1.44c-.57.42-1.09.72-1.56.91-.47.19-1.01.34-1.63.45-.61.11-1.06.16-1.38.18-.31.01-.64.02-1 .02-.08 0-.35.01-.8.02-.44.02-.82.03-1.11.03-.29 0-.67-.01-1.11-.03-.45-.01-.72-.02-.8-.02-.36 0-.7 0-1-.02-.32-.02-.78-.07-1.38-.18-.62-.1-1.16-.25-1.63-.45-.47-.19-.99-.49-1.56-.91a6.3 6.3 0 01-1.43-1.44C1.2 15.59.88 14.88.62 14c-.25-.88-.38-1.86-.38-2.96 0-1.69.55-3.13 1.65-4.32-.1-.06-.11-.66 0-1.78.1-1.13.34-2.17.73-3.12 1.37.14 3.06.92 5.07 2.32.68-.18 1.62-.27 2.8-.27 1.25 0 2.18.09 2.81.27.92-.62 1.8-1.13 2.64-1.52.85-.38 1.47-.61 1.85-.67l.58-.13c.39.95.63 1.99.73 3.12.11 1.12.11 1.72-.01 1.78zm-8.54 11.43c2.46 0 4.32-.3 5.58-.89 1.26-.59 1.9-1.81 1.9-3.65 0-1.07-.4-1.96-1.2-2.67-.41-.39-.9-.62-1.45-.71-.54-.09-1.38-.09-2.51 0s-1.9.13-2.31.13c-.56 0-1.18-.03-1.94-.09s-1.36-.09-1.78-.11c-.44-.01-.9.04-1.4.16-.51.12-.92.32-1.25.62-.77.69-1.16 1.58-1.16 2.68 0 1.84.62 3.06 1.87 3.65 1.24.6 3.1.89 5.56.89h.09zm-3.56-6.23c.39 0 .72.19 1 .58.28.38.42.86.42 1.42 0 .56-.14 1.04-.42 1.42-.28.38-.62.58-1 .58-.42 0-.77-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.28-.39.63-.58 1.05-.58z"></path></svg>HTML Hobbyist repository on GitHub</a>.</p>
+      <p>&copy;2022 N.E.Lilly</p>
+    </footer>
+  </body>
+</html>
