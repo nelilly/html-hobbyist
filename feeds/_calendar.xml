@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ev="http://purl.org/rss/1.0/modules/event/">
+
+<channel>
+  <title>The HTML Hobbyist</title>
+  <atom:link href="https://www.htmlhobbyist.com/feed.xml" rel="self" type="application/rss+xml" />
+  <link>https://www.htmlhobbyist.com/</link>
+  <description>Learn to build your website, fanzine, or personal site.</description>
+  <image>
+    <url>https://www.htmlhobbyist.com/images/og/rss/rss.webp</url>
+    <title>The HTML Hobbyist</title>
+    <link>https://www.htmlhobbyist.com/</link>
+  </image>
+	<language>en-US</language>
+
+	<lastBuildDate>Tue, 19 Apr 2022 17:15:56 +0000</lastBuildDate>
+
+  <item>
+    <title>Birthday</title>
+		<category><![CDATA[Birthdays]]></category>
+    <link>https://lilly.art/about/</link>
+    <guid>https://lilly.art/about/</guid>
+    <ev:type>birthday</ev:type>
+    <ev:organizer>N.E. Lilly</ev:organizer>
+    <ev:location>Pottstown, PA</ev:location>
+    <ev:startdate>2024-12-12</ev:startdate>
+  </item>
+
+  <item>
+    <title>LibertyJS</title>
+		<category><![CDATA[JavaScript]]></category>
+    <link>https://libertyjs.com/</link>
+    <guid>https://libertyjs.com/</guid>
+    <ev:type>conference</ev:type>
+    <ev:organizer>LibertyJS</ev:organizer>
+    <ev:location>Philadelphia, PA</ev:location>
+    <ev:startdate>2024-10-18</ev:startdate>
+    <ev:enddate>2024-10-21</ev:enddate>
+  </item>
+</channel>
+</rss>

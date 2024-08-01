@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+
+<channel>
+  <title>The HTML Hobbyist: ’Net Noise</title>
+  <atom:link href="https://www.htmlhobbyist.com/feed.xml" rel="self" type="application/rss+xml" />
+  <link>https://www.htmlhobbyist.com/</link>
+  <description>Sound files of the early World Wide Web</description>
+  <image>
+    <url>https://www.htmlhobbyist.com/images/og/rss/rss.webp</url>
+    <title>The HTML Hobbyist: ’Net Noise</title>
+    <link>https://www.htmlhobbyist.com/</link>
+  </image>
+	<language>en-US</language>
+
+  <item>
+    <title>Dial Up Modem Noises</title>
+    <link>https://www.htmlhobbyist.com/audio/</link>
+    <guid>https://www.htmlhobbyist.com/audio/</guid>
+    <description><![CDATA[An illustration for <a href="https://www.spacewesterns.com/">Space Westerns Magazine</a>.<img src="https://lilly.art/images/illustration/nathan-e-lilly-walls-of-eryx.jpg" alt="" />]]></description>
+    <enclosure url="/audio/dial_up_modem_noises.ogg.mp3" length="664223" type="audio/ogg"/>
+  </item>
+
+  
+  coin.mp3 
+  keyboard.ogg.mp3
+  Apple_Cassette_Interface_BASIC.wav.mp3 
+  Computer_cd_recorder_badly_fixed_end_of_copy.ogg.mp3 
+  Computer_Sound_(Gravity_Sound).wav.mp3 
+  Computer_Sound_(Gravity_Sound).wav.ogg
+  Floppy.ogg.mp3 
+  FloppyProblem.ogg.mp3 
+
+  <item>
+    <title>New Section about RSS</title>
+		<category><![CDATA[News]]></category>
+		<category><![CDATA[RSS]]></category>
+    <link>https://www.htmlhobbyist.com/news/0002/</link>
+    <guid>https://www.htmlhobbyist.com/news/0002/</guid>
+    <description><![CDATA[I’ve worked hard to create a new section of The HTML Hobbyist. Learn to create a handcoded RSS feed to syndicate your site. Checkout the new section about <a href="https://www.htmlhobbyist.com/rss/">Learning RSS</a>.]]></description>
+    <content:encoded><![CDATA[I’ve <em>worked hard</em> to create a new section of The HTML Hobbyist. Now you can create a handcoded RSS feed to make it easier to share your web content. Checkout the new section about <a href="https://www.htmlhobbyist.com/rss/">Learning RSS</a>.]]></content:encoded>
+    <pubDate>Sun, 14 Jul 2024 00:40:51 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>Content Test 2</title>
+		<category><![CDATA[News]]></category>
+		<category><![CDATA[RSS]]></category>
+    <link>https://www.htmlhobbyist.com/news/0001/</link>
+    <guid>https://www.htmlhobbyist.com/news/0001/</guid>
+    <description><![CDATA[I’ve worked hard to create a new section of The HTML Hobbyist. Learn to create a handcoded RSS feed to syndicate your site.]]></description>
+    <content:encoded><![CDATA[<p>I’ve <em>worked hard</em> to create a new section of The HTML Hobbyist. Learn to create a handcoded RSS feed to syndicate your site. <a href="https://www.htmlhobbyist.com/rss/">RSS</a>.</p><p><img src="https://lilly.art/images/illustration/nathan-e-lilly-walls-of-eryx.jpg" alt="" /></p><p><img src="https://www.htmlhobbyist.com/images/og/home.webp" alt="" /></p><p><img src="https://www.htmlhobbyist.com/html-hobbyist-square-animated-opt.svg" alt="" /></p>]]></content:encoded>
+    <pubDate>Sun, 14 Jul 2024 00:40:51 GMT</pubDate>
+    <source url="https://www.htmlhobbyist.com/feeds/news.xml">The HTML Hobbyist News Feed</source>
+  </item>
+
+</channel>
+</rss>

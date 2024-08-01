@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="/feeds/feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+
+<channel>
+  <title>The HTML Hobbyist Main RSS Feed</title>
+  <link>https://www.htmlhobbyist.com/</link>
+  <atom:link href="https://www.htmlhobbyist.com/feeds/feed.xml" rel="self" type="application/rss+xml" />
+  <description>The HTML Hobbyist Main RSS Feed contains categories and topics for the site.</description>
+  <image>
+    <title>The HTML Hobbyist Main RSS Feed</title>
+    <url>https://www.htmlhobbyist.com/images/og/rss/rss.webp</url>
+    <link>https://www.htmlhobbyist.com/</link>
+  </image>
+  <category><![CDATA[Main Feed]]></category>
+	<language>en-US</language>
+  
+	<lastBuildDate>Fri, 19 Jul 2024 00:24:31 GMT</lastBuildDate>
+  <ttl>10080</ttl>
+  <skipHours>
+    <hour>0</hour>
+    <hour>1</hour>
+    <hour>2</hour>
+    <hour>3</hour>
+    <hour>4</hour>
+    <hour>5</hour>
+    <hour>6</hour>
+    <hour>7</hour>
+    <hour>17</hour>
+    <hour>18</hour>
+    <hour>19</hour>
+    <hour>20</hour>
+    <hour>21</hour>
+    <hour>22</hour>
+    <hour>23</hour>
+  </skipHours>
+  <skipDays>
+    <day>Saturday</day>
+    <day>Sunday</day>
+  </skipDays>
+
+  <item>
+    <title>News: New Section about RSS</title>
+		<category><![CDATA[News]]></category>
+		<category><![CDATA[RSS]]></category>
+    <link>https://www.htmlhobbyist.com/news/2024-08-01/</link>
+    <guid>https://www.htmlhobbyist.com/news/2024-08-01/</guid>
+    <description><![CDATA[I’ve worked hard to create a new section of The HTML Hobbyist. Learn to create a handcoded RSS feed to syndicate your site. Checkout the new section about <a href="https://www.htmlhobbyist.com/rss/">Learning RSS</a>.]]></description>
+    <pubDate>Thu, 01 Aug 2024 00:00:00 GMT</pubDate>
+    <source url="https://www.htmlhobbyist.com/feeds/news.xml">The HTML Hobbyist News Feed</source>
+  </item>
+
+  <item>
+    <title>Sitemap: /feeds/</title>
+		<category><![CDATA[Page]]></category>
+		<category><![CDATA[Feeds]]></category>
+    <link>https://www.htmlhobbyist.com/feeds/</link>
+    <description><![CDATA[RSS Feeds on The HTML Hobbyist: Syndicated Web Content from The HTML Hobbyist.<img src="https://www.htmlhobbyist.com/images/og/rss/rss.webp" alt="" />]]></description>
+		<pubDate>Mon, 15 Jul 2024 01:57:38 GMT</pubDate>
+    <source url="https://www.htmlhobbyist.com/feeds/sitemap.xml">The HTML Hobbyist Sitemap Feed</source>
+  </item>
+
+  <item>
+    <title>Sitemap: /rss/</title>
+		<category><![CDATA[Page]]></category>
+		<category><![CDATA[RSS]]></category>
+    <link>https://www.htmlhobbyist.com/rss/</link>
+    <description><![CDATA[Really Simple Syndication: Learn to create an RSS feed to make it easier to share your web content.<img src="https://www.htmlhobbyist.com/images/og/rss/rss.webp" alt="" />]]></description>
+    <pubDate>Mon, 15 Jul 2024 01:57:38 GMT</pubDate>
+    <source url="https://www.htmlhobbyist.com/feeds/sitemap.xml">The HTML Hobbyist Sitemap Feed</source>
+  </item>
+
+  <item>
+    <title><![CDATA[Webring Member: Ray's Miscellany by Ray Thomas]]></title>
+		<category><![CDATA[New Webring Member]]></category>
+    <link>https://brisray.com/web/webrings.htm?webring=htmlhobbyist</link>
+    <guid>https://brisray.com/web/webrings.htm</guid>
+    <description><![CDATA[A collection of things I am interested in.]]></description>
+    <pubDate>Fri, 12 Jul 2024 20:47:49 GMT</pubDate>
+    <source url="https://webring.htmlhobbyist.com/webring.xml">The HTML Hobbyist Webring</source>
+  </item>
+
+  <item>
+    <title>FAQs: Why all this nostalgia for the early World Wide Web?</title>
+		<category><![CDATA[FAQs]]></category>
+    <link>https://www.htmlhobbyist.com/faqs/#nostalgia</link>
+    <guid>https://www.htmlhobbyist.com/faqs/#nostalgia</guid>
+    <description>I began surfing the World Wide Web in the days when people would simply list their email address and phone number on the bottom of the...</description>
+    <pubDate>Tue, 19 Apr 2022 13:09:52 GMT</pubDate>
+    <source url="https://www.htmlhobbyist.com/feeds/faqs.xml">The HTML Hobbyist FAQs</source>
+  </item>
+
+  <item>
+    <title>Sitemap: /faqs/</title>
+		<category><![CDATA[Page]]></category>
+		<category><![CDATA[FAQs]]></category>
+    <link>https://www.htmlhobbyist.com/faqs/</link>
+    <guid>https://www.htmlhobbyist.com/faqs/</guid>
+    <description>Frequently Asked Questions about the HTML Hobbyist.</description>
+		<pubDate>Mon, 18 Apr 2022 13:09:52 GMT</pubDate>
+    <source url="https://www.htmlhobbyist.com/feeds/sitemap.xml">The HTML Hobbyist Sitemap Feed</source>
+  </item>
+
+  <item>
+    <title>Sitemap: /about/</title>
+		<category><![CDATA[Page]]></category>
+		<category><![CDATA[About]]></category>
+    <link>https://www.htmlhobbyist.com/about/</link>
+    <guid>https://www.htmlhobbyist.com/about/</guid>
+    <description>The HTML Hobbyist lessons are based on the summary of notes from web development training sessions that I taught...</description>
+    <pubDate>Tue, 19 Apr 2022 13:09:52 GMT</pubDate>
+    <source url="https://www.htmlhobbyist.com/feeds/sitemap.xml">The HTML Hobbyist Sitemap Feed</source>
+  </item>
+
+  <item>
+    <title>Sitemap: /css/</title>
+		<category><![CDATA[Page]]></category>
+		<category><![CDATA[CSS]]></category>
+    <link>https://www.htmlhobbyist.com/css/</link>
+    <guid>https://www.htmlhobbyist.com/css/</guid>
+    <description>Learning CSS to make your website, fanzine, or personal site more attractive and easier to use.</description>
+    <pubDate>Tue, 19 Apr 2022 13:09:52 GMT</pubDate>
+    <source url="https://www.htmlhobbyist.com/feeds/sitemap.xml">The HTML Hobbyist Sitemap Feed</source>
+  </item>
+
+  <item>
+    <title>Sitemap: /html/</title>
+		<category><![CDATA[Page]]></category>
+		<category><![CDATA[HTML]]></category>
+    <link>https://www.htmlhobbyist.com/html/</link>
+    <guid>https://www.htmlhobbyist.com/html/</guid>
+    <description>Learning HTML to build your website, fanzine, or personal site.</description>
+    <pubDate>Tue, 19 Apr 2022 13:09:52 GMT</pubDate>
+    <source url="https://www.htmlhobbyist.com/feeds/sitemap.xml">The HTML Hobbyist Sitemap Feed</source>
+  </item>
+
+  <item>
+    <title>Sitemap: /www/</title>
+		<category><![CDATA[Page]]></category>
+		<category><![CDATA[WWW]]></category>
+    <link>https://www.htmlhobbyist.com/www/</link>
+    <guid>https://www.htmlhobbyist.com/www/</guid>
+    <description>Learning about the World Wide Web to make your website, fanzine, or personal site.</description>
+    <pubDate>Tue, 19 Apr 2022 13:09:52 GMT</pubDate>
+    <source url="https://www.htmlhobbyist.com/feeds/sitemap.xml">The HTML Hobbyist Sitemap Feed</source>
+  </item>
+
+</channel>
+</rss>

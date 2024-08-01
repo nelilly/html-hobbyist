@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+  <title>The HTML Hobbyist Sitemap Feed</title>
+  <atom:link href="https://www.htmlhobbyist.com/feeds/sitemap.xml" rel="self" type="application/rss+xml" />
+  <link>https://www.htmlhobbyist.com/</link>
+  <description><![CDATA[Learn to build your website, fanzine, or personal site.]]></description>
+  <image>
+    <title>The HTML Hobbyist Logo</title>
+    <url>https://www.htmlhobbyist.com/html-hobbyist-square-animated-opt.svg</url>
+    <link>https://www.htmlhobbyist.com/</link>
+  </image>
+  <ttl>10080</ttl>
+  <skipHours>
+    <hour>0</hour>
+    <hour>1</hour>
+    <hour>2</hour>
+    <hour>3</hour>
+    <hour>4</hour>
+    <hour>5</hour>
+    <hour>6</hour>
+    <hour>7</hour>
+    <hour>17</hour>
+    <hour>18</hour>
+    <hour>19</hour>
+    <hour>20</hour>
+    <hour>21</hour>
+    <hour>22</hour>
+    <hour>23</hour>
+  </skipHours>
+  <skipDays>
+    <day>Saturday</day>
+    <day>Sunday</day>
+  </skipDays>
+	<lastBuildDate>Mon, 15 Jul 2024 01:57:38 GMT</lastBuildDate>
+	<language>en-US</language>
+
+  <item>
+    <title>/feeds/</title>
+		<category><![CDATA[RSS]]></category>
+    <link>https://www.htmlhobbyist.com/feeds/</link>
+    <description><![CDATA[RSS Feeds on The HTML Hobbyist: Syndicated Web Content from The HTML Hobbyist.<img src="https://www.htmlhobbyist.com/images/og/rss/rss.webp" alt="" />]]></description>
+		<pubDate>Mon, 15 Jul 2024 01:57:38 GMT</pubDate>
+  </item>
+  <item>
+    <title>/rss/</title>
+		<category><![CDATA[RSS]]></category>
+    <link>https://www.htmlhobbyist.com/rss/</link>
+    <description><![CDATA[Really Simple Syndication: Learn to create an RSS feed to make it easier to share your web content.<img src="https://www.htmlhobbyist.com/images/og/rss/rss.webp" alt="" />]]></description>
+    <pubDate>Mon, 15 Jul 2024 01:57:38 GMT</pubDate>
+  </item>
+  <item>
+    <title>/faqs/</title>
+		<category><![CDATA[About]]></category>
+    <link>https://www.htmlhobbyist.com/faqs/</link>
+    <description><![CDATA[FAQs at The HTML Hobbyist: Frequently Asked Questions about the HTML Hobbyist.<img src="https://www.htmlhobbyist.com/images/og/www/ide.webp" alt="" />]]></description>
+		<pubDate>Tue, 19 Apr 2022 16:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>/about/</title>
+		<category><![CDATA[About]]></category>
+    <link>https://www.htmlhobbyist.com/about/</link>
+    <description><![CDATA[About The HTML Hobbyist: The HTML Hobbyist lessons are based on the summary of notes from web development training sessions that I taught...<img src="https://www.htmlhobbyist.com/images/og/www/ide.webp" alt="" />]]></description>
+    <pubDate>Tue, 19 Apr 2022 15:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>/css/</title>
+		<category><![CDATA[CSS]]></category>
+    <link>https://www.htmlhobbyist.com/css/</link>
+    <description><![CDATA[Cascading Style Sheets: Learning CSS to make your website, fanzine, or personal site more attractive and easier to use.<img src="https://www.htmlhobbyist.com/images/og/css/css.webp" alt="" />]]></description>
+    <pubDate>Tue, 19 Apr 2022 14:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>/html/</title>
+		<category><![CDATA[HTML]]></category>
+    <link>https://www.htmlhobbyist.com/html/</link>
+    <description><![CDATA[Hyper-Text Markup Language: Learning HTML to build your website, fanzine, or personal site.<img src="https://www.htmlhobbyist.com/images/og/www/file.webp" alt="" />]]></description>
+    <pubDate>Tue, 19 Apr 2022 13:00:00 +0000</pubDate>
+  </item>
+  <item>
+    <title>/www/</title>
+		<category><![CDATA[WWW]]></category>
+    <link>https://www.htmlhobbyist.com/www/</link>
+    <description><![CDATA[The World Wide Web: Learning about the World Wide Web to make your website, fanzine, or personal site.<img src="https://www.htmlhobbyist.com/images/og/home.webp" alt="" />]]></description>
+    <pubDate>Tue, 19 Apr 2022 12:00:00 +0000</pubDate>
+  </item>
+</channel>
+
+</rss>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+  <title>lilly.art</title>
+  <link>https://lilly.art/</link>
+  <atom:link href="https://www.htmlhobbyist.com/feeds/lilly.xml" rel="self" type="application/rss+xml" />
+  <description>The N.E. Lilly portfolio of art, development, and design.</description>
+  <image>
+    <title>lilly.art</title>
+    <url>https://lilly.art/lilly3_swan.svg</url>
+    <link>https://lilly.art/</link>
+  </image>
+	<language>en-US</language>
+
+  <item>
+    <title>Gallery</title>
+		<category><![CDATA[Gallery]]></category>
+    <link>https://lilly.art/gallery</link>
+    <guid>https://lilly.art/gallery</guid>
+    <description>Gallery of works by N.E. Lilly.</description>
+    <pubDate>Tue, 14 Nov 2023 14:09:52 +0000</pubDate>
+  </item>
+
+  <item>
+    <title>Development</title>
+		<category><![CDATA[Development]]></category>
+    <link>https://lilly.art/development</link>
+    <guid>https://lilly.art/development</guid>
+    <description>List of software development projects.</description>
+    <pubDate>Tue, 14 Nov 2023 13:09:52 +0000</pubDate>
+  </item>
+
+  <item>
+    <title>Audio</title>
+		<category><![CDATA[Audio]]></category>
+    <link>https://lilly.art/audio</link>
+    <guid>https://lilly.art/audio</guid>
+    <description>An audio file.</description>
+    <enclosure url="https://lilly.art/sound.mp3" length="5000" type="audio/mpeg" />
+    <pubDate>Tue, 14 Nov 2023 13:09:52 +0000</pubDate>
+  </item>
+
+  <item>
+    <title>Colophon</title>
+		<category><![CDATA[About]]></category>
+    <link>https://lilly.art/colophon</link>
+    <guid>https://lilly.art/colophon</guid>
+    <description>Information about the website’s authorship and construction methods.</description>
+    <pubDate>Tue, 14 Nov 2023 13:09:52 +0000</pubDate>
+  </item>
+
+</channel>
+</rss>

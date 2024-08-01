@@ -1,4 +1,4 @@
 (() => {
   // update HTML validation link
-  document.querySelector(".validator").href = `https://validator.w3.org/nu/?doc=${document.location.href}`;
+  document.querySelector("footer .validator").href = `https://validator.w3.org/nu/?doc=${document.location.href}`;
 })();

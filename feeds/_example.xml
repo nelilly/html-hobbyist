@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+  <title>HTML Hobbyist News</title><!-- The site title -->
+	<language>en-US</language><!-- Language of the content -->
+  <link>https://www.htmlhobbyist.com/</link><!-- The URL to the site -->
+  <atom:link href="https://www.htmlhobbyist.com/feed.xml" rel="self" type="application/rss+xml" />
+  <description>XML graphical interface etc...</description><!--  -->
+  <image><!-- The image for your RSS feed -->
+    <title>HTML Hobbyist News</title><!-- The image title -->
+    <url>https://www.htmlhobbyist.com/images/og/rss/rss.webp</url><!-- The URL to the RSS Feed image hosted on your site -->
+    <link>https://www.htmlhobbyist.com/</link><!-- The URL to the site -->
+  </image>
+
+  <lastBuildDate>Wed, 15 Nov 2023 18:30:02 GMT</lastBuildDate><!-- Date the channel was updated -->
+  <ttl>1</ttl><!-- Number of minutes before a feed reader should check for updated content -->
+  <skipHours><!-- Don't check for updates during the following hours -->
+    <hour>0</hour>
+    <hour>1</hour>
+    <hour>2</hour>
+    <hour>3</hour>
+    <hour>4</hour>
+    <hour>5</hour>
+    <hour>6</hour>
+    <hour>7</hour>
+    <hour>8</hour>
+    <hour>9</hour>
+    <hour>10</hour>
+    <hour>11</hour>
+    <hour>12</hour>
+    <hour>22</hour>
+    <hour>23</hour>
+  </skipHours>
+  <skipDays><!-- Don't check for updates on the following days -->
+    <day>Saturday</day>
+    <day>Sunday</day>
+  </skipDays>
+
+  <!-- A list of items (posts, episodes, entries, pages, etc.) -->
+  <item>
+    <title><![CDATA[News]]></title><!-- The title of the item -->
+		<category><![CDATA[Updates]]></category>
+    <link>https://www.htmlhobbyist.com/news/#newsitem</link><!-- Link to the item -->
+    <guid>https://www.htmlhobbyist.com/news/#newsitem</guid><!-- A unique ID for the item (can be a URL as long as it's unique) -->
+    <description><![CDATA[All you need to know about RSS]]></description><!-- Description of the item -->
+    <pubDate>Wed, 15 Nov 2023 18:30:02 GMT</pubDate><!-- Date the item was published -->
+    <enclosure url="http://www.nasa.gov/sites/default/files/styles/1x1_cardfeed/public/thumbnails/image/iss068e027836orig.jpg?itok=ucNUaaGx" length="1032272" type="image/jpeg"/>
+  </item>
+
+</channel>
+
+</rss> 

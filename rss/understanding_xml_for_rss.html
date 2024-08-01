@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Understanding XML for RSS: The HTML Hobbyist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
+    <meta name="keywords" content="RSS, RSS Development, Really Simple Syndication, Syndicated Feed Development, News Feeds, Syndicated Feeds, HTML, World Wide Web, WWW, Web Design, Web Development">
+    <meta name="description" content="Learn the rules of XML so that you can write a syndicated feed by hand.">
+    <link rel="canonical" href="https://www.htmlhobbyist.com/rss/understanding_xml_for_rss.html" />
+    <link rel="alternate" type="application/rss+xml" href="https://www.htmlhobbyist.com/feeds/feed.xml" title="The HTML Hobbyist Main RSS Feed">
+    <link rel="alternate" type="application/rss+xml" href="https://www.htmlhobbyist.com/feeds/news.xml" title="The HTML Hobbyist News Feed">
+    <link rel="alternate" type="application/rss+xml" href="https://www.htmlhobbyist.com/feeds/faqs.xml" title="The HTML Hobbyist FAQs">
+    <link rel="alternate" type="application/rss+xml" href="https://www.htmlhobbyist.com/feeds/sitemap.xml" title="The HTML Hobbyist Sitemap Feed">
+    <meta property="og:title" content="Understanding XML for RSS on The HTML Hobbyist" />
+    <meta property="og:url" content="https://www.htmlhobbyist.com/rss/understanding_xml_for_rss.html" />
+    <meta property="og:description" content="Learn the rules of XML so that you can write a syndicated feed by hand." />
+    <meta property="og:image" content="https://www.htmlhobbyist.com/images/og/rss/rss.webp" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="htmlhobbyist.com">
+    <meta property="twitter:url" content="https://www.htmlhobbyist.com/rss/understanding_xml_for_rss.html">
+    <meta name="twitter:title" content="Understanding XML for RSS on The HTML Hobbyist">
+    <meta name="twitter:description" content="Learn the rules of XML so that you can write a syndicated feed by hand.">
+    <meta name="twitter:image" content="https://www.htmlhobbyist.com/images/og/rss/rss.webp">
+    <link rel="stylesheet" type="text/css" href="/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
+    <script src="/scripts.js" defer></script>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Main Navigation">
+        <a href="/"><img src="/html-hobbyist-square-animated-opt.svg" height="160" width="200" alt="The HTML Hobbyist" /></a>
+        <a href="/www/">WWW</a>
+        <a href="/html/">HTML</a>
+        <a href="/css/">CSS</a>
+        <!-- <a href="/img/">IMG</a> -->
+        <!-- <a href="/js/">JS</a> -->
+        <!-- <a href="/ux/">UX</a> -->
+        <a href="/rss/">RSS</a>
+      </nav>
+    </header>
+    <main>
+      <article>
+        <header>
+          <h1>Understanding <abbr title="eXtensible Markup Language">XML</abbr> for RSS</h1>
+          <p>Learn the rules of XML so that you can write a syndicated feed by hand.</p>
+        </header>
+        <section>
+          <h2 id="what_is_xml">What is XML?</h2>
+          <p>While there are a great many syndicated feeds that are automatically generated &mdash; and depending on the purpose of your feed you might want to look into that &mdash; there’s nothing in a feed that can’t be written by hand.</p>
+          <p>But <em>first</em> you need to understand the basic rules of XML. It’ll be okay. In terms of writing it, it’s not a radical departure from HTML. It’s just another Markup Language.</p>
+          <p><strong>RSS and Atom syndicated feeds are written using XML.</strong> XML is an open, non-proprietary, data-driven file structure standard designed to make it easier to publish different types of electronic media easier. The design goals were to emphasize simplicity, generality, and usability across the Internet while remaining both human and machine readable. As a simplified subset of <abbr title="Standard Generalized Markup Language">SGML</abbr>, XML describes a group of technologies and specifications: XML, <abbr title="eXtensible Stylesheet Language Transformations">XSLT</abbr>, <abbr title="XML Path Language">XPath</abbr>, XML Schema, <abbr title="Document Type Definitions">DTDs</abbr>, and more. With XML, data can be exchanged without any prior communication as long as both parties use a common vocabulary, through using Schemas and/or Document Type Definitions.</p>
+          <p>Much like HTML &mdash; both of which are markup languages based on SGML &mdash; XML uses the angle bracket markup syntax for its elements. That’s about where the similarities end.</p>
+          <p>While in web development we like to say that HTML defines the structure of a web page, HTML has styles built into it that changes the presentation of those elements. Headings (h1, h2, etc.) come pre-sized. Lists come with markers. Tables present columns and rows. XML, however, is pure structure. It has no predefined presentation. When you write an XML file you even get to choose what to call your elements. You can share those definitions (<abbr title="Document Type Definitions">DTDs</abbr>) with others, and then everyone can use that as a point of reference for a common language.</p>
+          <p>So, in those terms, RSS is an XML application with elements that have been agreed on for the purpose of creating syndicated feeds to share web content.</p>
+        </section>
+        <section>
+          <h2 id="basic_rules_of_xml">Basic Rules of XML</h2>
+          <p>XML on its own is a vast topic. We’re restricting ourselves to just how to use XML and its associated technologies needed to create an RSS feed. I’m only going to cover enough XML so that you can use it to write your syndicated feed. I won’t be talking in depth about XML Schemas or DTDs. There are plenty of other resources on this thing called <em>The World Wide Web</em> if you’re interested in learning extensive, core, foundational XML knowledge.</p>
+          <p>The two requirements for XML documents are that they must be <strong>well-formed</strong> and <strong>valid</strong>.</p>
+          <p>A <strong>well-formed</strong> document meets the following criteria:</p>
+          <ul>
+            <li>XML elements are case sensitive. <code>PubDate</code> &ne; <code>pubDate</code></li>
+            <li>XML elements must be properly nested.</li>
+            <li>All XML elements must have a closing tag or be self-closed.</li>
+            <li>Attributes in XML elements must have a value. <code>hidden="true"</code> never just <code>hidden</code></li>
+            <li>Attributes values in XML must always use quotes. <code>hidden="true"</code> never <code>hidden=true</code></li>
+          </ul>
+          <p>A <strong>valid document</strong> is one that adheres to the rules provided in a <abbr title="Document Type Definition">DTD</abbr>. For RSS 2.0 this means that we’re using only those elements defined in the <a href="https://www.rssboard.org/rss-specification">RSS 2.0 specification</a>, and that if we use elements from another standard (definition or module), that they’re properly namespaced.</p>
+          <p>Unlike HTML, if your document is malformed in any way and it isn’t valid then it simply won’t work. You’ll just get a blank page.</p>
+        </section>
+        <section>
+          <h2 id="file_extensions_for_syndicated_feeds">File Extensions for Syndicated Feeds</h2>
+          <p>You can use either <code>.rss</code> or <code>.xml</code> for your feed, though they can be handled differently by the browser. The <code>.xml</code> extension seems to be the more popular choice. In many cases browsers will recognize and display a document tree when presented with an XML file.</p>
+          <figure>
+            <figcaption>An XML file displayed as a document tree.</figcaption>
+            <img src="/images/rss/feed_xml.webp" alt="This XML file does not appear to have any style information associated with it. The document tree is shown below.&lt;rss xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot; version=&quot;2.0&quot;&gt;&lt;channel&gt;&lt;title&gt;The HTML Hobbyist&lt;/title&gt;&lt;link&gt;https://www.htmlhobbyist.com/&lt;/link&gt;&lt;atom:link href=&quot;https://www.htmlhobbyist.com/feed.xml&quot; rel=&quot;self&quot; type=&quot;application/rss+xml&quot;/&gt;&lt;description&gt;News, Updates, and Changelog information about The HTML Hobbyist.&lt;/description&gt;&lt;image&gt;&lt;url&gt;https://www.htmlhobbyist.com/html-hobbyist-rss.png&lt;/url&gt;&lt;title&gt;The HTML Hobbyist&lt;/title&gt;&lt;link&gt;https://www.htmlhobbyist.com/&lt;/link&gt;" />
+          </figure>
+          <p>As already mentioned, the elements you use in an XML file don’t have any inherent styles applied to them. So this, at best, is the view most people will get from a plain XML file in a modern browser.</p>
+        </section>
+        <section>
+          <h2 id="escaping_charactes_in_xml">Escaping Characters in XML</h2>
+          <p>Because we’re using XML, there are certain characters that need to be escaped in order to display properly. Using XML entities is one way to do that. They’re similar to HTML entities. The XML escape characters are:</p>
+          <table class="table">
+            <caption>XML Entities</caption>
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Character</th>
+                <th scope="col">Code</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Ampersand</th>
+                <td>&amp;</td>
+                <td><code>&amp;amp;</code></td>
+              </tr>
+              <tr>
+                <th scope="row">Single quote</th>
+                <td>&apos;</td>
+                <td><code>&amp;apos;</code></td>
+              </tr>
+              <tr>
+                <th scope="row">Greater than</th>
+                <td>&gt;</td>
+                <td><code>&amp;gt;</code></td>
+              </tr>
+              <tr>
+                <th scope="row">Less than</th>
+                <td>&lt;</td>
+                <td><code>&amp;lt;</code></td>
+              </tr>
+              <tr>
+                <th scope="row">Double quote</th>
+                <td>&quot;</td>
+                <td><code>&amp;quot;</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Any other characters, unfortunately, require a numbered entity, either as decimal code or hexadecimal code.</p>
+          <table class="table">
+            <caption>Character Codes</caption>
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Character</th>
+                <th scope="col">Code</th>
+                <th scope="col">Hex Code</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Copyright</th>
+                <td>&#x00A9;</td>
+                <td><code>&amp;#169;</code></td>
+                <td><code>&amp;#x00A9;</code></td>
+              </tr>
+              <tr>
+                <th scope="row">Trademark</th>
+                <td>&#x2122;</td>
+                <td><code>&amp;#8482;</code></td>
+                <td><code>&amp;#x2122;</code></td>
+              </tr>
+              <tr>
+                <th scope="row">Right Arrow</th>
+                <td>&#x2192;</td>
+                <td><code>&amp;#8594;</code></td>
+                <td><code>&amp;#x2192;</code></td>
+              </tr>
+              <tr>
+                <th scope="row">Hearts</th>
+                <td>&#x2665;</td>
+                <td><code>&amp;#9829;</code></td>
+                <td><code>&amp;#x2665;</code></td>
+              </tr>
+              <tr>
+                <th scope="row">Not Equals</th>
+                <td>&#x2260;</td>
+                <td><code>&amp;#8800;</code></td>
+                <td><code>&amp;#x2260;</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <p>The <a href="https://www.toptal.com/designers/htmlarrows/symbols/">TopTal HTML5 Character Code Reference</a> is the most complete list of character entity codes that I’ve found (for HTML). The codes should work for XML as well, but I won’t swear to it.</p>
+        </section>
+        <section>
+          <h2 id="cdata_sections">CDATA Section</h2>
+          <p>Rather than escaping all of those characters, which can be tedious, you can use the CDATA Section to wrap the entire content of the element: <code>&lt;![CDATA[</code> and <code>]]&gt;</code>.</p>
+          <figure>
+            <figcaption>Text wrapped in a CDATA section</figcaption>
+            <code>&lt;description&gt;&lt;![CDATA[&lt;em&gt;HTML&lt;/em&gt;, all by itself, can be viewed on any browser. &lt;em&gt;HTML&lt;/em&gt;, all by itself, can be viewed on any platform. &lt;em&gt;HTML&lt;/em&gt;, all by itself, can be viewed on any device. &lt;em&gt;HTML&lt;/em&gt;, all by itself, is 99% accessible.]]&gt;&lt;/description&gt;</code>
+          </figure>
+        </section>
+        <section>
+          <h2 id="xml_comments">XML Comments</h2>
+          <p>XML comments look and act just like comments in HTML.</p>
+          <pre><code>&lt;!-- Just like HTML! --&gt;</code></pre>
+          <p>Since you’ll be writing this by hand and XML is more strict it could be very helpful to have comments in your feed for gentle reminders to yourself. How else will you remember the RFC-822 date-time format?</p>
+        </section>
+        <section>
+          <h2 id="xml_namespaces">XML Namespaces</h2>
+          <p>XML is meant to describe data, and namespaces are important because it’s possible to describe information in different ways. Namespaces also let you shared data structures that have already been defined by other organizations. The namespaces help give elements with similar names context for the data that they try to describe.</p>
+          <p>For example, suppose you were trying to write an XML file that described the contents of your bookshelf. A book list might have a name element: <code>&lt;name&gt;The Hitchhiker’s Guide to the Galaxy&lt;/name&gt;</code>. A list of publishers might also have a name element: <code>&lt;name&gt;Megadodo Publications&lt;/name&gt;</code>. And an author list would most likely have a name element:  <code>&lt;name&gt;Douglas Adams&lt;/name&gt;</code>.</p>
+          <p>This would all be perfectly fine as long as they were all different XML files. If you tried to put the data all into your bookshelf XML file, you’d most likely have a conflict.</p>
+          <figure>
+            <figcaption>A book file with conflicts.</figcaption>
+            <pre><code>&lt;book&gt;
+  &lt;name&gt;The Hitchhiker’s Guide to the Galaxy&lt;/name&gt;
+  &lt;name&gt;Megadodo Publications&lt;/name&gt;
+  &lt;name&gt;Douglas Adams&lt;/name&gt;
+&lt;/book&gt;</code></pre>
+          </figure>
+          <p>The solution to that problem would be namespaces.</p>
+          <figure>
+            <figcaption>A book file with namespaces.</figcaption>
+            <pre><code>&lt;book xmlns:publisher="http://example.org/2005/publisher"  xmlns:author="http://example.org/2005/author"&gt;
+  &lt;name&gt;The Hitchhiker’s Guide to the Galaxy&lt;/name&gt;
+  &lt;publisher:name&gt;Megadodo Publications&lt;/name&gt;
+  &lt;author:name&gt;Douglas Adams&lt;/name&gt;
+&lt;/book&gt;</code></pre>
+          </figure>
+          <p>Likewise, you couldn’t just use an element that didn’t exist in the current definition. For example, if you wanted to use a <code>penname</code> element. You could include it through the author namespace, if it existed.</p>
+          <figure>
+            <figcaption>A book file with namespaces.</figcaption>
+            <pre><code>&lt;book xmlns:publisher="http://example.org/2005/publisher"  xmlns:author="http://example.org/2005/author"&gt;
+  &lt;name&gt;The Hitchhiker’s Guide to the Galaxy&lt;/name&gt;
+  &lt;publisher:name&gt;Megadodo Publications&lt;/name&gt;
+  &lt;author:name&gt;Douglas Adams&lt;/name&gt;
+  &lt;author:penname&gt;Douglas Adams&lt;/penname&gt;
+&lt;/book&gt;</code></pre>
+          </figure>
+          <p>This was an abstract example to discuss the general concept of namespaces. The rules around namespaces are pretty clear for syndicated feeds. You’ll see namespaces applied when working with Atom, Dublin Core, iTunes, Podcasts, and other content in a syndicated feed. The hard work of defining the namespaces to use has already been done.</p>
+          <p>When you see a namespace in the code, look at the URL:</p>
+          <pre><code>xmlns:atom="http://www.w3.org/2005/Atom"</code></pre>
+          <p>That URL exists to give the namespace a unique identity in your document, but some organizations use the URL to provide documentation about the specification and how to use it. Technically it’s not required, and due to the fact that some of these URLs are over 20 years old, some have been subject to linkrot.</p>
+          <ul>
+            <li><a href="http://www.w3.org/2005/Atom">http://www.w3.org/2005/Atom</a></li>
+            <li><a href="http://purl.org/dc/elements/1.1/">http://purl.org/dc/elements/1.1/</a></li>
+            <li><a href="http://purl.org/rss/1.0/modules/content/">http://purl.org/rss/1.0/modules/content/</a></li>
+          </ul>
+          <p>In any case, once you know the name and purpose of a namespace it becomes much easier to find more information and tutorials. Not that it makes it any easier to understand some specs, but it’s self-documenting, if it’s done right.</p>
+        </section>
+        <section>
+          <h2 id="feed_validation">Feed Validation</h2>
+          <p>That might seem like a lot, and XML can be much more finicky than HTML, but you can use feed validators that will make sure your XML for your feed is valid.</p>
+          <p>Publishing an RSS feed without validating it is like publishing a web page without checking it in a browser. You’ll save yourself some heartache and time if you validate your feed often:</p>
+          <ul>
+            <li>as you develop it,</li>
+            <li>when you make changes,</li>
+            <li>before you add it to your server,</li>
+            <li>and once again after you’ve made it live on your server.</li>
+          </ul>
+          <p>Two recommended validators are:</p>
+          <ul>
+            <li><a href="https://validator.w3.org/feed/">W3C Feed Validation Service</a>, which can validate from copied code or from a URL.</li>
+            <li><a href="https://www.feedvalidator.org/">Feed Validator</a>, which only validates from a URL.</li>
+          </ul>
+          <p>A good validation service will tell you what and where the error is, by line number, and give you tips on how you might fix it.</p>
+          <aside>
+            <h2 id="direct_validation_links">Direct Validation Links</h2>
+            <p>Pass or fail, after validation from a web URL, you’ll get a link that you can reuse to validate in the future.</p>
+            <ul>
+              <li><a href="http://validator.w3.org/feed/check.cgi?url=https%3A//webring.htmlhobbyist.com/webring.xml" class="validator">W3C Feed Validation Service Direct Link for HTML Hobbyist Webring RSS Feed</a></li>
+              <li><a href="https://www.feedvalidator.org/check.cgi?url=https%3A%2F%2Fwebring.htmlhobbyist.com%2Fwebring.xml" class="validator">Feed Validator Direct Link for HTML Hobbyist Webring RSS Feed</a></li>
+            </ul>
+            <p>I’ve found it convenient to bookmark that validation URL for easy access whenever I’ve updated my feed and I want to check it.</p>
+          </aside>
+        </section>
+        <nav>
+          <a href="/rss/building_an_rss_feed.html">Building an RSS Feed</a> &rarr;
+        </nav>
+      </article>
+    </main>
+    <footer>
+      <nav aria-label="About">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/faqs/">FAQs</a>
+        <a href="/links/">Links</a>
+      </nav>
+      <nav aria-label="Connections">
+        <a href="/news/">News</a>
+        <a href="/announcements/">Announcements</a>
+        <a href="/feeds/">RSS Feeds</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <p><a href="https://validator.w3.org/nu/" class="validator"><img src="/images/validate_html5.svg" height="32" width="90" alt="W3C HTML Validator" /></a></p>
+      <p>See the code in the <a href="https://github.com/nelilly/html-hobbyist/" target="_blank" rel="noopener noreferrer"><svg id="github" height="21" width="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path fill="currentColor" d="M14.06 11.92c.39 0 .72.19 1 .58.28.38.43.86.43 1.42 0 .56-.14 1.04-.43 1.42-.28.38-.62.58-1 .58-.41 0-.76-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.29-.39.64-.58 1.05-.58zm5.03-5.2c1.1 1.19 1.65 2.63 1.65 4.32 0 1.1-.13 2.08-.38 2.96-.25.87-.57 1.59-.96 2.14s-.86 1.04-1.43 1.44c-.57.42-1.09.72-1.56.91-.47.19-1.01.34-1.63.45-.61.11-1.06.16-1.38.18-.31.01-.64.02-1 .02-.08 0-.35.01-.8.02-.44.02-.82.03-1.11.03-.29 0-.67-.01-1.11-.03-.45-.01-.72-.02-.8-.02-.36 0-.7 0-1-.02-.32-.02-.78-.07-1.38-.18-.62-.1-1.16-.25-1.63-.45-.47-.19-.99-.49-1.56-.91a6.3 6.3 0 01-1.43-1.44C1.2 15.59.88 14.88.62 14c-.25-.88-.38-1.86-.38-2.96 0-1.69.55-3.13 1.65-4.32-.1-.06-.11-.66 0-1.78.1-1.13.34-2.17.73-3.12 1.37.14 3.06.92 5.07 2.32.68-.18 1.62-.27 2.8-.27 1.25 0 2.18.09 2.81.27.92-.62 1.8-1.13 2.64-1.52.85-.38 1.47-.61 1.85-.67l.58-.13c.39.95.63 1.99.73 3.12.11 1.12.11 1.72-.01 1.78zm-8.54 11.43c2.46 0 4.32-.3 5.58-.89 1.26-.59 1.9-1.81 1.9-3.65 0-1.07-.4-1.96-1.2-2.67-.41-.39-.9-.62-1.45-.71-.54-.09-1.38-.09-2.51 0s-1.9.13-2.31.13c-.56 0-1.18-.03-1.94-.09s-1.36-.09-1.78-.11c-.44-.01-.9.04-1.4.16-.51.12-.92.32-1.25.62-.77.69-1.16 1.58-1.16 2.68 0 1.84.62 3.06 1.87 3.65 1.24.6 3.1.89 5.56.89h.09zm-3.56-6.23c.39 0 .72.19 1 .58.28.38.42.86.42 1.42 0 .56-.14 1.04-.42 1.42-.28.38-.62.58-1 .58-.42 0-.77-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.28-.39.63-.58 1.05-.58z"></path></svg>HTML Hobbyist repository on GitHub</a>.</p>
+      <p>&copy;2022-2024 N.E.Lilly</p>
+    </footer>
+  </body>
+</html>

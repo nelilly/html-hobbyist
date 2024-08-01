@@ -1,0 +1,134 @@
+*,:after,:before{ box-sizing: border-box; }
+
+html {
+  background-color: silver;
+  font-size: 20px;
+}
+
+body {
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+body > header {
+  text-align: center;
+}
+
+body > header > nav a:first-child { grid-area: 1 / 1 / 3 / 2; }
+
+aside {
+  border: groove;
+  padding: 1rem;
+}
+
+aside > :first-child,
+aside > section > :first-child {
+  margin-top: 0;
+}
+
+aside > :last-child,
+aside > section > :last-child {
+  margin-bottom: 0;
+}
+
+body > footer {
+  border-top: groove;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+footer > nav {
+  text-align: center;
+}
+
+footer > nav a {
+  padding: 0 1rem;
+}
+
+footer > nav a:not(:last-child) {
+  border-right: 2px solid black;
+}
+
+main > header {
+  text-align: center;
+}
+
+header > nav {
+  text-align: center;
+}
+
+header > nav a {
+  padding: 0 1rem;
+}
+
+header:not(.splash) > nav a:not(:first-child):not(:last-child),
+header.splash > nav a:not(:last-child) {
+  border-right: 2px solid black;
+  height: 1.2rem;
+}
+
+.banner {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 2fr;
+
+  & a {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+article {
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  text-wrap: balance;
+}
+
+h3 {
+  margin: 0 0 .5rem;
+}
+
+hr {
+  border: 1px inset;
+  height: 3px;
+  background-color: gray;
+}
+
+img,
+svg {
+  height: auto;
+  max-width: 100%;
+}
+
+
+input,
+button {
+  font-size: 1rem;
+  margin: 1rem 0 .5rem;
+  padding: .5rem;
+  width: 100%;
+}
+
+button {
+  background-color: lightgray;
+  border: 2px outset darkgray;
+  color: black;
+  cursor: pointer;
+  margin: 1rem 0 0;
+}
+
+button:hover,
+button:focus {
+  background-color: silver;
+  border: 2px outset darkgray;
+  outline: none;
+}
+
+button:active {
+  background-color: darkgray;
+  border: 2px inset gray;
+}

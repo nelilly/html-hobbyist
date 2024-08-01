@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="/feeds/feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+  <title>The HTML Hobbyist FAQs Feed</title>
+  <link>https://www.htmlhobbyist.com/</link>
+  <atom:link href="https://www.htmlhobbyist.com/feeds/feed.xml" rel="self" type="application/rss+xml" />
+  <description>Updates when new questions are answered on the FAQs page.</description>
+  <image>
+    <title>The HTML Hobbyist FAQs Feed</title>
+    <url>https://www.htmlhobbyist.com/images/og/rss/rss.webp</url>
+    <link>https://www.htmlhobbyist.com/</link>
+  </image>
+  <category><![CDATA[FAQs]]></category>
+	<language>en-US</language>
+  
+	<lastBuildDate>Tue, 19 Apr 2022 17:15:56 GMT</lastBuildDate>
+  <ttl>10080</ttl>
+  <skipHours>
+    <hour>0</hour>
+    <hour>1</hour>
+    <hour>2</hour>
+    <hour>3</hour>
+    <hour>4</hour>
+    <hour>5</hour>
+    <hour>6</hour>
+    <hour>7</hour>
+    <hour>17</hour>
+    <hour>18</hour>
+    <hour>19</hour>
+    <hour>20</hour>
+    <hour>21</hour>
+    <hour>22</hour>
+    <hour>23</hour>
+  </skipHours>
+  <skipDays>
+    <day>Saturday</day>
+    <day>Sunday</day>
+  </skipDays>
+
+  <item>
+    <title>Why are you doing this?</title>
+    <link>https://www.htmlhobbyist.com/faqs/#why</link>
+    <guid>https://www.htmlhobbyist.com/faqs/#why</guid>
+    <description>I’ve never met them, I don’t know who they are, but I know there’s someone out there that’s going to make a website that I’m just going to love...</description>
+    <pubDate>Tue, 19 Apr 2022 13:09:52 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>What’s so important about HTML?</title>
+    <link>https://www.htmlhobbyist.com/faqs/#important</link>
+    <guid>https://www.htmlhobbyist.com/faqs/#important</guid>
+    <description>HTML is one of the foundational pillars of the World Wide Web. HTML, all by itself, can be viewed on any browser. HTML, all by itself, can be...</description>
+    <pubDate>Tue, 19 Apr 2022 13:09:52 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>Is there really still room for hobbyist websites?</title>
+    <link>https://www.htmlhobbyist.com/faqs/#hobbyists</link>
+    <guid>https://www.htmlhobbyist.com/faqs/#hobbyists</guid>
+    <description>Why not? There are people out there that still make mimeographed zines, others that still use HAM radios, and yet others that are still...</description>
+    <pubDate>Tue, 19 Apr 2022 13:09:52 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>How long have you been building websites?</title>
+    <link>https://www.htmlhobbyist.com/faqs/#how_long</link>
+    <guid>https://www.htmlhobbyist.com/faqs/#how_long</guid>
+    <description>I meddled a little with the Internet through college while earning a Fine Art degree, concentrating on Electronic Media. This was back when there...</description>
+    <pubDate>Tue, 19 Apr 2022 13:09:52 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>Why do you hate CSS and JavaScript?</title>
+    <link>https://www.htmlhobbyist.com/faqs/#js_css_hate</link>
+    <guid>https://www.htmlhobbyist.com/faqs/#js_css_hate</guid>
+    <description>I’m doing this not because I’m ignorant and fearful of CSS and JavaScript. I’m doing this because I’m knowledgable about and familiar with CSS and...</description>
+    <pubDate>Tue, 19 Apr 2022 13:09:52 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>What text editor or IDE do you recommend?</title>
+    <link>https://www.htmlhobbyist.com/faqs/#ide</link>
+    <guid>https://www.htmlhobbyist.com/faqs/#ide</guid>
+    <description>For the past 5 years I’ve been using Visual Studio Code which is hands down the best IDE I’ve used over the years for web development. There...</description>
+    <pubDate>Tue, 19 Apr 2022 13:09:52 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>Why all this nostalgia for the early World Wide Web?</title>
+    <link>https://www.htmlhobbyist.com/faqs/#nostalgia</link>
+    <guid>https://www.htmlhobbyist.com/faqs/#nostalgia</guid>
+    <description>I began surfing the World Wide Web in the days when people would simply list their email address and phone number on the bottom of the...</description>
+    <pubDate>Tue, 19 Apr 2022 13:09:52 GMT</pubDate>
+  </item>
+
+</channel>
+</rss>

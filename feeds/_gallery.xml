@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+  <title>Lilly.art Gallery Feed</title>
+  <link>https://lilly.art/gallery</link>
+  <atom:link href="https://www.htmlhobbyist.com/feeds/gallery.xml" rel="self" type="application/rss+xml" />
+  <description>The gallery feed of the works of N.E. Lilly.</description>
+
+  <item>
+    <title>In the Walls of Eryx</title>
+    <link>https://lilly.art/gallery/in-the-walls-of-eryx</link>
+    <guid>https://lilly.art/gallery/in-the-walls-of-eryx</guid>
+    <description><![CDATA[An illustration for <a href="https://www.spacewesterns.com/">Space Westerns Magazine</a>.<img src="https://lilly.art/images/illustration/nathan-e-lilly-walls-of-eryx.jpg" alt="" />]]></description>
+    <enclosure url="https://lilly.art/images/illustration/nathan-e-lilly-walls-of-eryx.jpg" length="48299" type="image/jpeg"/>
+  </item>
+
+</channel>
+</rss>

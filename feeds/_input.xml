@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+  <title>Input Test</title>
+  <link>http://www.htmlhobbyist.com/</link>
+  <atom:link href="https://www.htmlhobbyist.com/example_input.xml" rel="self" type="application/rss+xml" />
+  <description>An RSS Feed that only contains the required elements.</description>
+
+  <textInput>
+    <description>Search Google</description>
+    <title>Search</title>
+    <link>http://www.google.no/search?</link>
+    <name>q</name>
+  </textInput>
+
+  <item>
+    <title>First Item</title>
+    <link>http://www.htmlhobbyist.com/news/0001/</link>
+    <guid>http://www.htmlhobbyist.com/news/0001/</guid>
+    <description>The first item in the simplest RSS 2.0 feed.</description>
+  </item>
+</channel>
+</rss>

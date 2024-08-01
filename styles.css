@@ -1,14 +1,28 @@
 *,:after,:before{ box-sizing: border-box; }
 
+:root {
+  --aspect-4x3: 4 / 3;
+  --aspect-16x9: 16 / 9;
+  --height-vga: 480px;
+  --height-svga: 600px;
+  --height-xga: 768px;
+  --height-sxga: 960px;
+  --width-vga: 640px;
+  --width-svga: 800px;
+  --width-xga: 1024px;
+  --width-sxga: 1280px;
+}
+
 html {
   background-color: silver;
   font-size: 20px;
 }
 
 body {
+  line-height: 1.4;
   padding: 1rem;
   margin: 0 auto;
-  max-width: 640px;
+  max-width: var(--width-svga);
 }
 
 body > header {
@@ -18,7 +32,7 @@ body > header {
 body > header > nav {
   overflow: auto;
   display: grid;
-  grid-template-columns: 2fr repeat(3, 1fr);
+  grid-template-columns: 2fr repeat(4, 1fr);
   /* grid-template-rows: repeat(2, 1fr); */
 }
 
@@ -50,6 +64,7 @@ body > footer {
 }
 
 footer > nav {
+  padding: 0 0 1rem;
   text-align: center;
 }
 
@@ -89,6 +104,7 @@ aside > section:last-child {
 
 h1 {
   font-size: 2rem;
+  text-wrap: balance;
 }
 
 hr {
@@ -126,6 +142,10 @@ img,
 svg {
   height: auto;
   max-width: 100%;
+}
+
+figure.wide {
+  margin: 0 calc(50% - 45vw);
 }
 
 figure > svg {
@@ -194,6 +214,8 @@ button:active {
 }
 
 iframe {
+  display: block;
+  margin: 0 auto;
   max-width: 100%;
 }
 
@@ -211,7 +233,6 @@ a[href*="//"]:not([href*="www.htmlhobbyist.com"]):after {
     /* width: 66%; */
   }
 }
-
 
 section::-webkit-scrollbar {
   background-color: darkgray;

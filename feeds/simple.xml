@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>The Minimum Viable RSS Feed</title>
+  <link>http://www.htmlhobbyist.com/</link>
+  <description>An RSS Feed that only contains the required elements.</description>
+
+  <item>
+    <title>First Item</title>
+    <link>http://www.htmlhobbyist.com/news/0001/</link>
+    <description>The first item in the simplest RSS 2.0 feed.</description>
+  </item>
+</channel>
+</rss>

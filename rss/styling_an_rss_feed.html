@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Styling an RSS Feed: The HTML Hobbyist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
+    <meta name="keywords" content="RSS, RSS Development, Really Simple Syndication, Syndicated Feed Development, News Feeds, Syndicated Feeds, HTML, World Wide Web, WWW, Web Design, Web Development">
+    <meta name="description" content="Adding XSLT to your syndicated feed for a better presentation.">
+    <link rel="canonical" href="https://www.htmlhobbyist.com/rss/styling_an_rss_feed.html" />
+    <link rel="alternate" type="application/rss+xml" href="https://www.htmlhobbyist.com/feeds/feed.xml" title="The HTML Hobbyist Main RSS Feed">
+    <link rel="alternate" type="application/rss+xml" href="https://www.htmlhobbyist.com/feeds/news.xml" title="The HTML Hobbyist News Feed">
+    <link rel="alternate" type="application/rss+xml" href="https://www.htmlhobbyist.com/feeds/faqs.xml" title="The HTML Hobbyist FAQs">
+    <link rel="alternate" type="application/rss+xml" href="https://www.htmlhobbyist.com/feeds/sitemap.xml" title="The HTML Hobbyist Sitemap Feed">
+    <meta property="og:title" content="Styling an RSS Feed on The HTML Hobbyist" />
+    <meta property="og:url" content="https://www.htmlhobbyist.com/rss/styling_an_rss_feed.html" />
+    <meta property="og:description" content="Adding XSLT to your syndicated feed for a better presentation." />
+    <meta property="og:image" content="https://www.htmlhobbyist.com/images/og/rss/rss.webp" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="htmlhobbyist.com">
+    <meta property="twitter:url" content="https://www.htmlhobbyist.com/rss/styling_an_rss_feed.html">
+    <meta name="twitter:title" content="Styling an RSS Feed on The HTML Hobbyist">
+    <meta name="twitter:description" content="Adding XSLT to your syndicated feed for a better presentation.">
+    <meta name="twitter:image" content="https://www.htmlhobbyist.com/images/og/rss/rss.webp">
+    <link rel="stylesheet" type="text/css" href="/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
+    <script src="/scripts.js" defer></script>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Main Navigation">
+        <a href="/"><img src="/html-hobbyist-square-animated-opt.svg" height="160" width="200" alt="The HTML Hobbyist" /></a>
+        <a href="/www/">WWW</a>
+        <a href="/html/">HTML</a>
+        <a href="/css/">CSS</a>
+        <!-- <a href="/img/">IMG</a> -->
+        <!-- <a href="/js/">JS</a> -->
+        <!-- <a href="/ux/">UX</a> -->
+        <a href="/rss/">RSS</a>
+      </nav>
+    </header>
+    <main>
+      <article>
+        <header>
+          <h1>Styling an RSS Feed</h1>
+          <p>We’re going to briefly dip our toes into XSLT. We’ll be linking to an XSLT file from your syndicated feed for a better presentation when visitors view it on your website. This won’t change how most feed readers display the information from your feed.</p>
+        </header>
+        <section>
+          <h2 id="what_is_xslt">What is XSLT?</h2>
+          <p>If you understand the relationship between HTML and CSS then you’ll understand the relationship between XML and <abbr title="eXtensible Stylesheet Language Transformations">XSLT</abbr>.</p>
+          <p>Without any style information an XML file will display as a simple document tree. If anyone accidentally lands on this file, it might cause them some confusion. To the average visitor this looks incomprehensible.</p>
+          <figure>
+            <figcaption>An unstyled XML file</figcaption>
+            <img src="/images/rss/feed_xml.webp" alt="" />
+          </figure>
+          <p>XSLT is the recommended style sheet language for XML. You can use XSLT to transform the XML data into other types of documents, anything from simple text files to desktop publishing PostScript documents. For our purposes we’ll be transforming the XML from our RSS feed into HTML. The XSLT file will basically transform an unstyled feed itno something a little more useful and explanatory for visitors who haven’t seen a feed before.</p>
+          <figure>
+            <figcaption>An XML file transformed with XSLT into an HTML file</figcaption>
+            <img src="/images/rss/feed_xslt.webp" alt="" />
+          </figure>
+          <p>By transforming your XML document into HTML you make a much better presentation and experience for your visitors, and it can also more accessible than plain XML.</p>
+        </section>
+        <section>
+          <h2 id="learning_xslt">Learning XSLT</h2>
+          <p>Write the XSLT file using an <code>.xsl</code> extension.</p>
+          <p>If you include HTML elements within some of your XML elements (title, description, etc.) you may have to include an attribute to get the HTML to display properly: <code>disable-output-escaping="yes"</code>.</p>
+        </section>
+        <section>
+          <h2 id="understanding_xpath">Understanding XPath</h2>
+          <p>XSLT uses XPath to locate the various nodes in an XML file. The syntax is identical to the paths that you’re already using to point to files in HTML URLs. For example, the path in the <code>select</code> attribute...</p>
+          <pre><code>select="/rss/channel/title"</code></pre>
+          <p>...corresponds to nodes in the XML document:</p>
+          <pre><code>&lt;rss version="2.0"&gt;
+  &lt;channel&gt;
+    &lt;title&gt;HTML Hobbyist News&lt;/title&gt;
+    ...</code></pre>
+          <p>By using XPath we can address the data values in our XML file for them to be transformed.</p>
+          <p>Once we’ve found the node we’re looking for we can pull out the data from its attributes with <code>@</code> followed by the name of the attribute.</p>
+          <pre><code>select="/rss/channel/atom:link/@href"</code></pre>
+          <p>This is the basic way that various elements in XSLT retrieve the data from the XML file.</p>
+        </section>
+        <section>
+          <h2 id="xslt_elements">XSLT Elements</h2>
+          <p></p>
+          <h3>XML Declaration</h3>
+          <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;</code></pre>
+          <p>Just like in our RSS file, the XML declaration gives applications instructions on how to parse the XML file. The <code>version</code> designates what version of XML to use, and <code>encoding</code> designates what type of encoding is used in the file.</p>
+          <h3><code>&lt;xsl:stylesheet&gt;</code></h3>
+          <pre><code>&lt;xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;</code></pre>
+          <p>The <code>&lt;xsl:stylesheet&gt;</code> element is the root element of an XSLT file. Just like <code>&lt;html&gt;</code> is the root for HTML and <code>&lt;rss&gt;</code> for RSS feeds.</p>
+          <h3><code>&lt;xsl:output&gt;</code></h3>
+          <pre><code>&lt;xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/&gt;</code></pre>
+          <p>We’re using this node to declare that we’re transforming the document into HTML.</p>
+          <h3><code>&lt;xsl:template&gt;</code></h3>
+          <pre><code>&lt;xsl:template match="/"&gt;</code></pre>
+          <p>The &lt;xsl:template&gt; element defines a template. The match="/" attribute associates the template with the root of the XML source document. We don’t need to make it more complicated than that.</p>
+          <h3><code>&lt;xsl:text&gt;</code></h3>
+          <pre><code>&lt;xsl:text&gt;Text goes here&lt;/xsl:text&gt;</code></pre>
+          <p>Presents text. It’s often used to preserve whitespace around text when it wouldn’t ordinarily be preserved.</p>
+          <h3><code>&lt;xsl:value-of&gt;</code></h3>
+          <pre><code>&lt;xsl:value-of select="/rss/channel/title"/&gt;</code></pre>
+          <p>Finds the value of the node referenced in the select attribute’s path and adds that value into the transformation. In this case it looks for the <code>rss</code> element, then the <code>channel</code> element inside of that, then the <code>title</code> element inside of that, and return the value of that element in the XML file.</p>
+          <h3><code>&lt;xsl:attribute&gt;</code></h3>
+          <pre><code>&lt;a&gt;
+  &lt;xsl:attribute name="href"&gt;
+    https://www.htmlhobbyist.com/
+  &lt;/xsl:attribute&gt;
+&lt;/a&gt;</code></pre>
+          <p>Adds the value of the <code>xsl:attribute</code> element, and replaces the named attribute in the parent element with the value of the node.</p>
+          <h3><code>&lt;xsl:if&gt;</code></h3>
+          <pre><code>&lt;xsl:if test="source != ''"&gt;
+  &lt;p&gt;Source: 
+    &lt;a target="_blank" rel="noopener noreferrer"&gt;
+      &lt;xsl:attribute name="href"&gt;&lt;xsl:value-of select="source/@url"/&gt;&lt;/xsl:attribute&gt;
+      &lt;xsl:value-of select="source"/&gt;
+    &lt;/a&gt;
+  &lt;/p&gt;
+&lt;/xsl:if&gt;</code></pre>
+          <p>In this case we’re using the if statement to test if there’s a value in the <code>source</code> element, and if there is, we’re displaying that information.</p>
+          <h3><code>&lt;xsl:for-each&gt;</code></h3>
+          <pre><code>&lt;xsl:for-each select="/rss/channel/item"&gt;
+  &lt;article&gt;
+    &lt;h3&gt;
+      &lt;a target="_blank" rel="noopener noreferrer"&gt;
+        &lt;xsl:attribute name="href"&gt;
+          &lt;xsl:value-of select="link"/&gt;
+        &lt;/xsl:attribute&gt;
+        &lt;xsl:value-of select="title"/&gt;
+      &lt;/a&gt;
+    &lt;/h3&gt;
+    &lt;p&gt;&lt;xsl:value-of select="description"/&gt;&lt;/p&gt;
+    &lt;footer&gt;
+      Joined:
+      &lt;time&gt;
+        &lt;xsl:value-of select="pubDate" /&gt;
+      &lt;/time&gt;
+    &lt;/footer&gt;
+  &lt;/article&gt;
+&lt;/xsl:for-each&gt;</code></pre>
+          <p>The <code>&lt;xsl:for-each&gt;</code> allows you to loop through a series of identical elements. For each item in the channel we want to display it in a certain way. If there are nine items in my channel element, then the block of code in the <code>&lt;xsl:for-each&gt;</code> will display nine times.</p>
+        </section>
+        <section>
+          <h3><code>&lt;xsl:for-each&gt;</code> and <code>&lt;xsl:if&gt;</code></h3>
+          <p>I don’t want to go too far into programming, <code>if</code> statements and <code>for</code> loops, but this is too useful not to share:</p>
+          <pre><code>&lt;xsl:for-each select="/rss/channel/category"&gt;
+  &lt;xsl:value-of select="."/&gt;
+  &lt;xsl:if test="position()!=last()"&gt;
+    &lt;xsl:text&gt;, &lt;/xsl:text&gt;
+  &lt;/xsl:if&gt;
+  &lt;xsl:if test="position()=last()-1"&gt;
+    &lt;xsl:text&gt; and &lt;/xsl:text&gt;
+  &lt;/xsl:if&gt;
+  &lt;xsl:if test="position()=last()"&gt;
+    &lt;xsl:text&gt;.&lt;/xsl:text&gt;
+  &lt;/xsl:if&gt;
+&lt;/xsl:for-each&gt;</code></pre>
+          <p>Loop through every <code>category</code> element in the <code>channel</code>, and add punctuation depending on the position. That would return a comma separated list of your categories: <em>News, Updates, and Announcements.</em></p>
+        </section>
+        <section>
+          <h2 id="html_template">HTML Template</h2>
+          <p>Use valid HTML, and intersperse your XML throughout the template.</p>
+          <figure class="wide">
+            <figcaption>XSLT code for <a href="/feeds/feed.xsl"><code>feed.xsl</code></a></figcaption>
+            <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/&gt;
+&lt;xsl:template match="/"&gt;
+  &lt;html lang="en"&gt;
+    &lt;head&gt;
+      &lt;title&gt;&lt;xsl:value-of select="/rss/channel/title"/&gt; RSS Feed&lt;/title&gt;
+      &lt;meta charset="UTF-8" /&gt;
+      &lt;meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" /&gt;
+      &lt;link rel="stylesheet" type="text/css" href="https://www.htmlhobbyist.com/feeds/feed.css" media="screen" /&gt;
+      &lt;link rel="icon" href="/favicon.ico" sizes="any" /&gt;
+      &lt;link rel="icon" href="/favicon.svg" type="image/svg+xml" /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;header&gt;
+        &lt;a target="_blank" rel="noopener noreferrer"&gt;
+          &lt;xsl:attribute name="href"&gt;
+            &lt;xsl:value-of select="/rss/channel/link"/&gt;
+          &lt;/xsl:attribute&gt;
+          &lt;img src="/html-hobbyist-square-animated-opt.svg" height="160" width="200" alt="The HTML Hobbyist" /&gt;
+        &lt;/a&gt;
+        &lt;h1&gt;&lt;xsl:value-of select="/rss/channel/title"/&gt; RSS Feed&lt;/h1&gt;
+        &lt;p&gt;
+          &lt;xsl:value-of select="/rss/channel/description"/&gt;
+        &lt;/p&gt;
+        &lt;a target="_blank" rel="noopener noreferrer"&gt;
+          &lt;xsl:attribute name="href"&gt;
+            &lt;xsl:value-of select="/rss/channel/link"/&gt;
+          &lt;/xsl:attribute&gt;
+          www.htmlhobbyist.com
+        &lt;/a&gt;
+      &lt;/header&gt;
+      &lt;main&gt;
+        &lt;h2&gt;Members&lt;/h2&gt;
+        &lt;xsl:for-each select="/rss/channel/item"&gt;
+          &lt;article&gt;
+            &lt;h3&gt;
+              &lt;a target="_blank" rel="noopener noreferrer"&gt;
+                &lt;xsl:attribute name="href"&gt;
+                  &lt;xsl:value-of select="link"/&gt;
+                &lt;/xsl:attribute&gt;
+                &lt;xsl:value-of select="title"/&gt;
+              &lt;/a&gt;
+            &lt;/h3&gt;
+            &lt;p&gt;&lt;xsl:value-of select="description"/&gt;&lt;/p&gt;
+            &lt;footer&gt;
+              Joined:
+              &lt;time&gt;
+                &lt;xsl:value-of select="pubDate" /&gt;
+              &lt;/time&gt;
+            &lt;/footer&gt;
+          &lt;/article&gt;
+        &lt;/xsl:for-each&gt;
+      &lt;/main&gt;
+      &lt;footer&gt;
+        &lt;nav&gt;
+          &lt;a target="_blank" rel="noopener noreferrer"&gt;
+            &lt;xsl:attribute name="href"&gt;
+              &lt;xsl:value-of select="/rss/channel/link"/&gt;/feeds/
+            &lt;/xsl:attribute&gt;Feeds
+          &lt;/a&gt;
+          &lt;a target="_blank" rel="noopener noreferrer"&gt;
+            &lt;xsl:attribute name="href"&gt;
+              &lt;xsl:value-of select="/rss/channel/link"/&gt;/about/
+            &lt;/xsl:attribute&gt;About
+          &lt;/a&gt;
+          &lt;a target="_blank" rel="noopener noreferrer"&gt;
+            &lt;xsl:attribute name="href"&gt;
+              &lt;xsl:value-of select="/rss/channel/link"/&gt;/contact/
+            &lt;/xsl:attribute&gt;Contact
+          &lt;/a&gt;
+          &lt;a target="_blank" rel="noopener noreferrer"&gt;
+            &lt;xsl:attribute name="href"&gt;
+              &lt;xsl:value-of select="/rss/channel/link"/&gt;/announcements/
+            &lt;/xsl:attribute&gt;Announcements
+          &lt;/a&gt;
+        &lt;/nav&gt;
+        &lt;p&gt;&amp;#x00A9;2022-2024 N.E.Lilly&lt;/p&gt;
+      &lt;/footer&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</code>
+            </pre>
+          </figure>
+        </section>
+        <section>
+          <h2 id="applying_the_xslt">Applying the XLST</h2>
+          <p>Just like linking HTML to a CSS file, you need to link your XML file to your XSLT file.</p>
+          <pre><code>&lt;?xml-stylesheet href="https://www.htmlhobbyist.com/feeds/feed.xsl" type="text/xsl"?&gt;</code></pre>
+          <p>Add the XSLT link to the top of your XML file after the XML declaration.</p>
+          <figure>
+            <pre><code>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+  &lt;?xml-stylesheet href="https://www.htmlhobbyist.com/feeds/feed.xsl" type="text/xsl"?&gt;
+  &lt;rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"&gt;
+...</code></pre>
+            <figcaption><a href="/feeds/feed.xml">feed.xml</a> with the XSLT added</figcaption>
+          </figure>
+          <p>What’s great about using an XSLT file is that all of your feeds can use the same one, providing a uniform look on all your feeds.</p>
+          <aside>
+            <p>Before you think that this might be a clever way to serve up all of your web page content, let me tell you it’s not. There are better and more efficient ways to create content templates for the web. And you’re likely to have far more issues with cross-browser issues stacking the files this way.</p>
+          </aside>
+        </section>
+        <section>
+          <p>Don’t get wrapped up so much in styling the syndicated feed that you forget it’s purpose: sharing your web content as content, and not specifically to be a marvel of design. Sometimes feed reader extensions will override the styles in the browser. That makes sense, if someone is using a feed reader extension they’d probably expect to see the feed reader when viewing a syndicated feed, and not the personal styles that you created. It’s likely that you may be the only person to ever see these styles applied to your feed, so decide for yourself if this work is worth the effort.</p>
+          <p>This barely scratches the surface of what can be possible with XSLT in general, but should be sufficient to present your syndicated feed in a manner fitting your website and help visitors who find it to subscribe to it.</p>
+        </section>
+        <nav>
+          <a href="/rss/promoting_an_rss_feed.html">Promoting an RSS Feed</a> &rarr;
+        </nav>
+      </article>
+    </main>
+    <footer>
+      <nav aria-label="About">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/faqs/">FAQs</a>
+        <a href="/links/">Links</a>
+      </nav>
+      <nav aria-label="Connections">
+        <a href="/news/">News</a>
+        <a href="/announcements/">Announcements</a>
+        <a href="/feeds/">RSS Feeds</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <p><a href="https://validator.w3.org/nu/" class="validator"><img src="/images/validate_html5.svg" height="32" width="90" alt="W3C HTML Validator" /></a></p>
+      <p>See the code in the <a href="https://github.com/nelilly/html-hobbyist/" target="_blank" rel="noopener noreferrer"><svg id="github" height="21" width="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><path fill="currentColor" d="M14.06 11.92c.39 0 .72.19 1 .58.28.38.43.86.43 1.42 0 .56-.14 1.04-.43 1.42-.28.38-.62.58-1 .58-.41 0-.76-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.29-.39.64-.58 1.05-.58zm5.03-5.2c1.1 1.19 1.65 2.63 1.65 4.32 0 1.1-.13 2.08-.38 2.96-.25.87-.57 1.59-.96 2.14s-.86 1.04-1.43 1.44c-.57.42-1.09.72-1.56.91-.47.19-1.01.34-1.63.45-.61.11-1.06.16-1.38.18-.31.01-.64.02-1 .02-.08 0-.35.01-.8.02-.44.02-.82.03-1.11.03-.29 0-.67-.01-1.11-.03-.45-.01-.72-.02-.8-.02-.36 0-.7 0-1-.02-.32-.02-.78-.07-1.38-.18-.62-.1-1.16-.25-1.63-.45-.47-.19-.99-.49-1.56-.91a6.3 6.3 0 01-1.43-1.44C1.2 15.59.88 14.88.62 14c-.25-.88-.38-1.86-.38-2.96 0-1.69.55-3.13 1.65-4.32-.1-.06-.11-.66 0-1.78.1-1.13.34-2.17.73-3.12 1.37.14 3.06.92 5.07 2.32.68-.18 1.62-.27 2.8-.27 1.25 0 2.18.09 2.81.27.92-.62 1.8-1.13 2.64-1.52.85-.38 1.47-.61 1.85-.67l.58-.13c.39.95.63 1.99.73 3.12.11 1.12.11 1.72-.01 1.78zm-8.54 11.43c2.46 0 4.32-.3 5.58-.89 1.26-.59 1.9-1.81 1.9-3.65 0-1.07-.4-1.96-1.2-2.67-.41-.39-.9-.62-1.45-.71-.54-.09-1.38-.09-2.51 0s-1.9.13-2.31.13c-.56 0-1.18-.03-1.94-.09s-1.36-.09-1.78-.11c-.44-.01-.9.04-1.4.16-.51.12-.92.32-1.25.62-.77.69-1.16 1.58-1.16 2.68 0 1.84.62 3.06 1.87 3.65 1.24.6 3.1.89 5.56.89h.09zm-3.56-6.23c.39 0 .72.19 1 .58.28.38.42.86.42 1.42 0 .56-.14 1.04-.42 1.42-.28.38-.62.58-1 .58-.42 0-.77-.19-1.05-.58-.28-.38-.42-.86-.42-1.42s.14-1.04.42-1.42c.28-.39.63-.58 1.05-.58z"></path></svg>HTML Hobbyist repository on GitHub</a>.</p>
+      <p>&copy;2022-2024 N.E.Lilly</p>
+    </footer>
+  </body>
+</html>
